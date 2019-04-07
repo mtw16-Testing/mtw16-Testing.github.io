@@ -48,11 +48,14 @@ function Scene(name, map){
             var row = i * image.width * 4;
             var innerTiles = [];
             for(var j = 0; j < image.width*4; j += 4){
-                if(pixelData[row+j] == 255 && pixelData[row+j+1] == 0 && pixelData[row+j+2] == 0){
-                    innerTiles.push(2);
-                    //[i/4] = 2;
-                }else{
+                if(pixelData[row+j] == 255 && pixelData[row+j+1] == 0 && pixelData[row+j+2] == 0){ //red
                     innerTiles.push(1);
+                }else if(pixelData[row+j] == 0 && pixelData[row+j+1] == 0 && pixelData[row+j+2] == 255){
+                    innerTiles.push(2);
+                }else if(pixelData[row+j] == 0 && pixelData[row+j+1] == 255 && pixelData[row+j+2] == 0){
+                    innerTiles.push(3);
+                }else{
+                    innerTiles.push(-1);
                     //tiles[i/4] = 1;
                 }
             }
@@ -121,21 +124,27 @@ function drawLevel(ctx, tiles, rowSize, colSize){
         for(var j = 0; j < colSize; j++){
             switch(tiles[i][j]){
                 case 1:
-                    ctx.fillStyle = "yellow";
+                    ctx.fillStyle = "white";
                     break;
                 case 2:
-                    ctx.fillStyle = "white";
+                    ctx.fillStyle = "yellow";
+                    break;
+                case 3:
+                    ctx.fillStyle = "brown";
                     break;
                 default:
                     ctx.fillStyle = "#00cccc";
                     break;
             }
             
-            ctx.fillRect(j*16,i*16,16,16);
+            ctx.fillRect(j*32,i*32,32,32);
 
             //ctx.drawImage(image,j*16,i*16,16,16);
         }
     }
+
+    //have it draw the map
+    //map as an image
 }
 
 function levelHandler(){
