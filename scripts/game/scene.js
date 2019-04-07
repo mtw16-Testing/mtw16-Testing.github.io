@@ -60,7 +60,10 @@ function Scene(name, map){
             tiles.push(innerTiles);
         }
 
-        var para = document.createElement("p");
+        map.tiles = tiles;
+        map.rowSize = image.height;
+        map.colSize = image.width;
+       /* var para = document.createElement("p");
         for(var i = 0; i < image.height; i++){
             for(var j = 0; j < image.width; j++){
                 //console.log(tiles[i][j] + " ");
@@ -68,7 +71,7 @@ function Scene(name, map){
             }
             para.innerHTML += "<br />";
         }
-        document.body.append(para);
+        document.body.append(para);*/
 
         //document.body.append(canvas);
         //do something to remove the image
@@ -83,10 +86,13 @@ function Scene(name, map){
 
 function Map(name){
     this.name = name,
+    this.tiles = [],
+    this.rowSize = 0,
+    this.colSize = 0,
     this.draw = function(ctx){
         switch(this.name){
             case "Level 1":
-                drawLevel(ctx);
+                drawLevel(ctx, this.tiles, this.rowSize, this.colSize);
                 break;
             case "Options":
                 drawOptionsScreen(ctx);
@@ -106,13 +112,30 @@ function Map(name){
     this.getMap()
 }
 
-function drawLevel(ctx){
+function drawLevel(ctx, tiles, rowSize, colSize){
     ctx.clearRect(0,0,width,height);
-    ctx.fillStyle = "yellow";
+    ctx.fillStyle = "black";
     ctx.fillRect(0,0,width,height);
 
-    //have it draw the map
-    //map as an image
+    for(var i = 0; i < rowSize; i++){
+        for(var j = 0; j < colSize; j++){
+            switch(tiles[i][j]){
+                case 1:
+                    ctx.fillStyle = "yellow";
+                    break;
+                case 2:
+                    ctx.fillStyle = "white";
+                    break;
+                default:
+                    ctx.fillStyle = "#00cccc";
+                    break;
+            }
+            
+            ctx.fillRect(j*16,i*16,16,16);
+
+            //ctx.drawImage(image,j*16,i*16,16,16);
+        }
+    }
 }
 
 function levelHandler(){
