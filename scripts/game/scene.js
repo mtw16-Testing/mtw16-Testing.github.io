@@ -16,6 +16,7 @@ function Scene(name, map){
         this.map.name = name;
         document.onkeydown = null;
 
+        var isLevel = true;
         var image = new Image();
         //var image = document.getElementById("hidden");
         switch(this.name){
@@ -27,55 +28,47 @@ function Scene(name, map){
             case "Options":
                 initOptions();
                 document.onkeydown = optionsHandler;
+                isLevel = false;
                 break;
             case "Save Files":
                 initSaveFile();
                 document.onkeydown = saveFileHandler;
+                isLevel = false;
                 break;
             default:
                 break;
         }
 
-        var tiles = [];
-    
+        if(isLevel){
+            var tiles = [];    
 
-        var canvas = document.createElement('canvas');
-        canvas.width = image.width;
-        canvas.height = image.height;
-        //alert("width: " + image.width);
-        canvas.getContext('2d').drawImage(image,0,0,image.width,image.height);
-        var pixelData = canvas.getContext('2d').getImageData(0,0,image.width,image.height).data;
-        for(var i = 0; i < image.height; i++){
-            var row = i * image.width * 4;
-            var innerTiles = [];
-            for(var j = 0; j < image.width*4; j += 4){
-                if(pixelData[row+j] == 0 && pixelData[row+j+1] == 255 && pixelData[row+j+2] == 0){ //green
-                    innerTiles.push(1);
-                }else if(pixelData[row+j] == 165 && pixelData[row+j+1] == 42 && pixelData[row+j+2] == 42){ //brown
-                    innerTiles.push(2);
-                }else{
-                    innerTiles.push(-1);
-                    //tiles[i/4] = 1;
+            var canvas = document.createElement('canvas');
+            canvas.width = image.width;
+            canvas.height = image.height;
+            //alert("width: " + image.width);
+            canvas.getContext('2d').drawImage(image,0,0,image.width,image.height);
+            var pixelData = canvas.getContext('2d').getImageData(0,0,image.width,image.height).data;
+            for(var i = 0; i < image.height; i++){
+                var row = i * image.width * 4;
+                var innerTiles = [];
+                for(var j = 0; j < image.width*4; j += 4){
+                    if(pixelData[row+j] == 0 && pixelData[row+j+1] == 255 && pixelData[row+j+2] == 0){ //green
+                        innerTiles.push(1);
+                    }else if(pixelData[row+j] == 165 && pixelData[row+j+1] == 42 && pixelData[row+j+2] == 42){ //brown
+                        innerTiles.push(2);
+                    }else{
+                        innerTiles.push(-1);
+                    }
                 }
+
+                tiles.push(innerTiles);
             }
 
-            tiles.push(innerTiles);
-        }
+            map.tiles = tiles;
+            map.rowSize = image.height;
+            map.colSize = image.width;
 
-        map.tiles = tiles;
-        map.rowSize = image.height;
-        map.colSize = image.width;
-       /* var para = document.createElement("p");
-        for(var i = 0; i < image.height; i++){
-            for(var j = 0; j < image.width; j++){
-                //console.log(tiles[i][j] + " ");
-                para.innerHTML += tiles[i][j] + " ";
-            }
-            para.innerHTML += "<br />";
         }
-        document.body.append(para);*/
-
-        //document.body.append(canvas);
         //do something to remove the image
         drawing = setInterval(function(){
             sceneHandler.drawScene(ctx)
