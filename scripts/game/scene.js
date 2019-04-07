@@ -39,11 +39,12 @@ function Scene(name, map){
         var canvas = document.createElement('canvas');
         canvas.width = image.width;
         canvas.height = image.height;
-        alert("width: " + image.width + " : " + image.complete);
+        //alert("width: " + image.width);
         canvas.getContext('2d').drawImage(image,0,0,image.width,image.height);
         var pixelData = canvas.getContext('2d').getImageData(0,0,image.width,image.height).data;
-        alert("R: " + pixelData[0] + " G: " + pixelData[1] + " B: " + pixelData[2]);
-        alert("R: " + pixelData[4] + " G: " + pixelData[5] + " B: " + pixelData[6]);
+        for(var i = 0; i < image.width*4; i+=4){
+            alert("R: " + pixelData[i] + " G: " + pixelData[i+1] + " B: " + pixelData[i+2]);
+        }
 
         //document.body.append(canvas);
         //do something to remove the image
