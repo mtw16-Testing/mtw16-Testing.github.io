@@ -1,3 +1,7 @@
+function InputHandler(){
+
+}
+
 function SceneHandler(scene){
     this.scene = scene,
     this.drawScene = function(ctx){
@@ -155,7 +159,13 @@ function drawLevel(ctx, map, tiles, rowSize, colSize){
 }
 
 function levelHandler(){
-    //alert("level");
+    switch(event.keyCode){
+        case 70:
+            toggleFullScreen();
+            break;
+        default:
+            break;
+    }
 }
 
 //sx = 0, sy = 0;
@@ -181,6 +191,9 @@ function optionsHandler(event){
         case 8:
             clearInterval(drawing);
             showStartMenu();
+            break;
+        case 70:
+            toggleFullScreen();
             break;
         default:
             break;
@@ -209,6 +222,9 @@ function saveFileHandler(){
         case 8:
             clearInterval(drawing);
             showStartMenu();
+            break;
+        case 70:
+            toggleFullScreen();
             break;
         default:
             break;
