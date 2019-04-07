@@ -8,8 +8,8 @@ function init(){
     canvas = document.getElementById("canvas");
     ctx = canvas.getContext("2d");
 
-    canvas.width = 1024;
-    canvas.height = 512;
+    canvas.width = 2048;
+    canvas.height = 1024;
 
     width = canvas.width;
     height = canvas.height;
