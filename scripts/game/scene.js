@@ -112,9 +112,8 @@ function Map(name){
         }
     },
     this.getMap = function(sheetName){
-        image.src = sheetName;
-    },
-    this.getMap()
+        this.image.src = sheetName;
+    }
 }
 
 function drawLevel(ctx, map, tiles, rowSize, colSize){
