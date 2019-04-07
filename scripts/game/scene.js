@@ -137,7 +137,7 @@ function drawLevel(ctx, tiles, rowSize, colSize){
                     break;
             }
             
-            ctx.fillRect(j*32,i*32,32,32);
+            ctx.fillRect(j*128,i*128,128,128);
 
             //ctx.drawImage(image,j*16,i*16,16,16);
         }
