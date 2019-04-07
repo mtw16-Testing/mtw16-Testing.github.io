@@ -155,7 +155,7 @@ function drawLevel(ctx, map, tiles, rowSize, colSize){
             
             //ctx.fillRect(j*128,i*128,128,128);
 
-            ctx.drawImage(map.image,xPos*32,yPos*32,32,32,j*32,i*32,32,32);
+            ctx.drawImage(map.image,xPos*64,yPos*64,64,64,j*64,i*64,64,64);
         }
     }
 
