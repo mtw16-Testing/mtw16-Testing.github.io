@@ -7,7 +7,6 @@ function checkLogin(){
                 document.getElementById("waiting").innerHTML = "";
                 document.getElementById("error-message").innerHTML = "";
                 showStartMenu();
-        }else{
         }
       });
 }
