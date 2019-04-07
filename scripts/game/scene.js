@@ -41,8 +41,8 @@ function Scene(name, map){
         canvas.height = image.height;
         alert("width: " + image.width + " : " + image.complete);
         canvas.getContext('2d').drawImage(image,0,0,image.width,image.height);
-        //var pixelData = canvas.getContext('2d').getImageData(1,1,2,2).data;
-        //alert("R: " + pixelData[0] + " G: " + pixelData[1] + " B: " + pixelData[2]);
+        var pixelData = canvas.getContext('2d').getImageData(1,1,2,2).data;
+        alert("R: " + pixelData[0] + " G: " + pixelData[1] + " B: " + pixelData[2]);
 
         document.body.append(canvas);
         //do something to remove the image
