@@ -41,10 +41,11 @@ function Scene(name, map){
         canvas.height = image.height;
         alert("width: " + image.width + " : " + image.complete);
         canvas.getContext('2d').drawImage(image,0,0,image.width,image.height);
-        var pixelData = canvas.getContext('2d').getImageData(1,1,2,2).data;
+        var pixelData = canvas.getContext('2d').getImageData(1,1,image.width,image.height).data;
         alert("R: " + pixelData[0] + " G: " + pixelData[1] + " B: " + pixelData[2]);
+        alert("R: " + pixelData[4] + " G: " + pixelData[5] + " B: " + pixelData[6]);
 
-        document.body.append(canvas);
+        //document.body.append(canvas);
         //do something to remove the image
         drawing = setInterval(function(){
             sceneHandler.drawScene(ctx)
