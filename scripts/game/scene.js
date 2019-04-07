@@ -1,7 +1,3 @@
-function InputHandler(){
-
-}
-
 function SceneHandler(scene){
     this.scene = scene,
     this.drawScene = function(ctx){
@@ -12,9 +8,6 @@ function SceneHandler(scene){
 function Scene(name, map){
     this.map = map,
     this.name = name,
-    this.init = function(){
-
-    },
     this.getScene = function(name){
         this.name = name;
         this.map.name = name;
@@ -22,7 +15,7 @@ function Scene(name, map){
 
         var isLevel = true;
         var image = new Image();
-        //var image = document.getElementById("hidden");
+        
         switch(this.name){
             case "Level 1":
                 document.onkeydown = levelHandler;
@@ -49,7 +42,7 @@ function Scene(name, map){
             var canvas = document.createElement('canvas');
             canvas.width = image.width;
             canvas.height = image.height;
-            //alert("width: " + image.width);
+
             canvas.getContext('2d').drawImage(image,0,0,image.width,image.height);
             var pixelData = canvas.getContext('2d').getImageData(0,0,image.width,image.height).data;
             for(var i = 0; i < image.height; i++){
@@ -73,7 +66,7 @@ function Scene(name, map){
             map.colSize = image.width;
 
         }
-        //do something to remove the image
+        
         drawing = setInterval(function(){
             sceneHandler.drawScene(ctx)
         }, 1000/60);
@@ -116,46 +109,31 @@ function drawLevel(ctx, map, tiles, rowSize, colSize){
     ctx.fillStyle = "black";
     ctx.fillRect(0,0,width,height);
 
-    //var image = new Image();
-    //image.src = "spritesheet.png";
     var xPos = 0, yPos = 0; 
     for(var i = 0; i < rowSize; i++){
         for(var j = 0; j < colSize; j++){
             switch(tiles[i][j]){
                 case 1:
-                    ctx.fillStyle = "white";
-                    //image.src = ;
                     xPos = 0;
                     yPos = 0;
                     break;
                 case 2:
-                    ctx.fillStyle = "yellow";
-                    //image.src = ;
                     xPos = 1;
                     yPos = 0;
                     break;
-                case 3:
-                    ctx.fillStyle = "brown";
-                    //image.src = ;                    
+                case 3:                 
                     xPos = 0;
                     yPos = 2;
                     break;
                 default:
-                    ctx.fillStyle = "#00cccc";
-                    //image.src = ;
-                    xPos = 5;
-                    yPos = 5;
+                    xPos = 0;
+                    yPos = 0;
                     break;
             }
-            
-            //ctx.fillRect(j*128,i*128,128,128);
 
             ctx.drawImage(map.image,xPos*64,yPos*64,64,64,j*64,i*64,64,64);
         }
     }
-
-    //have it draw the map
-    //map as an image
 }
 
 function levelHandler(){
@@ -168,7 +146,6 @@ function levelHandler(){
     }
 }
 
-//sx = 0, sy = 0;
 function initOptions(){
     options = ["Options Menu", "Press Backspace To Exit"];
 }
