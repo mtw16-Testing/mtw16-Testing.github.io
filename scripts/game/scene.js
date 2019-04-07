@@ -35,16 +35,40 @@ function Scene(name, map){
                 break;
         }
 
-        
+        var tiles = [];
+    
+
         var canvas = document.createElement('canvas');
         canvas.width = image.width;
         canvas.height = image.height;
         //alert("width: " + image.width);
         canvas.getContext('2d').drawImage(image,0,0,image.width,image.height);
         var pixelData = canvas.getContext('2d').getImageData(0,0,image.width,image.height).data;
-        for(var i = 0; i < image.width*4; i+=4){
-            alert("R: " + pixelData[i] + " G: " + pixelData[i+1] + " B: " + pixelData[i+2]);
+        for(var i = 0; i < image.height; i++){
+            var row = i * image.width * 4;
+            var innerTiles = [];
+            for(var j = 0; j < image.width*4; j += 4){
+                if(pixelData[row+j] == 255 && pixelData[row+j+1] == 0 && pixelData[row+j+2] == 0){
+                    innerTiles.push(2);
+                    //[i/4] = 2;
+                }else{
+                    innerTiles.push(1);
+                    //tiles[i/4] = 1;
+                }
+            }
+
+            tiles.push(innerTiles);
         }
+
+        var para = document.createElement("p");
+        for(var i = 0; i < image.height; i++){
+            for(var j = 0; j < image.width; j++){
+                //console.log(tiles[i][j] + " ");
+                para.innerHTML += tiles[i][j] + " ";
+            }
+            para.innerHTML += "<br />";
+        }
+        document.body.append(para);
 
         //document.body.append(canvas);
         //do something to remove the image
