@@ -3,6 +3,7 @@ var canvas, ctx;
 var background;
 var isFullScreen = false;
 var sceneHandler = new SceneHandler(new Scene("", new Map("")));
+var menuImage;
 
 function init(){
     canvas = document.getElementById("canvas");
@@ -15,7 +16,9 @@ function init(){
     height = canvas.height;
 
     background = new Image();
+    menuImage = new Image();
     background.src= "images/backgrounds/MenuBackground.png";
+    menuImage.src = "images/menus/main_menu.png";
 }
 
 var currentOption = 0, size;
@@ -25,7 +28,7 @@ function showStartMenu(){
     
     currentOption = 0;
     background.src= "images/backgrounds/MenuBackground.png";
-    
+
     drawing = setInterval(drawStartMenu, 1000/60);
 }
 

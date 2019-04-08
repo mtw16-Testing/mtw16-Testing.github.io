@@ -63,6 +63,7 @@ function Scene(name, map){
             map.tiles = tiles;
             map.rowSize = image.height;
             map.colSize = image.width;
+            
 
         }
         
