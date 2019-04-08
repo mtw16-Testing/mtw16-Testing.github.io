@@ -1,7 +1,7 @@
 function SceneHandler(scene){
     this.scene = scene,
-    this.drawScene = function(ctx){
-        scene.draw(ctx);
+    this.drawScene = function(){
+        scene.draw();
     }
 }
 
@@ -74,12 +74,13 @@ function Scene(name, map){
 
         }
         
-        drawing = setInterval(function(){
-            sceneHandler.drawScene(ctx)
-        }, 1000/60);
+        drawing = requestAnimationFrame(sceneHandler.drawScene);
+        //drawing = setInterval(function(){
+        //    sceneHandler.drawScene(ctx)
+        //}, 1000/60);
     },
-    this.draw = function(ctx){
-        map.draw(ctx);
+    this.draw = function(){
+        map.draw();
     }
 }
 
@@ -89,16 +90,16 @@ function Map(name){
     this.rowSize = 0,
     this.colSize = 0,
     this.image = new Image(),
-    this.draw = function(ctx){
+    this.draw = function(){
         switch(this.name){
             case "Level 1":
-                drawLevel(ctx, this, this.tiles, this.rowSize, this.colSize);
+                drawLevel(this, this.tiles, this.rowSize, this.colSize);
                 break;
             case "Options":
-                drawOptionsScreen(ctx);
+                drawOptionsScreen();
                 break;
             case "Save Files":
-                drawSaveFileScreen(ctx);
+                drawSaveFileScreen();
                 break;
             default:
                 ctx.fillStyle = "blue";
@@ -114,7 +115,7 @@ function Map(name){
 var mainMenuOn = false;
 var dx = 0, dy = 0;
 var left = false, up = false, right = false, down = false;
-function drawLevel(ctx, map, tiles, rowSize, colSize){
+function drawLevel(map, tiles, rowSize, colSize){
     ctx.clearRect(0,0,width,height);
     ctx.fillStyle = "black";
     ctx.fillRect(0,0,width,height);
@@ -248,7 +249,7 @@ function initOptions(){
     background.src= "images/backgrounds/OptionsMenuBackground.png";
 }
 
-function drawOptionsScreen(ctx){
+function drawOptionsScreen(){
     ctx.clearRect(0,0,width,height);
     //ctx.fillStyle = "red";
     //ctx.fillRect(0,0,width,height);
@@ -266,7 +267,8 @@ function drawOptionsScreen(ctx){
 function optionsHandler(event){
     switch(event.keyCode){
         case 8:
-            clearInterval(drawing);
+            cancelAnimationFrame(drawing);
+            //clearInterval(drawing);
             showStartMenu();
             break;
         case 70:
@@ -284,7 +286,7 @@ function initSaveFile(){
     background.src= "images/backgrounds/SaveMenuBackground.png";
 }
 
-function drawSaveFileScreen(ctx){
+function drawSaveFileScreen(){
     ctx.clearRect(0,0,width,height);
     //ctx.fillStyle = "green";
     //ctx.fillRect(0,0,width,height);
@@ -314,7 +316,8 @@ function drawSaveFileScreen(ctx){
 function saveFileHandler(){
     switch(event.keyCode){
         case 8:
-            clearInterval(drawing);
+            cancelAnimationFrame(drawing);    
+            //clearInterval(drawing);
             showStartMenu();
             break;
         case 38:
