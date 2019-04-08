@@ -29,7 +29,8 @@ function showStartMenu(){
     currentOption = 0;
     background.src= "images/backgrounds/MenuBackground.png";
 
-    drawing = setInterval(drawStartMenu, 1000/60);
+    //drawing = setInterval(drawStartMenu, 1000/60);
+    drawing = requestAnimationFrame(drawStartMenu);
 }
 
 function drawStartMenu(){
@@ -67,13 +68,16 @@ function checkMenuInput(event){
     switch(event.keyCode){
         case 13:
             if(currentOption == 0){
-                clearInterval(drawing);
+                cancelAnimationFrame(drawing);
+                //clearInterval(drawing);
                 sceneHandler.scene.getScene("Level 1");
             }else if(currentOption == 1){
-                clearInterval(drawing);
+                //clearInterval(drawing);
+                cancelAnimationFrame(drawing);
                 sceneHandler.scene.getScene("Options");
             }else if(currentOption == 2){
-                clearInterval(drawing);
+                //clearInterval(drawing);
+                cancelAnimationFrame(drawing);
                 sceneHandler.scene.getScene("Save Files");
             }
             break;
@@ -97,7 +101,8 @@ function checkMenuInput(event){
 
 function stopGame(){
     document.onkeydown = null;
-    clearInterval(drawing);
+    cancelAnimationFrame(drawing);
+    //clearInterval(drawing);
 }
 
 function toggleFullScreen(){
