@@ -148,7 +148,6 @@ function drawLevel(ctx, map, tiles, rowSize, colSize){
 
             if(j == 0 && (j+(dx/4))*64 > 0){
                 left = false;
-                alert("In here");
             }else{
                 left = true;
             }
@@ -229,7 +228,7 @@ function drawOptionsScreen(ctx){
     
     ctx.drawImage(background, 0, 0, width, height);
 
-    ctx.fillStyle = "white";
+    ctx.fillStyle = "black";
     ctx.font = "100px Sniglet";
     ctx.fillText(options[0], width / 2 - 300, 200);
     
