@@ -158,7 +158,7 @@ function drawLevel(ctx, map, tiles, rowSize, colSize){
                 left = true;
             }
 
-            if(j == colSize-1 && ((j+(dx/4))+0.25)*64 < width){
+            if(j == colSize-1 && ((j+(dx/4))+0.75)*64 < width){
                 right = false;
             }else if(j == colSize - 1){
                 right = true;
@@ -170,7 +170,7 @@ function drawLevel(ctx, map, tiles, rowSize, colSize){
                 up = true;
             }
 
-            if(i == rowSize-1 && ((i+(dy/4))+0.25)*64 < height){
+            if(i == rowSize-1 && ((i+(dy/4))+0.75)*64 < height){
                 down = false;
             }else if(i == rowSize - 1){
                 down = true;
