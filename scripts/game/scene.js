@@ -163,7 +163,7 @@ function levelHandler(){
             break;
         case 37:
             alert("test");
-            left = true;
+            //left = true;
             //alert("left = " + left);
             //dx++;
             break;
