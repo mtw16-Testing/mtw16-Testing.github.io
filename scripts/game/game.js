@@ -65,7 +65,6 @@ function drawStartMenu(){
 }
 
 function checkMenuInput(event){
-    alert("here");
     switch(event.keyCode){
         case 13:
             if(currentOption == 0){
@@ -83,6 +82,7 @@ function checkMenuInput(event){
             }
             break;
         case 38:
+            alert("here 2");
             if(currentOption > 0){
                 currentOption--;
             }
