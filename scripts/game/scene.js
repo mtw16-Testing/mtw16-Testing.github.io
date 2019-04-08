@@ -105,7 +105,7 @@ function Map(name){
 }
 
 var mainMenuOn = false;
-dx = 0;
+var dx = 0, dy = 0;
 function drawLevel(ctx, map, tiles, rowSize, colSize){
     ctx.clearRect(0,0,width,height);
     ctx.fillStyle = "black";
@@ -133,7 +133,7 @@ function drawLevel(ctx, map, tiles, rowSize, colSize){
                     break;
             }
 
-            ctx.drawImage(map.image,xPos*64,yPos*64,64,64,(j+((dx--)/60000))*64,i*64,64,64);
+            ctx.drawImage(map.image,xPos*64,yPos*64,64,64,(j+(dx/60000))*64,(i+(dy/60000))*64,64,64);
         }
     }
 
@@ -150,6 +150,18 @@ function levelHandler(){
             }else{ 
                 mainMenuOn = false;
             }
+            break;
+        case 37:
+            dx++;
+            break;
+        case 38:
+            dy--;
+            break;
+        case 39:
+            dx--;
+            break;
+        case 40:
+            dy++;
             break;
         case 70:
             toggleFullScreen();
