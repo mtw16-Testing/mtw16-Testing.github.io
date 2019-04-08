@@ -154,6 +154,7 @@ function drawLevel(ctx, map, tiles, rowSize, colSize){
 }
 
 function levelHandler(){
+    alert(event.keyCode);
     switch(event.keyCode){        
         case 13:
             if(!mainMenuOn){
