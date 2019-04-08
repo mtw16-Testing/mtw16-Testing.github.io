@@ -5,6 +5,8 @@ function showMainMenu(){
     ctx.globalAlpha = 1.0;
 
     ctx.drawImage(menuImage,224,100,1600,850);
+
     ctx.fillStyle = "white";
+    ctx.font = "100px Sniglet";
     ctx.fillText("Paused", 800, 500);
 }
