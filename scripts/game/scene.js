@@ -18,7 +18,7 @@ function Scene(name, map){
         //var image = document.getElementById("hidden");
         switch(this.name){
             case "Level 1":
-                document.onkeydown = levelHandler;
+                document.onkeypress = levelHandler;
                 image.src = "maps/Level1.png"
                 map.getMap("images/spritesheets/spritesheet1.png");
                 break;
