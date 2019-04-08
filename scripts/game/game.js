@@ -23,6 +23,9 @@ function showStartMenu(){
     document.getElementById("title").innerHTML = "";
     document.onkeydown = checkMenuInput;
     
+    currentOption = 0;
+    background.src= "images/backgrounds/MenuBackground.png";
+    
     drawing = setInterval(drawStartMenu, 1000/60);
 }
 
