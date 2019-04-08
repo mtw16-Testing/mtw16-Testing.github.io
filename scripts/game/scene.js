@@ -106,7 +106,7 @@ function Map(name){
 
 var mainMenuOn = false;
 var dx = 0, dy = 0;
-//var left = false, up = false, right = false, down = false;
+var left = false, up = false, right = false, down = false;
 function drawLevel(ctx, map, tiles, rowSize, colSize){
     ctx.clearRect(0,0,width,height);
     ctx.fillStyle = "black";
