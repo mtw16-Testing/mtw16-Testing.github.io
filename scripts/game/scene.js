@@ -149,41 +149,30 @@ function drawLevel(ctx, map, tiles, rowSize, colSize){
                     break;
             }
 
-            
-            /*if(left && ((j+Math.floor((dx/16000)))*64) > 0){
-                dx++;
-            }else if(up && ((i+Math.floor((dy/16000)))*64) > 0){
-                dy++;
-            }else if(right){
-                dx--;
-            }else if(down){
-                dy--;
-            }*/
-
-            if(j == 0 && ((j+(dx/4))+0.25)*64 > 0){
+            if(j == 0 && ((j+(dx/8))+0.25)*64 > 0){
                 left = false;
             }else if(j == 0){
                 left = true;
             }
 
-            if(j == colSize-1 && ((j+(dx/4))+0.75)*64 < width){
+            if(j == colSize-1 && ((j+(dx/8))+0.75)*64 < width){
                 right = false;
             }else if(j == colSize - 1){
                 right = true;
             }
 
-            if(i == 0 && ((i+(dy/4))+0.25)*64 > 0){
+            if(i == 0 && ((i+(dy/8))+0.25)*64 > 0){
                 up = false;
             }else if(i == 0){
                 up = true;
             }
 
-            if(i == rowSize-1 && ((i+(dy/4))+0.75)*64 < height){
+            if(i == rowSize-1 && ((i+(dy/8))+0.75)*64 < height){
                 down = false;
             }else if(i == rowSize - 1){
                 down = true;
             }
-            ctx.drawImage(map.image,xPos*64,yPos*64,64,64,(j+(dx/4))*64,(i+(dy/4))*64,64,64);
+            ctx.drawImage(map.image,xPos*64,yPos*64,64,64,(j+(dx/8))*64,(i+(dy/8))*64,64,64);
         }
     }
 
