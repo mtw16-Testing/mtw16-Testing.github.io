@@ -8,7 +8,7 @@ function showMainMenu(){
 
     ctx.fillStyle = "white";
     ctx.font = "100px Sniglet";
-    ctx.fillText("Paused", 880, 200);
+    ctx.fillText("Main Menu", 750, 300);
 
     for(var i = 0; i < options.length; i++){
         if(i == currentOption){
