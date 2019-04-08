@@ -2,6 +2,7 @@ function SceneHandler(scene){
     this.scene = scene,
     this.drawScene = function(){
         scene.draw();
+        drawing = requestAnimationFrame(sceneHandler.drawScene);        
     }
 }
 
