@@ -106,7 +106,7 @@ function Map(name){
 
 var mainMenuOn = false;
 var dx = 0, dy = 0;
-var left = false, up = false, right = false, down = false;
+//var left = false, up = false, right = false, down = false;
 function drawLevel(ctx, map, tiles, rowSize, colSize){
     ctx.clearRect(0,0,width,height);
     ctx.fillStyle = "black";
@@ -134,6 +134,7 @@ function drawLevel(ctx, map, tiles, rowSize, colSize){
                     break;
             }
 
+            /*
             if(left && ((j+(dx/4))*64) > 0){
                 dx++;
             }else if(up && ((i+(dy/4))*64) > 0){
@@ -142,7 +143,7 @@ function drawLevel(ctx, map, tiles, rowSize, colSize){
                 dx--;
             }else if(down){
                 dy--;
-            }
+            }*/
             ctx.drawImage(map.image,xPos*64,yPos*64,64,64,(j+(dx/4))*64,(i+(dy/4))*64,64,64);
         }
     }
