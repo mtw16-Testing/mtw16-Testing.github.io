@@ -180,17 +180,19 @@ function drawLevel(map, tiles, rowSize, colSize){
 
     if(mainMenuOn){
         showMainMenu();
+        document.onkeydown = null;
+        document.onkeydown = mainMenuHandler;
     }
 }
 
 function levelKeyDownHandler(){
     switch(event.keyCode){        
         case 13:
-            if(!mainMenuOn){
+            //if(!mainMenuOn){
                 mainMenuOn = true;
-            }else{ 
-                mainMenuOn = false;
-            }
+            //}else{ 
+            //    mainMenuOn = false;
+            //}
             break;
         case 37:
             //left = true;
