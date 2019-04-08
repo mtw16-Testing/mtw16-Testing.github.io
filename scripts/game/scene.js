@@ -15,7 +15,7 @@ function Scene(name, map){
 
         var isLevel = true;
         var image = new Image();
-        
+        //var image = document.getElementById("hidden");
         switch(this.name){
             case "Level 1":
                 document.onkeydown = levelHandler;
@@ -42,7 +42,6 @@ function Scene(name, map){
             var canvas = document.createElement('canvas');
             canvas.width = image.width;
             canvas.height = image.height;
-
             canvas.getContext('2d').drawImage(image,0,0,image.width,image.height);
             var pixelData = canvas.getContext('2d').getImageData(0,0,image.width,image.height).data;
             for(var i = 0; i < image.height; i++){
@@ -104,6 +103,8 @@ function Map(name){
     }
 }
 
+var mainMenuOn = false;
+
 function drawLevel(ctx, map, tiles, rowSize, colSize){
     ctx.clearRect(0,0,width,height);
     ctx.fillStyle = "black";
@@ -134,10 +135,21 @@ function drawLevel(ctx, map, tiles, rowSize, colSize){
             ctx.drawImage(map.image,xPos*64,yPos*64,64,64,j*64,i*64,64,64);
         }
     }
+
+    if(mainMenuOn){
+        showMainMenu();
+    }
 }
 
 function levelHandler(){
-    switch(event.keyCode){
+    switch(event.keyCode){        
+        case 13:
+            if(!mainMenuOn){
+                mainMenuOn = true;
+            }else{ 
+                mainMenuOn = false;
+            }
+            break;
         case 70:
             toggleFullScreen();
             break;
@@ -148,6 +160,7 @@ function levelHandler(){
 
 function initOptions(){
     options = ["Options Menu", "Press Backspace To Exit"];
+    currentOption = 0;
 }
 
 function drawOptionsScreen(ctx){
@@ -178,20 +191,37 @@ function optionsHandler(event){
 }
 
 function initSaveFile(){
-    options = ["Save Files", "Press Backspace To Exit"];
+    options = ["Save Files", "Save File 1", "Save File 2", "Save File 3", "Press Backspace To Exit"];
+    currentOption = 1;
+    
+    background.src= "images/backgrounds/SaveMenuBackground.png";
 }
 
 function drawSaveFileScreen(ctx){
     ctx.clearRect(0,0,width,height);
-    ctx.fillStyle = "green";
-    ctx.fillRect(0,0,width,height);
+    //ctx.fillStyle = "green";
+    //ctx.fillRect(0,0,width,height);
 
-    ctx.fillStyle = "black";
+    ctx.drawImage(background, 0, 0, width, height);
+
+    ctx.fillStyle = "white";
     ctx.font = "100px Sniglet";
     ctx.fillText(options[0], width / 2 - 200, 200);
     
     ctx.font = "60px Sniglet";
-    ctx.fillText(options[1], width / 2 - 300, 500);
+    for(var i = 1; i < options.length-1; i++){
+        if(i == currentOption){
+            ctx.fillStyle = "yellow";
+        }else{
+            ctx.fillStyle = "white";
+        }
+
+        ctx.fillText(options[i], width / 2 - 130, 350+i*100);
+    }
+    
+    ctx.fillStyle = "white";
+    ctx.fillText(options[options.length-1], width / 2 - 300, 800);
+    
 }
 
 function saveFileHandler(){
@@ -199,6 +229,16 @@ function saveFileHandler(){
         case 8:
             clearInterval(drawing);
             showStartMenu();
+            break;
+        case 38:
+            if(currentOption > 1){
+                currentOption--;
+            }
+            break;
+        case 40:
+            if(currentOption < options.length-2){
+                currentOption++;
+            }
             break;
         case 70:
             toggleFullScreen();
