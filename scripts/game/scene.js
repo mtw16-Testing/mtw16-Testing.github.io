@@ -185,8 +185,9 @@ function drawLevel(map, tiles, rowSize, colSize){
     }
 }
 
-function levelKeyDownHandler(){
-    switch(event.keyCode){        
+function levelKeyDownHandler(){    
+    var keyCode = event.which || event.keyCode;
+    switch(keyCode){        
         case 27:
                 mainMenuOn = true;
                 currentOption = 0;
@@ -224,8 +225,9 @@ function levelKeyDownHandler(){
     }
 }
 
-function levelKeyUpHandler(){
-    switch(event.keyCode){
+function levelKeyUpHandler(){    
+    var keyCode = event.which || event.keyCode;
+    switch(keyCode){
         case 37:
             left = false;
             break;
@@ -265,8 +267,9 @@ function drawOptionsScreen(){
     ctx.fillText(options[1], width / 2 - 300, 500);
 }
 
-function optionsHandler(event){
-    switch(event.keyCode){
+function optionsHandler(event){    
+    var keyCode = event.which || event.keyCode;
+    switch(keyCode){
         case 8:
             cancelAnimationFrame(drawing);
             //clearInterval(drawing);
@@ -314,8 +317,9 @@ function drawSaveFileScreen(){
     
 }
 
-function saveFileHandler(){
-    switch(event.keyCode){
+function saveFileHandler(){    
+    var keyCode = event.which || event.keyCode;
+    switch(keyCode){
         case 8:
             cancelAnimationFrame(drawing);    
             //clearInterval(drawing);
