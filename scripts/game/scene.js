@@ -217,14 +217,18 @@ function levelKeyUpHandler(){
 function initOptions(){
     options = ["Options Menu", "Press Backspace To Exit"];
     currentOption = 0;
+    
+    background.src= "images/backgrounds/OptionsMenuBackground.png";
 }
 
 function drawOptionsScreen(ctx){
     ctx.clearRect(0,0,width,height);
-    ctx.fillStyle = "red";
-    ctx.fillRect(0,0,width,height);
+    //ctx.fillStyle = "red";
+    //ctx.fillRect(0,0,width,height);
+    
+    ctx.drawImage(background, 0, 0, width, height);
 
-    ctx.fillStyle = "black";
+    ctx.fillStyle = "white";
     ctx.font = "100px Sniglet";
     ctx.fillText(options[0], width / 2 - 300, 200);
     
