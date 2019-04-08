@@ -134,9 +134,9 @@ function drawLevel(ctx, map, tiles, rowSize, colSize){
                     break;
             }
 
-            if(left){
+            if(left && ((j+(dx/4))*64) > 0){
                 dx++;
-            }else if(up){
+            }else if(up && ((i+(dy/4))*64) > 0){
                 dy++;
             }else if(right){
                 dx--;
@@ -162,7 +162,7 @@ function levelHandler(){
             }
             break;
         case 37:
-            left = !left;
+            left = true;
             //dx++;
             break;
         case 38:
