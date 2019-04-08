@@ -148,6 +148,7 @@ function drawLevel(ctx, map, tiles, rowSize, colSize){
 
             if(j == 0 && (j+(dx/4))*64 > 0){
                 left = false;
+                alert("In here");
             }else{
                 left = true;
             }
