@@ -10,7 +10,7 @@ function showMainMenu(){
     ctx.font = "100px Sniglet";
     ctx.fillText("Paused", 880, 525);
 
-    for(var i = 0; i < size; i++){
+    for(var i = 0; i < options.length; i++){
         if(i == currentOption){
             ctx.fillStyle = "yellow";
         }else{
