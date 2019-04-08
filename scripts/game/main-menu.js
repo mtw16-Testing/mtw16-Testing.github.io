@@ -8,5 +8,5 @@ function showMainMenu(){
 
     ctx.fillStyle = "white";
     ctx.font = "100px Sniglet";
-    ctx.fillText("Paused", 800, 500);
+    ctx.fillText("Paused", 900, 550);
 }
