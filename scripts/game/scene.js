@@ -136,16 +136,16 @@ function drawLevel(ctx, map, tiles, rowSize, colSize){
             }
 
             
-            if(left && ((j+Math.floor((dx/600000)))*64) > 0){
+            if(left && ((j+Math.floor((dx/6000)))*64) > 0){
                 dx++;
-            }else if(up && ((i+Math.floor((dy/600000)))*64) > 0){
+            }else if(up && ((i+Math.floor((dy/6000)))*64) > 0){
                 dy++;
             }else if(right){
                 dx--;
             }else if(down){
                 dy--;
             }
-            ctx.drawImage(map.image,xPos*64,yPos*64,64,64,(j+Math.floor((dx/600000)))*64,(i+Math.floor((dy/600000)))*64,64,64);
+            ctx.drawImage(map.image,xPos*64,yPos*64,64,64,(j+Math.floor((dx/6000)))*64,(i+Math.floor((dy/6000)))*64,64,64);
         }
     }
 
@@ -190,7 +190,6 @@ function levelKeyDownHandler(){
 function levelKeyUpHandler(){
     switch(event.keyCode){
         case 37:
-            alert("test");
             left = false;
             break;
         case 38:
