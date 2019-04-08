@@ -83,7 +83,6 @@ function checkMenuInput(event){
             }
             break;
         case 38:
-            alert("here 2");
             if(currentOption > 0){
                 currentOption--;
             }
