@@ -22,7 +22,8 @@ function showMainMenu(){
 }
 
 function mainMenuHandler(){
-    switch(event.keyCode){
+    var keyCode = event.which || event.keyCode;
+    switch(keyCode){
         case 13:
             if(currentOption == 0){
                 mainMenuOn = false;
