@@ -133,7 +133,7 @@ function drawLevel(ctx, map, tiles, rowSize, colSize){
                     break;
             }
 
-            ctx.drawImage(map.image,xPos*64,yPos*64,64,64,(j+(dx))*64,(i+(dy))*64,64,64);
+            ctx.drawImage(map.image,xPos*64,yPos*64,64,64,(j+(dx/5))*64,(i+(dy/5))*64,64,64);
         }
     }
 
@@ -155,13 +155,13 @@ function levelHandler(){
             dx++;
             break;
         case 38:
-            dy--;
+            dy++;
             break;
         case 39:
             dx--;
             break;
         case 40:
-            dy++;
+            dy--;
             break;
         case 70:
             toggleFullScreen();
