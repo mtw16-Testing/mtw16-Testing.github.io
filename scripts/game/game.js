@@ -61,12 +61,13 @@ function drawStartMenu(){
 
         ctx.fillText(options[i], width / 2  - 150, height / 2 + 150 * i);        
     }
-    
-    drawing = requestAnimationFrame(drawStartMenu);
+
+    drawing = requestAnimationFrame(drawStartMenu);    
 }
 
 function checkMenuInput(event){
-    switch(event.keyCode){
+    var keyCode = event.which || event.keyCode;
+    switch(keyCode){
         case 13:
             if(currentOption == 0){
                 cancelAnimationFrame(drawing);
