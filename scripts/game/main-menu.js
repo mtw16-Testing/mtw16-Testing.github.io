@@ -8,7 +8,7 @@ function showMainMenu(){
 
     ctx.fillStyle = "white";
     ctx.font = "100px Sniglet";
-    ctx.fillText("Paused", 880, 525);
+    ctx.fillText("Paused", 880, 200);
 
     for(var i = 0; i < options.length; i++){
         if(i == currentOption){
@@ -44,7 +44,7 @@ function mainMenuHandler(){
             }
             break;
         case 40:
-            if(currentOption < options.length-2){
+            if(currentOption < options.length-1){
                 currentOption++;
             }
             break;
