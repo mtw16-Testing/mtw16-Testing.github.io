@@ -151,6 +151,24 @@ function drawLevel(ctx, map, tiles, rowSize, colSize){
             }else if(j == 0){
                 left = true;
             }
+
+            if(j == colSize-1 && (j+(dx/4))*64 < colSize*64){
+                right = false;
+            }else if(j == 0){
+                right = true;
+            }
+
+            if(i == 0 && (i+(dy/4))*64 > 0){
+                up = false;
+            }else if(j == 0){
+                up = true;
+            }
+
+            if(i == rowSize-1 && (i+(dy/4))*64 < rowSize*64){
+                down = false;
+            }else if(j == 0){
+                down = true;
+            }
             ctx.drawImage(map.image,xPos*64,yPos*64,64,64,(j+(dx/4))*64,(i+(dy/4))*64,64,64);
         }
     }
@@ -177,15 +195,21 @@ function levelKeyDownHandler(){
             break;
         case 38:
             //up = true;
-            dy++;
+            if(up){
+                dy++;
+            }
             break;
         case 39:
             //right = true;
-            dx--;
+            if(right){
+                dx--;
+            }
             break;
         case 40:
             //down = true;
-            dy--;
+            if(down){
+                dy--;
+            }
             break;
         case 70:
             toggleFullScreen();
