@@ -61,7 +61,8 @@ function drawStartMenu(){
 
         ctx.fillText(options[i], width / 2  - 150, height / 2 + 150 * i);        
     }
-
+    
+    drawing = requestAnimationFrame(drawStartMenu);
 }
 
 function checkMenuInput(event){
