@@ -148,7 +148,7 @@ function drawLevel(ctx, map, tiles, rowSize, colSize){
 
             if(j == 0 && (j+(dx/4))*64 > 0){
                 left = false;
-            }else{
+            }else if(j == 0){
                 left = true;
             }
             ctx.drawImage(map.image,xPos*64,yPos*64,64,64,(j+(dx/4))*64,(i+(dy/4))*64,64,64);
