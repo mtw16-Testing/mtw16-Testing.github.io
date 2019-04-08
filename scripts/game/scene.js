@@ -106,6 +106,7 @@ function Map(name){
 
 var mainMenuOn = false;
 var dx = 0, dy = 0;
+var left = false, up = false, right = false, down = false;
 function drawLevel(ctx, map, tiles, rowSize, colSize){
     ctx.clearRect(0,0,width,height);
     ctx.fillStyle = "black";
@@ -133,6 +134,15 @@ function drawLevel(ctx, map, tiles, rowSize, colSize){
                     break;
             }
 
+            if(left){
+                dx++;
+            }else if(up){
+                dy++;
+            }else if(right){
+                dx--;
+            }else if(down){
+                dy--;
+            }
             ctx.drawImage(map.image,xPos*64,yPos*64,64,64,(j+(dx/4))*64,(i+(dy/4))*64,64,64);
         }
     }
@@ -152,16 +162,20 @@ function levelHandler(){
             }
             break;
         case 37:
-            dx++;
+            left = !left;
+            //dx++;
             break;
         case 38:
-            dy++;
+            up = !up;
+            //dy++;
             break;
         case 39:
-            dx--;
+            right = !right;
+            //dx--;
             break;
         case 40:
-            dy--;
+            down = !down;
+            //dy--;
             break;
         case 70:
             toggleFullScreen();
