@@ -136,9 +136,9 @@ function drawLevel(ctx, map, tiles, rowSize, colSize){
             }
 
             
-            if(left && ((j+(dx/4))*64) > 0){
+            if(left && ((j+Math.floor((dx/600000)))*64) > 0){
                 dx++;
-            }else if(up && ((i+(dy/4))*64) > 0){
+            }else if(up && ((i+Math.floor((dy/600000)))*64) > 0){
                 dy++;
             }else if(right){
                 dx--;
@@ -190,6 +190,7 @@ function levelKeyDownHandler(){
 function levelKeyUpHandler(){
     switch(event.keyCode){
         case 37:
+            alert("test");
             left = false;
             break;
         case 38:
