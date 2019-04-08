@@ -51,8 +51,12 @@ function Scene(name, map){
                 for(var j = 0; j < image.width*4; j += 4){
                     if(pixelData[row+j] == 0 && pixelData[row+j+1] == 255 && pixelData[row+j+2] == 0){ //green
                         innerTiles.push(1);
-                    }else if(pixelData[row+j] == 165 && pixelData[row+j+1] == 42 && pixelData[row+j+2] == 42){ //brown
+                    }else if(pixelData[row+j] == 165 && pixelData[row+j+1] == 98 && pixelData[row+j+2] == 98){ //left path
                         innerTiles.push(2);
+                    }else if(pixelData[row+j] == 165 && pixelData[row+j+1] == 42 && pixelData[row+j+2] == 42){ //middle path
+                        innerTiles.push(3);
+                    }else if(pixelData[row+j] == 165 && pixelData[row+j+1] == 0 && pixelData[row+j+2] == 0){ //right path
+                        innerTiles.push(4);
                     }else if(pixelData[row+j] == 170 && pixelData[row+j+1] == 170 && pixelData[row+j+2] == 170){ //gray
                         innerTiles.push(5);
                     }else{
@@ -128,8 +132,12 @@ function drawLevel(ctx, map, tiles, rowSize, colSize){
                     yPos = 0;
                     break;
                 case 3:                 
-                    xPos = 0;
-                    yPos = 2;
+                    xPos = 2;
+                    yPos = 0;
+                    break;
+                case 4:                 
+                    xPos = 3;
+                    yPos = 0;
                     break;
                 case 5:
                     xPos = 0;
