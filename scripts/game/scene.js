@@ -133,7 +133,7 @@ function drawLevel(ctx, map, tiles, rowSize, colSize){
                     break;
             }
 
-            ctx.drawImage(map.image,xPos*64,yPos*64,64,64,(j+((dx++)/60))*64,i*64,64,64);
+            ctx.drawImage(map.image,xPos*64,yPos*64,64,64,(j+((dx++)/600))*64,i*64,64,64);
         }
     }
 
