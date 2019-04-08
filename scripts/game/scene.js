@@ -136,7 +136,7 @@ function drawLevel(ctx, map, tiles, rowSize, colSize){
             }
 
             
-            if(left && ((j+Math.floor((dx/16000)))*64) > 0){
+            /*if(left && ((j+Math.floor((dx/16000)))*64) > 0){
                 dx++;
             }else if(up && ((i+Math.floor((dy/16000)))*64) > 0){
                 dy++;
@@ -144,8 +144,8 @@ function drawLevel(ctx, map, tiles, rowSize, colSize){
                 dx--;
             }else if(down){
                 dy--;
-            }
-            ctx.drawImage(map.image,xPos*64,yPos*64,64,64,(j+Math.floor((dx/16000)))*64,(i+Math.floor((dy/16000)))*64,64,64);
+            }*/
+            ctx.drawImage(map.image,xPos*64,yPos*64,64,64,(j+Math.floor((dx/4)))*64,(i+Math.floor((dy/4)))*64,64,64);
         }
     }
 
