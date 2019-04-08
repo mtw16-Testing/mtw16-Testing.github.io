@@ -162,20 +162,21 @@ function levelHandler(){
             }
             break;
         case 37:
+            alert("test");
             left = true;
-            alert("left = " + left);
+            //alert("left = " + left);
             //dx++;
             break;
         case 38:
-            up = !up;
+            //up = !up;
             //dy++;
             break;
         case 39:
-            right = !right;
+            //right = !right;
             //dx--;
             break;
         case 40:
-            down = !down;
+            //down = !down;
             //dy--;
             break;
         case 70:
