@@ -19,7 +19,7 @@ function Scene(name, map){
         switch(this.name){
             case "Level 1":
                 document.onkeydown = levelKeyDownHandler;
-                document.onkeyup = levelKeyUpHandler;
+                //document.onkeyup = levelKeyUpHandler;
                 image.src = "maps/Level1.png"
                 map.getMap("images/spritesheets/spritesheet1.png");
                 break;
@@ -164,20 +164,20 @@ function levelKeyDownHandler(){
             }
             break;
         case 37:
-            left = true;
-            //dx++;
+            //left = true;
+            dx++;
             break;
         case 38:
-            up = true;
-            //dy++;
+            //up = true;
+            dy++;
             break;
         case 39:
-            right = true;
-            //dx--;
+            //right = true;
+            dx--;
             break;
         case 40:
-            down = true;
-            //dy--;
+            //down = true;
+            dy--;
             break;
         case 70:
             toggleFullScreen();
