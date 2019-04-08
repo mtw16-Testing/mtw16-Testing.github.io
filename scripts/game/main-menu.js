@@ -4,5 +4,5 @@ function showMainMenu(){
     ctx.fillRect(0,0,width,height);
     ctx.globalAlpha = 1.0;
     
-    ctx.drawImage(menuImage,100,100,1500,750);
+    ctx.drawImage(menuImage,250,100,1500,750);
 }
