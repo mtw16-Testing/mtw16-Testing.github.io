@@ -187,12 +187,10 @@ function drawLevel(map, tiles, rowSize, colSize){
 
 function levelKeyDownHandler(){
     switch(event.keyCode){        
-        case 13:
-            //if(!mainMenuOn){
+        case 27:
                 mainMenuOn = true;
-            //}else{ 
-            //    mainMenuOn = false;
-            //}
+                currentOption = 0;
+                options = ["Resume", "Exit"];
             break;
         case 37:
             //left = true;
