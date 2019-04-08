@@ -53,6 +53,8 @@ function Scene(name, map){
                         innerTiles.push(1);
                     }else if(pixelData[row+j] == 165 && pixelData[row+j+1] == 42 && pixelData[row+j+2] == 42){ //brown
                         innerTiles.push(2);
+                    }else if(pixelData[row+j] == 170 && pixelData[row+j+1] == 170 && pixelData[row+j+2] == 170){ //gray
+                        innerTiles.push(5);
                     }else{
                         innerTiles.push(-1);
                     }
@@ -128,6 +130,10 @@ function drawLevel(ctx, map, tiles, rowSize, colSize){
                 case 3:                 
                     xPos = 0;
                     yPos = 2;
+                    break;
+                case 5:
+                    xPos = 0;
+                    yPos = 1;
                     break;
                 default:
                     xPos = 0;
