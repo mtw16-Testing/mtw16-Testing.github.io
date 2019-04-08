@@ -18,7 +18,8 @@ function Scene(name, map){
         //var image = document.getElementById("hidden");
         switch(this.name){
             case "Level 1":
-                document.onkeydown = levelHandler;
+                document.onkeydown = levelKeyDownHandler;
+                document.onkeyup = levelKeyUpHandler;
                 image.src = "maps/Level1.png"
                 map.getMap("images/spritesheets/spritesheet1.png");
                 break;
@@ -153,7 +154,7 @@ function drawLevel(ctx, map, tiles, rowSize, colSize){
     }
 }
 
-function levelHandler(){
+function levelKeyDownHandler(){
     switch(event.keyCode){        
         case 13:
             if(!mainMenuOn){
@@ -180,6 +181,25 @@ function levelHandler(){
             break;
         case 70:
             toggleFullScreen();
+            break;
+        default:
+            break;
+    }
+}
+
+function levelKeyUpHandler(){
+    switch(event.keyCode){
+        case 37:
+            left = false;
+            break;
+        case 38:
+            up = false;
+            break;
+        case 39:
+            right = false;
+            break;
+        case 40:
+            down = false;
             break;
         default:
             break;
