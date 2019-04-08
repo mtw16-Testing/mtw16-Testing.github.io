@@ -9,20 +9,44 @@ function showMainMenu(){
     ctx.fillStyle = "white";
     ctx.font = "100px Sniglet";
     ctx.fillText("Paused", 880, 525);
+
+    for(var i = 0; i < size; i++){
+        if(i == currentOption){
+            ctx.fillStyle = "yellow";
+        }else{
+            ctx.fillStyle = "white";
+        }
+
+        ctx.fillText(options[i], width / 2  - 150, height / 2 + 150 * i);        
+    }
 }
 
 function mainMenuHandler(){
-    switch(event.keyCode){        
+    switch(event.keyCode){
         case 13:
+            if(currentOption == 0){
+                mainMenuOn = false;
+                document.onkeydown = null;
+                document.onkeydown = levelKeyDownHandler;
+            }else if(currentOption == 1){
+                cancelAnimationFrame(drawing);
+                showStartMenu();
+            }
+            break;      
+        case 27:
             mainMenuOn = false;
             document.onkeydown = null;
             document.onkeydown = levelKeyDownHandler;
             break;
         case 38:
-            alert("up");
+            if(currentOption > 1){
+                currentOption--;
+            }
             break;
         case 40:
-            alert("down");
+            if(currentOption < options.length-2){
+                currentOption++;
+            }
             break;
         case 70:
             toggleFullScreen();
