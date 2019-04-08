@@ -72,6 +72,14 @@ function Scene(name, map){
             map.rowSize = image.height;
             map.colSize = image.width;
             
+                        
+            mainMenuOn = false;
+            dx = 0;
+            dy = 0;
+            left = false;
+            up = false;
+            right = false;
+            down = false;
 
         }
         
