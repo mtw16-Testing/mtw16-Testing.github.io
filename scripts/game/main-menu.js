@@ -29,6 +29,8 @@ function mainMenuHandler(){
                 document.onkeydown = null;
                 document.onkeydown = levelKeyDownHandler;
             }else if(currentOption == 1){
+                mainMenuOn = false;
+                document.onkeydown = null;
                 cancelAnimationFrame(drawing);
                 showStartMenu();
             }
@@ -39,7 +41,7 @@ function mainMenuHandler(){
             document.onkeydown = levelKeyDownHandler;
             break;
         case 38:
-            if(currentOption > 1){
+            if(currentOption > 0){
                 currentOption--;
             }
             break;
