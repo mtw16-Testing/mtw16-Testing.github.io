@@ -145,6 +145,12 @@ function drawLevel(ctx, map, tiles, rowSize, colSize){
             }else if(down){
                 dy--;
             }*/
+
+            if(j == 0 && (j+(dx/4))*64 > 0){
+                left = false;
+            }else{
+                left = true;
+            }
             ctx.drawImage(map.image,xPos*64,yPos*64,64,64,(j+(dx/4))*64,(i+(dy/4))*64,64,64);
         }
     }
@@ -165,7 +171,9 @@ function levelKeyDownHandler(){
             break;
         case 37:
             //left = true;
-            dx++;
+            if(left){
+                dx++;
+            }
             break;
         case 38:
             //up = true;
