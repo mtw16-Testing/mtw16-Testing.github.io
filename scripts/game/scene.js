@@ -159,15 +159,15 @@ function drawLevel(ctx, map, tiles, rowSize, colSize){
             }
 
             if(i == 0 && (i+(dy/4))*64 > 0){
-                down = false;
+                up = false;
             }else if(i == 0){
-                down = true;
+                up = true;
             }
 
             if(i == rowSize-1 && (i+(dy/4))*64 < height){
-                up = false;
+                down = false;
             }else if(i == rowSize - 1){
-                up = true;
+                down = true;
             }
             ctx.drawImage(map.image,xPos*64,yPos*64,64,64,(j+(dx/4))*64,(i+(dy/4))*64,64,64);
         }
