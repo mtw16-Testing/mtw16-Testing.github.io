@@ -335,7 +335,7 @@ function saveFileHandler(){
                 cancelAnimationFrame(drawing);    
                 showStartMenu();
             }else{
-                alert("Save option " + currentOption + 1 " selected.");
+                alert("Save option " + (currentOption + 1) + " selected.");
             }
             break;
         case 38:
