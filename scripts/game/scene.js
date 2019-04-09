@@ -331,7 +331,7 @@ function drawSaveFileScreen(){
     }else{
         ctx.fillStyle = "white";
     }
-    ctx.fillText(options[options.length-1], width / 2 - 300, 800);
+    ctx.fillText(options[options.length-1], width / 2 - 230, 800);
 }
 
 function saveFileHandler(){
