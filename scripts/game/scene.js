@@ -263,7 +263,7 @@ function levelHandler(){
 }
 
 function initOptions(){
-    options = ["Options Menu", "Press Backspace To Exit"];
+    options = ["Options Menu", "Press Enter To Exit"];
     
     currentOption = 0;
     
@@ -281,15 +281,14 @@ function drawOptionsScreen(){
     ctx.fillText(options[0], width / 2 - 300, 200);
     
     ctx.font = "60px Sniglet";
-    ctx.fillText(options[1], width / 2 - 300, 500);
+    ctx.fillText(options[1], width / 2 - 250, 500);
 }
 
 function optionsHandler(event){
     var keyCode = event.which || event.keyCode;
     switch(keyCode){
-        case 8:
+        case 13:
             cancelAnimationFrame(drawing);
-            //clearInterval(drawing);
             showStartMenu();
             break;
         case 70:
@@ -301,7 +300,7 @@ function optionsHandler(event){
 }
 
 function initSaveFile(){
-    options = ["Save Files", "Save File 1", "Save File 2", "Save File 3", "Press Backspace To Exit"];
+    options = ["Save File 1", "Save File 2", "Save File 3", "Press Backspace To Exit"];
     currentOption = 1;
     
     background.src= "images/backgrounds/SaveMenuBackground.png";
@@ -314,10 +313,10 @@ function drawSaveFileScreen(){
 
     ctx.fillStyle = "white";
     ctx.font = "100px Sniglet";
-    ctx.fillText(options[0], width / 2 - 200, 200);
+    ctx.fillText("Save Files", width / 2 - 200, 200);
     
     ctx.font = "60px Sniglet";
-    for(var i = 1; i < options.length-1; i++){
+    for(var i = 0; i < options.length-1; i++){
         if(i == currentOption){
             ctx.fillStyle = "yellow";
         }else{
@@ -326,26 +325,26 @@ function drawSaveFileScreen(){
 
         ctx.fillText(options[i], width / 2 - 130, 350+i*100);
     }
-    
-    ctx.fillStyle = "white";
-    ctx.fillText(options[options.length-1], width / 2 - 300, 800);
 }
 
 function saveFileHandler(){
     var keyCode = event.which || event.keyCode;
     switch(keyCode){
-        case 8:
-            cancelAnimationFrame(drawing);    
-            //clearInterval(drawing);
-            showStartMenu();
+        case 13:
+            if(currentOption == options.length - 1){
+                cancelAnimationFrame(drawing);    
+                showStartMenu();
+            }else{
+                alert("Save option " + currentOption + 1 " selected.");
+            }
             break;
         case 38:
-            if(currentOption > 1){
+            if(currentOption > 0){
                 currentOption--;
             }
             break;
         case 40:
-            if(currentOption < options.length-2){
+            if(currentOption < options.length-1){
                 currentOption++;
             }
             break;
