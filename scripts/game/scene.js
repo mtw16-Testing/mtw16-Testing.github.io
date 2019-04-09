@@ -281,7 +281,7 @@ function drawOptionsScreen(){
     ctx.fillText(options[0], width / 2 - 300, 200);
     
     ctx.font = "60px Sniglet";
-    ctx.fillText(options[1], width / 2 - 250, 500);
+    ctx.fillText(options[1], width / 2 - 230, 500);
 }
 
 function optionsHandler(event){
