@@ -300,7 +300,7 @@ function optionsHandler(event){
 }
 
 function initSaveFile(){
-    options = ["Save File 1", "Save File 2", "Save File 3", "Press Enter To Exit"];
+    options = ["Save File 1", "Save File 2", "Save File 3", "Exit"];
     currentOption = 0;
     
     background.src= "images/backgrounds/SaveMenuBackground.png";
@@ -331,7 +331,7 @@ function drawSaveFileScreen(){
     }else{
         ctx.fillStyle = "white";
     }
-    ctx.fillText(options[options.length-1], width / 2 - 230, 800);
+    ctx.fillText(options[options.length-1], width / 2 - 50, 800);
 }
 
 function saveFileHandler(){
