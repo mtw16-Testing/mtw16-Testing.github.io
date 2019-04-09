@@ -312,7 +312,7 @@ function drawSaveFileScreen(){
     drawLoadingScreen();
     ctx.drawImage(background, 0, 0, width, height);
 
-    ctx.fillStyle = "black";
+    ctx.fillStyle = "white";
     ctx.font = "100px Sniglet";
     ctx.fillText(options[0], width / 2 - 200, 200);
     
