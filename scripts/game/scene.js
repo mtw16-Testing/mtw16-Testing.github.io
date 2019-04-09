@@ -14,6 +14,8 @@ function Scene(name, map){
         this.map.name = name;
         document.onkeydown = null;
 
+        drawLoadingScreen();
+        
         var isLevel = true;
         var image1 = new Image();
         var image2 = new Image();
@@ -144,9 +146,7 @@ var dx = 0, dy = 0;
 var left = false, up = false, right = false, down = false;
 function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
     ctx.clearRect(0,0,width,height);
-    ctx.fillStyle = "black";
-    ctx.fillRect(0,0,width,height);
-
+    
     var xPos = 0, yPos = 0; 
     for(var i = 0; i < rowSize; i++){
         for(var j = 0; j < colSize; j++){
@@ -273,8 +273,6 @@ function initOptions(){
 
 function drawOptionsScreen(){
     ctx.clearRect(0,0,width,height);
-    ctx.fillStyle = "red";
-    ctx.fillRect(0,0,width,height);
     
     ctx.drawImage(background, 0, 0, width, height);
 
@@ -311,8 +309,6 @@ function initSaveFile(){
 
 function drawSaveFileScreen(){
     ctx.clearRect(0,0,width,height);
-    ctx.fillStyle = "green";
-    ctx.fillRect(0,0,width,height);    
     
     ctx.drawImage(background, 0, 0, width, height);
 
@@ -359,4 +355,12 @@ function saveFileHandler(){
         default:
             break;
     }
+}
+
+function drawLoadingScreen(){
+    ctx.fillStyle = "black";
+    ctx.fillRect(0,0,width,height);
+    ctx.fillStyle = "white";
+    ctx.font = "100px Sniglet";
+    ctx.fillText("Loading...", width / 2 - 400, height / 2 - 50);
 }
