@@ -13,8 +13,6 @@ function Scene(name, map){
         this.name = name;
         this.map.name = name;
         document.onkeydown = null;
-
-        drawLoadingScreen();
         
         var isLevel = true;
         var image1 = new Image();
@@ -146,6 +144,7 @@ var dx = 0, dy = 0;
 var left = false, up = false, right = false, down = false;
 function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
     ctx.clearRect(0,0,width,height);
+    drawLoadingScreen();
     
     var xPos = 0, yPos = 0; 
     for(var i = 0; i < rowSize; i++){
@@ -273,6 +272,7 @@ function initOptions(){
 
 function drawOptionsScreen(){
     ctx.clearRect(0,0,width,height);
+    drawLoadingScreen();
     
     ctx.drawImage(background, 0, 0, width, height);
 
@@ -309,7 +309,7 @@ function initSaveFile(){
 
 function drawSaveFileScreen(){
     ctx.clearRect(0,0,width,height);
-    
+    drawLoadingScreen();
     ctx.drawImage(background, 0, 0, width, height);
 
     ctx.fillStyle = "black";
