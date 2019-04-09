@@ -21,8 +21,6 @@ function Scene(name, map){
         switch(this.name){
             case "Level 1":
                 document.onkeydown = levelHandler;
-                image1.src = "maps/Level1Background.png";
-                image2.src = "maps/Level1Foreground.png";
                 map.getMap("images/spritesheets/level1.png");
                 break;
             case "Options":
@@ -66,6 +64,7 @@ function Scene(name, map){
                     tiles1.push(backTiles);
                 }
             }
+            image1.src = "maps/Level1Background.png";
 
             image2.onload = function(){
                 canvas.getContext('2d').drawImage(image2,0,0,image1.width,image1.height);
@@ -85,9 +84,7 @@ function Scene(name, map){
                     tiles2.push(foreTiles);
                 }
             }
-            
-            image1.src = image1.src;
-            image2.src = image2.src;
+            image2.src = "maps/Level1Foreground.png";
             
             map.backgroundTiles = tiles1;
             map.foregroundTiles = tiles2;
