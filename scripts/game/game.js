@@ -121,7 +121,7 @@ function toggleFullScreen(){
         isFullScreen = true;               
         showFullScreenMessage(isFullScreen);
     }else{
-        canvas.style.width = "600px";
+        canvas.style.width = "800px";
         canvas.style.height = "auto";
         canvas.style.position = "relative";
         canvas.style.margin = "10px auto";
@@ -131,21 +131,3 @@ function toggleFullScreen(){
         showFullScreenMessage(isFullScreen);
     }
 }
-
-/*
-setInterval(function(){
-    ctx.clearRect(0,0,width,height);
-
-    ctx.fillStyle = "black";
-    ctx.fillRect(0,0,width,height);
-    ctx.fillStyle = "red";
-    ctx.fillText(startMessage, width / 2 - 450, height / 2);
-
-    ctx.fillStyle = "green";
-    ctx.fillRect(testSquareX, testSquareY, 100, 100);
-    testSquareX += dx;
-
-    if(testSquareX >= width - 100 || testSquareX <= 0){
-        dx *= -1;
-    }
-}, 1000/60);*/
