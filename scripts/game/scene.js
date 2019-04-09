@@ -362,5 +362,5 @@ function drawLoadingScreen(){
     ctx.fillRect(0,0,width,height);
     ctx.fillStyle = "white";
     ctx.font = "100px Sniglet";
-    ctx.fillText("Loading...", width / 2 - 400, height / 2 - 50);
+    ctx.fillText("Loading...", width / 2 - 200, height / 2 - 50);
 }
