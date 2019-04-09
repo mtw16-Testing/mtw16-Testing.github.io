@@ -316,7 +316,7 @@ function drawSaveFileScreen(){
     ctx.fillText("Save Files", width / 2 - 200, 200);
     
     ctx.font = "60px Sniglet";
-    for(var i = 0; i < options.length-1; i++){
+    for(var i = 0; i < options.length; i++){
         if(i == currentOption){
             ctx.fillStyle = "yellow";
         }else{
