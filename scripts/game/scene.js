@@ -316,15 +316,22 @@ function drawSaveFileScreen(){
     ctx.fillText("Save Files", width / 2 - 200, 200);
     
     ctx.font = "60px Sniglet";
-    for(var i = 0; i < options.length; i++){
+    for(var i = 0; i < options.length-1; i++){
         if(i == currentOption){
             ctx.fillStyle = "yellow";
         }else{
             ctx.fillStyle = "white";
         }
 
-        ctx.fillText(options[i], width / 2 - 130, 350+i*100);
+        ctx.fillText(options[i], width / 2 - 130, 450+i*100);
     }
+    
+    if(options.length - 1 == currentOption){
+        ctx.fillStyle = "yellow";
+    }else{
+        ctx.fillStyle = "white";
+    }
+    ctx.fillText(options[options.length-1], width / 2 - 300, 800);
 }
 
 function saveFileHandler(){
