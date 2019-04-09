@@ -300,8 +300,8 @@ function optionsHandler(event){
 }
 
 function initSaveFile(){
-    options = ["Save File 1", "Save File 2", "Save File 3", "Press Backspace To Exit"];
-    currentOption = 1;
+    options = ["Save File 1", "Save File 2", "Save File 3", "Press Enter To Exit"];
+    currentOption = 0;
     
     background.src= "images/backgrounds/SaveMenuBackground.png";
 }
