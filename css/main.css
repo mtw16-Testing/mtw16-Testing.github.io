@@ -139,6 +139,15 @@ nav ul li a:hover{
     padding:10px 0;
 }
 
+.asset{
+    display:inline-block;
+    text-align:center;
+    width:50%;
+    margin-left:25%;
+    margin-right:25%;
+    padding: 20px 0;
+}
+
 #fullscreen-message{
     display:block;
     background-color: white;
@@ -152,4 +161,18 @@ nav ul li a:hover{
     text-align: center;
     width:400px;
     z-index: 9999;
+}
+
+.left{
+    width:50%;
+    float:left;
+    line-height: 2;
+}
+
+.main a{
+    color:white;
+}
+
+.main a:hover{
+    color:yellow;
 }

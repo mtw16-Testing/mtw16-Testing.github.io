@@ -28,8 +28,7 @@ function showStartMenu(){
     
     currentOption = 0;
     background.src= "images/backgrounds/MenuBackground.png";
-
-    //drawing = setInterval(drawStartMenu, 1000/60);
+    
     drawing = requestAnimationFrame(drawStartMenu);
 }
 
@@ -104,7 +103,6 @@ function checkMenuInput(event){
 function stopGame(){
     document.onkeydown = null;
     cancelAnimationFrame(drawing);
-    //clearInterval(drawing);
 }
 
 function toggleFullScreen(){

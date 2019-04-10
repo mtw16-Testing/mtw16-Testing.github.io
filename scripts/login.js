@@ -3,10 +3,10 @@ const db = firebase.firestore();
 function checkLogin(){
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-                clearForms();
-                document.getElementById("waiting").innerHTML = "";
-                document.getElementById("error-message").innerHTML = "";
-                showStartMenu();
+            clearForms();
+            document.getElementById("waiting").innerHTML = "";
+            document.getElementById("error-message").innerHTML = "";
+            showStartMenu();
         }
       });
 }
