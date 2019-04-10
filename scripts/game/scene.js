@@ -149,11 +149,11 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
     ctx.clearRect(0,0,width,height);
     drawLoadingScreen();
     
-	if(((dx/8)+0.25)*64 > 0 || Player.X < 1024){
+	if(((dx/8)+0.25)*64 > 0 || Player.X > 1024){
                 left = false;
             }
 
-            if(((colSize-1+(dx/8))+0.75)*64 < width || Player.X > 1024){
+            if(((colSize-1+(dx/8))+0.75)*64 < width){
                 right = false;
             }
 
