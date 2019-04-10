@@ -11,6 +11,7 @@ function initEnemy(options) {
 	that.draw = function(ctx) {
 		this.X += (dx/8)*64;
 		this.Y += (dy/8)*64;
+		alert(this.X);
 		if ( that.death == false ) {
 			ctx.fillStyle = "#FF0000";
 			ctx.fillRect(this.X,this.Y,that.length,that.length); 
