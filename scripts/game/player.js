@@ -78,6 +78,10 @@ function initPlayer(options) {
 				Player.health -= 20;
 				dx -= 32;
 				dy -= 32;
+				pLeft = false;
+				pRight = false;
+				pUp = false;
+				pDown = false;
 				alert("Player has: " + Player.health + " more health");
 			}
 		}
