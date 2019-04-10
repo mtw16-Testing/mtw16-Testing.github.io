@@ -83,11 +83,9 @@ function initPlayer(options) {
 				pRight = false;
 				pUp = false;
 				pDown = false;
-				//alert("Player has: " + Player.health + " more health");
 				
 				if(Player.health <= 0){
-					//alert("Player has died");
-					this.health = 100;
+					this.health = 120;
 					this.death = true;
 				}
 			}
