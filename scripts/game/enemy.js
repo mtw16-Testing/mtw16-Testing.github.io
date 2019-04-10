@@ -9,9 +9,11 @@ function initEnemy(options) {
 	
 	//Call the draw function to create basic enemy rectangle
 	that.draw = function(ctx) {
+		this.X += (dx/8)*64;
+		this.Y += (dy/8)*64;
 		if ( that.death == false ) {
-		ctx.fillStyle = "#FF0000";
-		ctx.fillRect(500+(dx/8)*64,300+(dy/8)*64,that.length,that.length); 
+			ctx.fillStyle = "#FF0000";
+			ctx.fillRect(this.X,this.Y,that.length,that.length); 
 		}
 	};
 	
