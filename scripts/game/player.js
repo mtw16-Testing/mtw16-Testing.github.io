@@ -86,6 +86,7 @@ function initPlayer(options) {
 				
 				if(Player.health <= 0){
 					alert("Player has died");
+					this.health = 100;
 					cancelAnimationFrame(drawing);
             				showStartMenu();
 				}
