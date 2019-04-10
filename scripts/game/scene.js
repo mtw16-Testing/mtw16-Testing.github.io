@@ -33,6 +33,7 @@ function Scene(name, map){
                 image1.src = "maps/Level1Background.png";
                 image2.src = "maps/Level1Foreground.png";
                 map.getMap("images/spritesheets/level1.png");
+		Enemy = new initEnemy({});
                 break;
             case "Options":
                 initOptions();
@@ -184,30 +185,6 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
             xPos = backgroundTiles[i][j][0] / 16;
             yPos = backgroundTiles[i][j][1] / 16;
             
-            /*if(j == 0 && ((j+(dx/8))+0.25)*64 > 0){
-                left = false;
-            }else if(j == 0 && Player.X == 1024){
-                left = true;
-            }
-
-            if(j == colSize-1 && ((j+(dx/8))+0.75)*64 < width){
-                right = false;
-            }else if(j == colSize - 1  && Player.X == 1024){
-                right = true;
-            }
-
-            if(i == 0 && ((i+(dy/8))+0.25)*64 > 0){
-                up = false;
-            }else if(i == 0  && Player.Y == 512){
-                up = true;
-            }
-
-            if(i == rowSize-1 && ((i+(dy/8))+0.75)*64 < height){
-                down = false;
-            }else if(i == rowSize - 1 && Player.Y == 512){
-                down = true;
-            }*/
-            
             ctx.drawImage(map.image,xPos*64,yPos*64,64,64,(j+(dx/8))*64,(i+(dy/8))*64,64,64);
 		
             xPos = foregroundTiles[i][j][0] / 16;
@@ -241,31 +218,19 @@ function levelHandler(){
 	    break;    
         case 37: //left
             pLeft = true;
-		left = true;
-            /*if(left){
-                dx++;
-            }*/
+	    left = true;
             break;
         case 38: //up
             pUp = true;
-		up = true;
-            /*if(up){
-                dy++;
-            }*/
+	    up = true;
             break;
         case 39: //right
             pRight = true;
-		    right = true;
-            /*if(right){
-                dx--;
-            }*/
+	    right = true;
             break;
         case 40: //down
             pDown = true;
-		    down = true;
-            /*if(down){
-                dy--;
-            }*/
+	    down = true;
             break;
         case 70: //f
             toggleFullScreen();
