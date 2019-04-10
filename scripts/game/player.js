@@ -15,7 +15,7 @@ function initPlayer(options) {
 	that.aFrame = options.aFrame;
 	that.whichAction = "stand";
 	that.direction = 3;  // 0 = up, 1 = left, 2 = down, 3 = right
-    that.image = playerImage;
+        that.image = playerImage;
 	that.standRight = that.X + 90;
 	that.standLeft = that.X +40;
 	that.standUp = that.Y + 20;
@@ -83,6 +83,12 @@ function initPlayer(options) {
 				pUp = false;
 				pDown = false;
 				alert("Player has: " + Player.health + " more health");
+				
+				if(Player.health <= 0){
+					alert("Player has died");
+					cancelAnimationFrame(drawing);
+            				showStartMenu();
+				}
 			}
 		}
 		
