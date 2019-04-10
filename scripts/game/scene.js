@@ -126,9 +126,9 @@ function Map(name){
             case "Level 1":
                 drawLevel(this, this.backgroundTiles,this.foregroundTiles, this.rowSize, this.colSize);
 		Player.moveCheck(pUp,pDown,pLeft,pRight,width,height);
-        	Player.draw(canvas.getContext("2d"));
+        	Player.draw();
 		Player.collisionCheck(Enemy);
-		Enemy.draw(canvas.getContext("2d")); 
+		Enemy.draw(); 
                 break;
             case "Options":
                 drawOptionsScreen();
