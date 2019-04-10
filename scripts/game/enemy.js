@@ -5,7 +5,7 @@ function initEnemy(options) {
 	var that = {};
 	//initialize Enemy variables
 	that.X = 500;
-	that.Y = 300;
+	that.Y = 400;
 	that.health = 100;
 	that.length = 100;
 	that.death = false;
