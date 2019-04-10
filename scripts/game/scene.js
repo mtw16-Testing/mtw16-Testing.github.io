@@ -157,32 +157,36 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
     
 	if(((dx/8)+0.25)*64 > 0 || Player.X > 1024){
                 left = false;
-            }
+		console.log("Player x: " + Player.X + " dx: " + ((dx/8)+0.25)*64);	
+        }
 
-            if(((colSize-1+(dx/8))+0.75)*64 < width || Player.X < 1024){
-                right = false;
-            }
+        if(((colSize-1+(dx/8))+0.75)*64 < width || Player.X < 1024){
+        	right = false;
+        }
 
-            if(((dy/8)+0.25)*64 > 0 || Player.Y > 512){
+        if(((dy/8)+0.25)*64 > 0 || Player.Y > 512){
                 up = false;
-            }
+        }
 
-            if(((rowSize-1+(dy/8))+0.75)*64 < height || Player.Y < 512){
+        if(((rowSize-1+(dy/8))+0.75)*64 < height || Player.Y < 512){
                 down = false;
-            }
+        }
 		
-		if(left){
-			dx++;
-		}
-		if(right){
-			dx--;
-		   }
-		if(up){
-			dy++;
-		   }
-		if(down){
-			dy--;
-		   }
+	if(left){
+		dx++;
+	}
+	
+	if(right){
+		dx--;
+	}
+	
+	if(up){
+		dy++;
+	}
+	
+	if(down){
+		dy--;
+	}
 	
     var xPos = 0, yPos = 0; 
     for(var i = 0; i < rowSize; i++){
