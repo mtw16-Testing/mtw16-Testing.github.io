@@ -179,6 +179,22 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
                 down = true;
             }*/
 		
+		if(j == 0 && ((j+(dx/8))+0.25)*64 > 0){
+                left = false;
+            }
+
+            if(j == colSize-1 && ((j+(dx/8))+0.75)*64 < width){
+                right = false;
+            }
+
+            if(i == 0 && ((i+(dy/8))+0.25)*64 > 0){
+                up = false;
+            }
+
+            if(i == rowSize-1 && ((i+(dy/8))+0.75)*64 < height){
+                down = false;
+            }
+		
 		if(left){
 			dx++;
 		}
