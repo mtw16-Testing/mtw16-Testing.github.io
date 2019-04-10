@@ -153,15 +153,15 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
                 left = false;
             }
 
-            if(((colSize-1+(dx/8))+0.75)*64 < width){
+            if(((colSize-1+(dx/8))+0.75)*64 < width || Player.X < 1024){
                 right = false;
             }
 
-            if(((dy/8)+0.25)*64 > 0){
+            if(((dy/8)+0.25)*64 > 0 || Player.Y > 512){
                 up = false;
             }
 
-            if(((rowSize-1+(dy/8))+0.75)*64 < height || Player.Y > 512){
+            if(((rowSize-1+(dy/8))+0.75)*64 < height || Player.Y < 512){
                 down = false;
             }
 		
