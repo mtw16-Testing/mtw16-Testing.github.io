@@ -89,6 +89,7 @@ function initPlayer(options) {
 					this.health = 100;
 					cancelAnimationFrame(drawing);
             				showStartMenu();
+					return;
 				}
 			}
 		}
