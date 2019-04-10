@@ -11,7 +11,8 @@ function SceneHandler(scene){
     this.drawScene = function(){
         scene.draw();
         drawing = requestAnimationFrame(sceneHandler.drawScene);
-	if(Player.death){		
+	if(Player.death){
+		Player.death = false;
 		cancelAnimationFrame(drawing);
             	showStartMenu();
 	}
