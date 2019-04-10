@@ -76,8 +76,8 @@ function initPlayer(options) {
 			// Check Y collision
 			if ( that.standDown >= Enemy.Y && that.standUp <= Enemy.Y + Enemy.length) {
 				Player.health -= 20;
-				dx += 50;
-				dy += 50;
+				dx -= 50;
+				dy -= 50;
 				alert("Player has: " + Player.health + " more health");
 			}
 		}
