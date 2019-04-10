@@ -200,7 +200,6 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
 
 function levelHandler(){
      var keyCode = event.which || event.keyCode;
-	alert(Enemy.X);
     switch(keyCode){        
         case 27: //escape key
                 mainMenuOn = true;
