@@ -22,6 +22,7 @@ function initPlayer(options) {
 	that.standDown = that.Y + 125;
 	that.health = 100;
 	that.weapon = "shortSword";
+	that.death = false;
 	
 	that.draw = function(ctx) {
 		ctx.drawImage(that.image,63*that.aFrame,63*(action+that.direction),63,63,that.X,that.Y,126,126);
@@ -87,9 +88,7 @@ function initPlayer(options) {
 				if(Player.health <= 0){
 					//alert("Player has died");
 					this.health = 100;
-					cancelAnimationFrame(drawing);
-            				showStartMenu();
-					return;
+					this.death = true;
 				}
 			}
 		}
