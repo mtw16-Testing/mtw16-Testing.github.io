@@ -155,7 +155,7 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
             xPos = backgroundTiles[i][j][0] / 16;
             yPos = backgroundTiles[i][j][1] / 16;
             
-            if(j == 0 && ((j+(dx/8))+0.25)*64 > 0){
+            /*if(j == 0 && ((j+(dx/8))+0.25)*64 > 0){
                 left = false;
             }else if(j == 0 && Player.X == 1024){
                 left = true;
@@ -177,7 +177,20 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
                 down = false;
             }else if(i == rowSize - 1 && Player.Y == 512){
                 down = true;
-            }
+            }*/
+		
+		if(left){
+			dx++;
+		}
+		if(right){
+			dx--;
+		   }
+		if(up){
+			dy++;
+		   }
+		if(down){
+			dy--;
+		   }
             
             ctx.drawImage(map.image,xPos*64,yPos*64,64,64,(j+(dx/8))*64,(i+(dy/8))*64,64,64);
 		
@@ -212,27 +225,31 @@ function levelHandler(){
 	    break;    
         case 37: //left
             pLeft = true;
-            if(left){
+		left = true;
+            /*if(left){
                 dx++;
-            }
+            }*/
             break;
         case 38: //up
             pUp = true;
-            if(up){
+		up = true;
+            /*if(up){
                 dy++;
-            }
+            }*/
             break;
         case 39: //right
             pRight = true;
-            if(right){
+		    right = true;
+            /*if(right){
                 dx--;
-            }
+            }*/
             break;
         case 40: //down
             pDown = true;
-            if(down){
+		    down = true;
+            /*if(down){
                 dy--;
-            }
+            }*/
             break;
         case 70: //f
             toggleFullScreen();
@@ -247,15 +264,19 @@ function levelHandler2(){
 	switch(keyCode){
 		case 37: // left
 			pLeft = false;
+			left = false;
 			break;
 		case 38: // up
 			pUp = false;
+			up = false;
 			break;
 		case 39: // right
 			pRight = false;
+			right = false;
 			break;
 		case 40:
 			pDown = false;
+			down = false;
 			break;
 		default:
 			break;
