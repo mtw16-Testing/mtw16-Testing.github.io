@@ -157,7 +157,6 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
     
 	if(((dx/8)+0.25)*64 > 0 || Player.X > 1024){
                 left = false;
-		console.log("Player x: " + Player.X + " dx: " + ((dx/8)+0.25)*64);	
         }
 
         if(((colSize-1+(dx/8))+0.75)*64 < width || Player.X < 1024){
