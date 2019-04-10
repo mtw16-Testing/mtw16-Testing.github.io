@@ -157,25 +157,25 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
             
             if(j == 0 && ((j+(dx/8))+0.25)*64 > 0){
                 left = false;
-            }else if(j == 0){
+            }else if(j == 0 && playerX == 1024){
                 left = true;
             }
 
             if(j == colSize-1 && ((j+(dx/8))+0.75)*64 < width){
                 right = false;
-            }else if(j == colSize - 1){
+            }else if(j == colSize - 1  && playerX == 1024){
                 right = true;
             }
 
             if(i == 0 && ((i+(dy/8))+0.25)*64 > 0){
                 up = false;
-            }else if(i == 0){
+            }else if(i == 0  && playerY == 512){
                 up = true;
             }
 
             if(i == rowSize-1 && ((i+(dy/8))+0.75)*64 < height){
                 down = false;
-            }else if(i == rowSize - 1){
+            }else if(i == rowSize - 1 && playerY == 512){
                 down = true;
             }
             
