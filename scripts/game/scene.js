@@ -149,6 +149,22 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
     ctx.clearRect(0,0,width,height);
     drawLoadingScreen();
     
+	if(((dx/8)+0.25)*64 > 0){
+                left = false;
+            }
+
+            if(((colSize-1+(dx/8))+0.75)*64 < width){
+                right = false;
+            }
+
+            if(((dy/8)+0.25)*64 > 0){
+                up = false;
+            }
+
+            if(((rowSize-1+(dy/8))+0.75)*64 < height){
+                down = false;
+            }
+	
     var xPos = 0, yPos = 0; 
     for(var i = 0; i < rowSize; i++){
         for(var j = 0; j < colSize; j++){
@@ -179,21 +195,6 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
                 down = true;
             }*/
 		
-		if(j == 0 && ((j+(dx/8))+0.25)*64 > 0){
-                left = false;
-            }
-
-            if(j == colSize-1 && ((j+(dx/8))+0.75)*64 < width){
-                right = false;
-            }
-
-            if(i == 0 && ((i+(dy/8))+0.25)*64 > 0){
-                up = false;
-            }
-
-            if(i == rowSize-1 && ((i+(dy/8))+0.75)*64 < height){
-                down = false;
-            }
 		
 		if(left){
 			dx++;
