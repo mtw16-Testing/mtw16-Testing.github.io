@@ -24,7 +24,7 @@ function initPlayer(options) {
 	that.weapon = "shortSword";
 	that.death = false;
 	
-	that.draw = function(ctx) {
+	that.draw = function() {
 		ctx.drawImage(that.image,63*that.aFrame,63*(action+that.direction),63,63,that.X,that.Y,126,126);
 	};
 	
