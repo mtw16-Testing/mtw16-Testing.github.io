@@ -13,7 +13,7 @@ function initEnemy(options) {
 	//Call the draw function to create basic enemy rectangle
 	that.draw = function(ctx) {
 		if ( that.death == false ) {
-			ctx.drawImage(enemyImage,0,128,64,64,that.X,that.Y,128,128);
+			ctx.drawImage(enemyImage,0,128,64,64,that.X+(dx/8)*64,that.Y+(dy/8)*64,128,128);
 		}
 	};
 	
