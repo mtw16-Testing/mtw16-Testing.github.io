@@ -30,13 +30,13 @@ function initPlayer(options) {
 	that.moveCheck = function(Up,Down,Left,Right,width,height) {
 	 if ( that.whichAction == "stand" ) {
 		if (Up && that.Y-5 >= -28)
-			that.Y-=5;
+			//that.Y-=5;
 		if (Down && that.Y+5 <= height-128)
-			that.Y+=5;
+			//that.Y+=5;
 		if (Left && that.X-5 >= -28)
-			that.X-=5;
+			//that.X-=5;
 		if (Right && that.X+5 <= width-100) 
-			that.X+=5;
+			//that.X+=5;
 			
 		if (Right) 
 			that.direction = 3;
@@ -76,8 +76,8 @@ function initPlayer(options) {
 			// Check Y collision
 			if ( that.standDown >= Enemy.Y && that.standUp <= Enemy.Y + Enemy.length) {
 				Player.health -= 20;
-				Player.X = 1200;
-				Player.Y = 600;
+				dx += 50;
+				dy += 50;
 				alert("Player has: " + Player.health + " more health");
 			}
 		}
