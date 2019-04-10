@@ -164,6 +164,19 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
             if(((rowSize-1+(dy/8))+0.75)*64 < height){
                 down = false;
             }
+		
+		if(left){
+			dx++;
+		}
+		if(right){
+			dx--;
+		   }
+		if(up){
+			dy++;
+		   }
+		if(down){
+			dy--;
+		   }
 	
     var xPos = 0, yPos = 0; 
     for(var i = 0; i < rowSize; i++){
@@ -194,20 +207,6 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
             }else if(i == rowSize - 1 && Player.Y == 512){
                 down = true;
             }*/
-		
-		
-		if(left){
-			dx++;
-		}
-		if(right){
-			dx--;
-		   }
-		if(up){
-			dy++;
-		   }
-		if(down){
-			dy--;
-		   }
             
             ctx.drawImage(map.image,xPos*64,yPos*64,64,64,(j+(dx/8))*64,(i+(dy/8))*64,64,64);
 		
