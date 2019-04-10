@@ -125,10 +125,12 @@ function Map(name){
         switch(this.name){
             case "Level 1":
                 drawLevel(this, this.backgroundTiles,this.foregroundTiles, this.rowSize, this.colSize);
-		Player.moveCheck(pUp,pDown,pLeft,pRight,width,height);
-        	Player.draw();
-		Player.collisionCheck(Enemy);
-		Enemy.draw(); 
+		if(!mainMenuOn){
+			Player.moveCheck(pUp,pDown,pLeft,pRight,width,height);
+			Player.draw();
+			Player.collisionCheck(Enemy);
+			Enemy.draw();
+		}
                 break;
             case "Options":
                 drawOptionsScreen();
