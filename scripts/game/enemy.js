@@ -11,7 +11,7 @@ function initEnemy(options) {
 	that.draw = function(ctx) {
 		if ( that.death == false ) {
 		ctx.fillStyle = "#FF0000";
-		ctx.fillRect(500,300,that.length,that.length); 
+		ctx.fillRect(500+dx,300+dy,that.length,that.length); 
 		}
 	};
 	
