@@ -189,20 +189,20 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
 console.log("Map dx: " + ((dx/8)+0.25)*64 + " Player.X: " + Player.X + " Player.Y: " + Player.Y + " left: " + left + 
 	    " up: " + up + " right: " + right + " down: " + down);
     //moves the player through the map until the left edge is reached
-    if(((dx/8)+0.25)*64 > 0 || Player.X > 1024){
-    	left = false;
-    }
 	if(pLeft){
 		moveMap(37);
 	   }
+    if(((dx/8)+0.25)*64 > 0 || Player.X > 1024){
+    	left = false;
+    }
 
+if(pRight){
+		moveMap(39);
+	   }
     //moves the player through the map until the right edge is reached
     if(((colSize-1+(dx/8))+0.75)*64 < width || Player.X < 1024){
     	right = false;
     }
-if(pRight){
-		moveMap(39);
-	   }
 
     //moves the player through the map until the up edge is reached
     if(((dy/8)+0.25)*64 > 0 || Player.Y > 512){
