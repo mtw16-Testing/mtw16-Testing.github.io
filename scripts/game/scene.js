@@ -318,6 +318,21 @@ function levelHandler(){
 //handles events for when keys are released
 function levelHandler2(){
     var keyCode = event.which || event.keyCode;
+
+	if(keyCode == 37){
+	    pLeft = false;
+	    left = false;
+    }if(keyCode == 38){
+	    pUp = false;
+	    up = false;
+    }if(keyCode == 39){
+	    pRight = false;
+	    right = false;
+    }if(keyCode == 40){
+	    pDown = false;
+	    down = false;
+    }
+	/*
 	switch(keyCode){
 		case 37: //left, stops player from moving left
 			pLeft = false;
@@ -337,7 +352,7 @@ function levelHandler2(){
 			break;
 		default:
 			break;
-	}
+	}*/
 }
 
 //------------------------------Options Menu Option--------------------------------
