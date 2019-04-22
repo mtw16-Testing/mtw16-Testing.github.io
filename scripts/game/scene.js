@@ -191,7 +191,6 @@ console.log("Map dx: " + ((dx/8)+0.25)*64 + " Player.X: " + Player.X + " Player.
     //moves the player through the map until the left edge is reached
     if(((dx/8)+0.25)*64 > 0 || Player.X > 1024){
     	left = false;
-	    el.dispatchEvent(new KeyboardEvent('keypress',{'keyCode':37}));
     }
 
     //moves the player through the map until the right edge is reached
