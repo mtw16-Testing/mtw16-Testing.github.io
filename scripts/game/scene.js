@@ -58,11 +58,13 @@ function Scene(name, map){
                 initOptions();
                 document.onkeydown = optionsHandler;
                 isLevel = false;
+	        drawing = requestAnimationFrame(sceneHandler.drawScene);
                 break;
             case "Save Files":
                 initSaveFile();
                 document.onkeydown = saveFileHandler;
                 isLevel = false;
+		drawing = requestAnimationFrame(sceneHandler.drawScene);
                 break;
             default:
                 break;
@@ -72,6 +74,9 @@ function Scene(name, map){
             var tiles1 = [];
             var tiles2 = [];   
 
+		var image1Loaded = false;
+		var image2Loaded = false;
+		
 	    //creates temporary canvas to draw the map file on so its
 	    //pixel data can be extracted to draw the map
             var canvas = document.createElement('canvas');
@@ -100,11 +105,15 @@ function Scene(name, map){
             
                 map.rowSize = image1.height;
                 map.colSize = image1.width;
+		    
+		image1Loaded = true;
             }
 
 	    //repeats the same process for loading information about the foreground tiles
             image2.onload = function(){
-                canvas.getContext('2d').drawImage(image2,0,0,image1.width,image1.height);
+                while(!image1Loaded){
+		      }
+		canvas.getContext('2d').drawImage(image2,0,0,image1.width,image1.height);
                 pixelData = canvas.getContext('2d').getImageData(0,0,image2.width,image2.height).data;
                 for(var i = 0; i < image2.height; i++){
                    var row = i * image2.width * 4;
@@ -116,6 +125,10 @@ function Scene(name, map){
                 }
                 
                 map.foregroundTiles = tiles2;
+		    
+		image2Loaded = true;
+		
+		drawing = requestAnimationFrame(sceneHandler.drawScene);
             }
             
             //sets default values for the level
@@ -133,7 +146,7 @@ function Scene(name, map){
         }
         
 	//begins game loop
-        drawing = requestAnimationFrame(sceneHandler.drawScene);
+        //drawing = requestAnimationFrame(sceneHandler.drawScene);
     },
     this.draw = function(){
         map.draw();
