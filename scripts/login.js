@@ -14,9 +14,6 @@ function checkLogin(){
 
 //sign up function
 function createUser(){
-    //displays loading message while attempting to connect to the Firebase database
-    var waiting = document.getElementById("waiting");
-    waiting.innerHTML = "Waiting...";
 
     var errorMessage = document.getElementById("error-message");
 
@@ -28,6 +25,9 @@ function createUser(){
     if(!displayName){
         errorMessage.innerHTML = "Display name cannot be blank.";
     }else{
+        //displays loading message while attempting to connect to the Firebase database
+        var waiting = document.getElementById("waiting");
+        waiting.innerHTML = "Waiting...";
 
         //Firebase authorization requires a password to login,
         //so automatically adds a fake email account suffix to every username
