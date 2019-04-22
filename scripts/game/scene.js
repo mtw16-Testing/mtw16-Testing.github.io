@@ -257,7 +257,29 @@ console.log("Map dx: " + ((dx/8)+0.25)*64 + " Player.X: " + Player.X + " Player.
 function levelHandler(){
     var keyCode = event.which || event.keyCode;
    console.log("Key code: " + keyCode);
-    switch(keyCode){        
+	switch(keyCode){        
+        case 27: //escape key, toggles the pause menu
+                mainMenuOn = true;
+                currentOption = 0;
+                options = ["Resume", "Exit"];
+            break;
+        case 32: // space, begins attacking if not already attacking
+	if ( Player.whichAction != "attack" )
+	    Player.attack();
+	    break;    
+	case 37: 
+	case 38:
+	case 39:
+	case 40: //left, moves player left
+            moveMap(keyCode);
+            break;
+        case 70: //f, toggles full screen
+            toggleFullScreen();
+            break;
+        default:
+            break;
+    }
+    /*switch(keyCode){        
         case 27: //escape key, toggles the pause menu
                 mainMenuOn = true;
                 currentOption = 0;
@@ -288,7 +310,7 @@ function levelHandler(){
             break;
         default:
             break;
-    }
+    }*/
 }
 
 //handles events for when keys are released
