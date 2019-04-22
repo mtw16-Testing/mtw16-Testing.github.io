@@ -186,8 +186,6 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
     ctx.clearRect(0,0,width,height);
     drawLoadingScreen();
     
-console.log("Map dx: " + ((dx/8)+0.25)*64 + " Player.X: " + Player.X + " Player.Y: " + Player.Y + " left: " + left + 
-	    " up: " + up + " right: " + right + " down: " + down);
     //moves the player through the map until the left edge is reached
 	if(pLeft){
 		moveMap(37);
@@ -203,12 +201,18 @@ if(pRight){
     if(((colSize-1+(dx/8))+0.75)*64 < width || Player.X < 1024){
     	right = false;
     }
-
+	
+if(pUp){
+		moveMap(38);
+	   }
     //moves the player through the map until the up edge is reached
     if(((dy/8)+0.25)*64 > 0 || Player.Y > 512){
     	up = false;
     }
-
+	
+if(pDown){
+		moveMap(40);
+	   }
     //moves the player through the map until the down edge is reached
     if(((rowSize-1+(dy/8))+0.75)*64 < height || Player.Y < 512){
     	down = false;
@@ -262,7 +266,7 @@ if(pRight){
 //handles events for when keys are pressed down
 function levelHandler(){
     var keyCode = event.which || event.keyCode;
-   console.log("Key code: " + keyCode);
+	
 	switch(keyCode){        
         case 27: //escape key, toggles the pause menu
                 mainMenuOn = true;
@@ -285,38 +289,6 @@ function levelHandler(){
         default:
             break;
     }
-    /*switch(keyCode){        
-        case 27: //escape key, toggles the pause menu
-                mainMenuOn = true;
-                currentOption = 0;
-                options = ["Resume", "Exit"];
-            break;
-        case 32: // space, begins attacking if not already attacking
-	if ( Player.whichAction != "attack" )
-	    Player.attack();
-	    break;    
-        case 37: //left, moves player left
-            pLeft = true;
-	    left = true;
-            break;
-        case 38: //up, moves player up
-            pUp = true;
-	    up = true;
-            break;
-        case 39: //right, moves player right
-            pRight = true;
-	    right = true;
-            break;
-        case 40: //down, moves player down
-            pDown = true;
-	    down = true;
-            break;
-        case 70: //f, toggles full screen
-            toggleFullScreen();
-            break;
-        default:
-            break;
-    }*/
 }
 
 //handles events for when keys are released
