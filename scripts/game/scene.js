@@ -256,31 +256,7 @@ console.log("Map dx: " + ((dx/8)+0.25)*64 + " Player.X: " + Player.X + " Player.
 //handles events for when keys are pressed down
 function levelHandler(){
     var keyCode = event.which || event.keyCode;
-    
-    if(keyCode == 27){
-    	mainMenuOn = true;
-        currentOption = 0;
-        options = ["Resume", "Exit"];
-    }if(keyCode == 32){
-    	if ( Player.whichAction != "attack" ){
-		    Player.attack();
-	}
-    }if(keyCode == 37){
-	    pLeft = true;
-	    left = true;
-    }if(keyCode == 38){
-	    pUp = true;
-	    up = true;
-    }if(keyCode == 39){
-	    pRight = true;
-	    right = true;
-    }if(keyCode == 40){
-	    pDown = true;
-	    down = true;
-    }if(keyCode == 70){
-	    toggleFullScreen();
-    }
-/*	
+   
     switch(keyCode){        
         case 27: //escape key, toggles the pause menu
                 mainMenuOn = true;
@@ -312,27 +288,13 @@ function levelHandler(){
             break;
         default:
             break;
-    }*/
+    }
 }
 
 //handles events for when keys are released
 function levelHandler2(){
     var keyCode = event.which || event.keyCode;
 
-	if(keyCode == 37){
-	    pLeft = false;
-	    left = false;
-    }if(keyCode == 38){
-	    pUp = false;
-	    up = false;
-    }if(keyCode == 39){
-	    pRight = false;
-	    right = false;
-    }if(keyCode == 40){
-	    pDown = false;
-	    down = false;
-    }
-	/*
 	switch(keyCode){
 		case 37: //left, stops player from moving left
 			pLeft = false;
@@ -352,7 +314,7 @@ function levelHandler2(){
 			break;
 		default:
 			break;
-	}*/
+	}
 }
 
 //------------------------------Options Menu Option--------------------------------
