@@ -254,6 +254,31 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
 //handles events for when keys are pressed down
 function levelHandler(){
     var keyCode = event.which || event.keyCode;
+    
+    if(keyCode == 27){
+    	mainMenuOn = true;
+        currentOption = 0;
+        options = ["Resume", "Exit"];
+    }else if(keyCode == 32){
+    	if ( Player.whichAction != "attack" ){
+		    Player.attack();
+	}
+    }else if(keyCode == 37){
+	    pLeft = true;
+	    left = true;
+    }else if(keyCode == 38){
+	    pUp = true;
+	    up = true;
+    }else if(keyCode == 39){
+	    pRight = true;
+	    right = true;
+    }else if(keyCode == 40){
+	    pDown = true;
+	    down = true;
+    }else if(keyCode == 70){
+	    toggleFullScreen();
+    }
+/*	
     switch(keyCode){        
         case 27: //escape key, toggles the pause menu
                 mainMenuOn = true;
@@ -285,7 +310,7 @@ function levelHandler(){
             break;
         default:
             break;
-    }
+    }*/
 }
 
 //handles events for when keys are released
