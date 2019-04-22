@@ -318,6 +318,32 @@ function levelHandler2(){
 	}
 }
 
+function moveMap(direction){
+	switch(direction){
+		case 37: //left, moves player left
+		    pLeft = true;
+		    left = true;
+		    break;
+		case 38: //up, moves player up
+		    pUp = true;
+		    up = true;
+		    break;
+		case 39: //right, moves player right
+		    pRight = true;
+		    right = true;
+		    break;
+		case 40: //down, moves player down
+		    pDown = true;
+		    down = true;
+		    break;
+		case 70: //f, toggles full screen
+		    toggleFullScreen();
+		    break;
+		default:
+		    break;
+	}
+}
+
 //------------------------------Options Menu Option--------------------------------
 function initOptions(){
     options = ["Options Menu", "Press Enter To Exit"];
