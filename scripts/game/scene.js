@@ -261,23 +261,23 @@ function levelHandler(){
     	mainMenuOn = true;
         currentOption = 0;
         options = ["Resume", "Exit"];
-    }else if(keyCode == 32){
+    }if(keyCode == 32){
     	if ( Player.whichAction != "attack" ){
 		    Player.attack();
 	}
-    }else if(keyCode == 37){
+    }if(keyCode == 37){
 	    pLeft = true;
 	    left = true;
-    }else if(keyCode == 38){
+    }if(keyCode == 38){
 	    pUp = true;
 	    up = true;
-    }else if(keyCode == 39){
+    }if(keyCode == 39){
 	    pRight = true;
 	    right = true;
-    }else if(keyCode == 40){
+    }if(keyCode == 40){
 	    pDown = true;
 	    down = true;
-    }else if(keyCode == 70){
+    }if(keyCode == 70){
 	    toggleFullScreen();
     }
 /*	
