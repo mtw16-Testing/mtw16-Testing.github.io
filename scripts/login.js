@@ -23,6 +23,7 @@ function createUser(){
     //gets the values entered in the form for the new user
     var username = document.getElementById("usernameNew").value;
     var password = document.getElementById("passwordNew").value;
+    var displayName = document.getElementById("displayNameNew").value;
     
     //Firebase authorization requires a password to login,
     //so automatically adds a fake email account suffix to every username
@@ -40,7 +41,7 @@ function createUser(){
     }).then( cred => {
         db.collection('Save File').doc(cred.user.uid).set({
             location: "start",
-            name: "Bob",
+            name: displayName,
             time: 0
         });
     });
