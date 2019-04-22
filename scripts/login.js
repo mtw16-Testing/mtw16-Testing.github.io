@@ -25,27 +25,31 @@ function createUser(){
     var password = document.getElementById("passwordNew").value;
     var displayName = document.getElementById("displayNameNew").value;
     
-    //Firebase authorization requires a password to login,
-    //so automatically adds a fake email account suffix to every username
-    username += "@dummy.com";
-    
-    firebase.auth().createUserWithEmailAndPassword(username, password).catch(function(error) {
-        //if an error occured, displays the error message to the user
-        errorMessage.innerHTML = error.message;
-        var formFields = document.getElementsByTagName("input");
-        for(var i = 0; i < formFields.length; i++){
-                formFields[i].className += " form-error";
-        }
-        
-        waiting.innerHTML = "";
-    }).then( cred => {
-        db.collection('Save File').doc(cred.user.uid).set({
-            location: "start",
-            name: displayName,
-            time: 0
-        });
-    });
+    if(!displayName){
+        errorMessage.innerHTML = "Display name cannot be blank.";
+    }else{
 
+        //Firebase authorization requires a password to login,
+        //so automatically adds a fake email account suffix to every username
+        username += "@dummy.com";
+
+        firebase.auth().createUserWithEmailAndPassword(username, password).catch(function(error) {
+            //if an error occured, displays the error message to the user
+            errorMessage.innerHTML = error.message;
+            var formFields = document.getElementsByTagName("input");
+            for(var i = 0; i < formFields.length; i++){
+                    formFields[i].className += " form-error";
+            }
+
+            waiting.innerHTML = "";
+        }).then( cred => {
+            db.collection('Save File').doc(cred.user.uid).set({
+                location: "start",
+                name: displayName,
+                time: 0
+            });
+        });
+    }
 }
 
 //login function
