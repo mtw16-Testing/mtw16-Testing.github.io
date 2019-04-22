@@ -186,7 +186,7 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
     ctx.clearRect(0,0,width,height);
     drawLoadingScreen();
     
-console.log("Map dx: " + ((dx/8)+0.25)*64 + " Player.X: " + Player.X);
+console.log("Map dx: " + ((dx/8)+0.25)*64 + " Player.X: " + Player.X + " left: " + left + " up: " + up);
     //moves the player through the map until the left edge is reached
     if(((dx/8)+0.25)*64 > 0 || Player.X > 1024){
     	left = false;
