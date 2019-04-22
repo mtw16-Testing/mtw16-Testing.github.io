@@ -43,7 +43,7 @@ function createUser(){
 
             waiting.innerHTML = "";
         }).then( cred => {
-            db.collection('Save File').doc(cred.user.uid).set({
+            db.collection('SaveFile').doc(cred.user.uid).set({
                 location: "start",
                 name: displayName,
                 time: 0
