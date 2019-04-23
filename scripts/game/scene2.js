@@ -6,19 +6,6 @@ Player = new initPlayer({
     });
 
 Enemy = new initEnemy({}); 
-basicEnemyAI();
-Villager = new initVillager({});
-
-// Helps Textbox Printing
-printText = 0;
-
-//detects if all images have been loaded in before starting the level
-var isImage1Loaded = false;
-var isImage2Loaded = false;
-var isSpreadsheetLoaded = false;
-
-var image1;
-var image2;
 
 //handles switching between different scenes and drawing from the scene that is loaded in
 function SceneHandler(scene){
@@ -33,63 +20,6 @@ function SceneHandler(scene){
 		cancelAnimationFrame(drawing);
             	showStartMenu();
 	}
-    },
-    this.loadScene = function(){
-   	if(isSpreadsheetLoaded && isImage1Loaded && isImage2Loaded){
-	   isImage1Loaded = false;
-	   isImage2Loaded = false;
-	   isSpreadsheetLoaded = false;
-	   
-	   var tiles1 = [];
-           var tiles2 = [];   
-
-	   //creates temporary canvas to draw the map file on so its
-	   //pixel data can be extracted to draw the map
-           var canvas = document.createElement('canvas');
-
-	   //draws image to hidden canvas
-           canvas.width = image1.width;
-           canvas.height = image1.height;
-           canvas.getContext('2d').drawImage(image1,0,0,image1.width,image1.height);
-
-	   //gets the pixel data of the map file represented as an array where every 4 indexes
-	   //represent the Red, Green, Blue, and Alpha values of a pixel respectively
-	   var pixelData = canvas.getContext('2d').getImageData(0,0,image1.width,image1.height).data;
-
-	   //goes through the pixel array and converts it to a 2d array where each
-	   //entry represents a type of tile that will be drawn to the screen
-	   for(var i = 0; i < image1.height; i++){
-       		    var row = i * image1.width * 4;
-		    var backTiles = [];
-                    for(var j = 0; j < image1.width*4; j += 4){
-                        backTiles.push([pixelData[row+j+1],y=pixelData[row+j+2]]);
-                    }
-                    tiles1.push(backTiles);
-            }
-
-           scene.map.backgroundTiles = tiles1;
-           scene.map.rowSize = image1.height;
-           scene.map.colSize = image1.width;		
-		
-	   canvas.getContext('2d').drawImage(image2,0,0,image1.width,image1.height);
-           pixelData = canvas.getContext('2d').getImageData(0,0,image2.width,image2.height).data;
-           for(var i = 0; i < image2.height; i++){
-               var row = i * image2.width * 4;
-               var foreTiles = [];
-               for(var j = 0; j < image2.width*4; j += 4){
-                   foreTiles.push([pixelData[row+j+1],y=pixelData[row+j+2]]);
-               }
-               tiles2.push(foreTiles);
-           }
-     
-           scene.map.foregroundTiles = tiles2;
-	  
-	   cancelAnimationFrame(drawing);
-			
-           drawing = requestAnimationFrame(sceneHandler.drawScene);
-	}
-	    
-        drawing = requestAnimationFrame(sceneHandler.loadScene);
     }
 }
 
@@ -105,10 +35,8 @@ function Scene(name, map){
         document.onkeydown = null;
         
         var isLevel = true;
-        image1 = new Image();
-        image2 = new Image();
-	    
-    	drawLoadingScreen();
+        var image1 = new Image();
+        var image2 = new Image();
         
         switch(this.name){
             case "Level 1":
@@ -130,7 +58,7 @@ function Scene(name, map){
                 initOptions();
                 document.onkeydown = optionsHandler;
                 isLevel = false;
-		drawing = requestAnimationFrame(sceneHandler.drawScene);
+	        drawing = requestAnimationFrame(sceneHandler.drawScene);
                 break;
             case "Save Files":
                 initSaveFile();
@@ -143,15 +71,65 @@ function Scene(name, map){
         }
 
         if(isLevel){
+            var tiles1 = [];
+            var tiles2 = [];   
+
+		var image1Loaded = false;
+		var image2Loaded = false;
+		
+	    //creates temporary canvas to draw the map file on so its
+	    //pixel data can be extracted to draw the map
+            var canvas = document.createElement('canvas');
+	    image1.onload = function(){
+		//draws image to hidden canvas
+                canvas.width = image1.width;
+                canvas.height = image1.height;
+                canvas.getContext('2d').drawImage(image1,0,0,image1.width,image1.height);
+                
+		//gets the pixel data of the map file represented as an array where every 4 indexes
+		//represent the Red, Green, Blue, and Alpha values of a pixel respectively
+		var pixelData = canvas.getContext('2d').getImageData(0,0,image1.width,image1.height).data;
+                
+		//goes through the pixel array and converts it to a 2d array where each
+		//entry represents a type of tile that will be drawn to the screen
+		for(var i = 0; i < image1.height; i++){
+		    var row = i * image1.width * 4;
+		    var backTiles = [];
+                    for(var j = 0; j < image1.width*4; j += 4){
+                        backTiles.push([pixelData[row+j+1],y=pixelData[row+j+2]]);
+                    }
+                    tiles1.push(backTiles);
+                }
+                
+                map.backgroundTiles = tiles1;
             
-	    image1.onload = function(){		    
-		isImage1Loaded = true;
+                map.rowSize = image1.height;
+                map.colSize = image1.width;
+		    
+		image1Loaded = true;
             }
 
 	    //repeats the same process for loading information about the foreground tiles
             image2.onload = function(){
-	    	isImage2Loaded = true;
-	    }
+                while(!image1Loaded){
+		      }
+		canvas.getContext('2d').drawImage(image2,0,0,image1.width,image1.height);
+                pixelData = canvas.getContext('2d').getImageData(0,0,image2.width,image2.height).data;
+                for(var i = 0; i < image2.height; i++){
+                   var row = i * image2.width * 4;
+                   var foreTiles = [];
+                    for(var j = 0; j < image2.width*4; j += 4){
+                        foreTiles.push([pixelData[row+j+1],y=pixelData[row+j+2]]);
+                    }
+                    tiles2.push(foreTiles);
+                }
+                
+                map.foregroundTiles = tiles2;
+		    
+		image2Loaded = true;
+		
+		drawing = requestAnimationFrame(sceneHandler.drawScene);
+            }
             
             //sets default values for the level
             mainMenuOn = false;
@@ -168,7 +146,6 @@ function Scene(name, map){
         }
         
 	//begins game loop
-	drawing = requestAnimationFrame(sceneHandler.loadScene);
         //drawing = requestAnimationFrame(sceneHandler.drawScene);
     },
     this.draw = function(){
@@ -194,9 +171,6 @@ function Map(name){
 			Player.draw();
 			Player.collisionCheck(Enemy);
 			Enemy.draw();
-			Villager.draw();
-			if ( Villager.drawText == true )
-				drawTextBox(Villager.sentence,printText);
 		}
                 break;
             case "Options":
@@ -214,9 +188,6 @@ function Map(name){
     },
     this.getMap = function(sheetName){
         this.image.src = sheetName;
-	this.image.onload = function(){
-	     isSpreadsheetLoaded = true;
-	};
     }
 }
 
@@ -229,29 +200,33 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
     drawLoadingScreen();
     
     //moves the player through the map until the left edge is reached
-    if ( pLeft ) 
-	    moveMap(37);
+	if(pLeft){
+		moveMap(37);
+	   }
     if(((dx/8)+0.25)*64 > 0 || Player.X > 1024){
     	left = false;
     }
 
+if(pRight){
+		moveMap(39);
+	   }
     //moves the player through the map until the right edge is reached
-    if ( pRight )
-	    moveMap(39);
     if(((colSize-1+(dx/8))+0.75)*64 < width || Player.X < 1024){
     	right = false;
     }
-
+	
+if(pUp){
+		moveMap(38);
+	   }
     //moves the player through the map until the up edge is reached
-    if ( pUp )
-	    moveMap(38);
     if(((dy/8)+0.25)*64 > 0 || Player.Y > 512){
     	up = false;
     }
-
+	
+if(pDown){
+		moveMap(40);
+	   }
     //moves the player through the map until the down edge is reached
-    if ( pDown )
-	    moveMap(40);
     if(((rowSize-1+(dy/8))+0.75)*64 < height || Player.Y < 512){
     	down = false;
     }
@@ -304,7 +279,8 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
 //handles events for when keys are pressed down
 function levelHandler(){
     var keyCode = event.which || event.keyCode;
-    switch(keyCode){        
+	
+	switch(keyCode){        
         case 27: //escape key, toggles the pause menu
                 mainMenuOn = true;
                 currentOption = 0;
@@ -314,19 +290,15 @@ function levelHandler(){
 	if ( Player.whichAction != "attack" )
 	    Player.attack();
 	    break;    
-	case 37:
-        case 38:
-        case 39:
-        case 40:
-	    moveMap(keyCode);
-	    break;
+	case 37: 
+	case 38:
+	case 39:
+	case 40: //left, moves player left
+            moveMap(keyCode);
+            break;
         case 70: //f, toggles full screen
             toggleFullScreen();
             break;
-	case 86: //v
-	    if ( collisionInteraction(Player.iBox[0],Player.iBox[1],Player.iBox[2],Player.iBox[3],Villager.startX+(dx/8)*64,Villager.endX,Villager.startY+(dy/8)*64,Villager.endY) == true )
-		 initTextBox();
-	    break;
         default:
             break;
     }
@@ -335,6 +307,7 @@ function levelHandler(){
 //handles events for when keys are released
 function levelHandler2(){
     var keyCode = event.which || event.keyCode;
+
 	switch(keyCode){
 		case 37: //left, stops player from moving left
 			pLeft = false;
@@ -383,41 +356,6 @@ function moveMap(direction){
 	}
 }
 
-//------------------------------Text Box-------------------------------------------
-function initTextBox() {
-	printText = 0;
-	Villager.drawText = true;
-	document.onkeydown = null;
-	document.onkeyup = null;
-	document.onkeydown = textHandler;		
-}
-
-function drawTextBox(sentence,position) {
-	if ( sentence.length != 0 ) {
-	   ctx.fillStyle = "#FFFFFF";
-	   ctx.fillRect(width*.10,height*.70,width*.80,height*.20);
-	   ctx.font = "60px Sniglet";
-	   ctx.fillStyle = "#000000";
-	   ctx.fillText(sentence.substring(position*30,position*30+30),width*.11,height*.78);
-	if ( sentence.length > position*30+30 )
-	   ctx.fillText(sentence.substring(position*30+30,position*30+60),width*.11,height*(.86));
-	}
-}
-
-function textHandler(event) {
-	var keyCode = event.which || event.keyCode;
-	if ( keyCode == 32 ) {
-	 if ( Villager.sentence.length <= printText*30 + 60 ){
-	   Villager.drawText = false;
-	   document.onkeydown = null;
-	   document.onkeydown = levelHandler;
-	   document.onkeyup = levelHandler2;
-	 }
-	 else 
-	 printText+=2;
-	}
-}
-	
 //------------------------------Options Menu Option--------------------------------
 function initOptions(){
     options = ["Options Menu", "Press Enter To Exit"];
@@ -427,6 +365,7 @@ function initOptions(){
 
 function drawOptionsScreen(){
     ctx.clearRect(0,0,width,height);
+    drawLoadingScreen();
     
     ctx.drawImage(background, 0, 0, width, height);
 
@@ -464,6 +403,7 @@ function initSaveFile(){
 
 function drawSaveFileScreen(){
     ctx.clearRect(0,0,width,height);
+    drawLoadingScreen();
     ctx.drawImage(background, 0, 0, width, height);
 
     ctx.fillStyle = "white";
