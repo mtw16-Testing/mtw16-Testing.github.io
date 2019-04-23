@@ -29,12 +29,16 @@ function SaveFile(data){
 
 var saveFile1;
 
+var gameIActive = false;
+
 //handles switching between different scenes and drawing from the scene that is loaded in
 function SceneHandler(scene){
     this.scene = scene,
     this.drawScene = function(){
-        scene.draw();
         drawing = requestAnimationFrame(sceneHandler.drawScene);
+        scene.draw();
+	//if(){
+        //drawing = requestAnimationFrame(sceneHandler.drawScene);
 	    
 	//ends game if the player is dead
 	if(Player.death){
@@ -110,6 +114,7 @@ function Scene(name, map){
         this.name = name;
         this.map.name = name;
 	    
+	gameIsActive = true;
 	//removes any keyboard input handler that is currently active
         document.onkeydown = null;
         
@@ -452,6 +457,7 @@ function optionsHandler(event){
     switch(keyCode){
         case 13:
     	    document.onkeydown = null;
+	    gameIsActive = false;
             cancelAnimationFrame(drawing);
             showStartMenu();
             break;
@@ -513,6 +519,7 @@ function saveFileHandler(){
         case 13:
             if(currentOption == options.length - 1){
     	    	document.onkeydown = null;
+	    	gameIsActive = false;
                 cancelAnimationFrame(drawing);    
                 showStartMenu();
             }else{
