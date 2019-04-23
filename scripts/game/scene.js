@@ -30,7 +30,7 @@ function SceneHandler(scene){
 	}
     },
     this.loadScene = function(){
-    
+    	drawLoadingScreen();
 	if(isSpreadsheetLoaded && isImage1Loaded && isImage2Loaded){
 	   isImage1Loaded = false;
 	   isImage2Loaded = false;
@@ -216,7 +216,6 @@ var left = false, up = false, right = false, down = false;
 var pLeft = false, pRight = false, pDown = false, pUp = false
 function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
     ctx.clearRect(0,0,width,height);
-    drawLoadingScreen();
     
     //moves the player through the map until the left edge is reached
 	if(pLeft){
