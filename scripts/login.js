@@ -10,15 +10,9 @@ function checkLogin(){
             showStartMenu();
             
             alert("In");
-            db.collection("SaveFile").get().then(snapshot => {
-                   alert("Here");
-                //snapshot.docs.forEach(doc => {
-                //    alert(doc.data().name);
-                //});
-            }).catch(function(error) {
-            //if an error occured, displays the error message to the user
-                alert(error.message);
-        });
+            db.collection('SaveFile').doc(cred.user.uid).get().then(snapshot=> {
+                alert("Here");
+            });
         }
       });
 }
