@@ -23,7 +23,8 @@ var image2;
 //Save File information
 function SaveFile(data){
 	this.name = data.name,
-	this.location = data.location
+	this.location = data.location,
+	this.time = data.time
 }
 
 var saveFile1;
@@ -464,7 +465,8 @@ function optionsHandler(event){
 
 //--------------------------------Save Menu Option---------------------------------
 function initSaveFile(){
-    options = ["1. " + saveFile1.name + " - " + saveFile1.location, "Save File 2", "Save File 3", "Exit"];
+    options = ["1. " + saveFile1.name + " - Location: " + saveFile1.location + " " + saveFile1.time + ":00", "Exit"];
+    //options = ["1. " + saveFile1.name + " - " + saveFile1.location, "Save File 2", "Save File 3", "Exit"];
     currentOption = 0;
     
     background.src= "images/backgrounds/SaveMenuBackground.png";
