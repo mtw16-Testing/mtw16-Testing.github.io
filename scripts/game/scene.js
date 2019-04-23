@@ -1,5 +1,6 @@
 var isImage1Loaded = false;
 var isImage2Loaded = false;
+var isSpreadsheetLoaded = false;
 //loads the player in at the middle of the screen 
 Player = new initPlayer({
        X: 1024,
@@ -22,6 +23,21 @@ function SceneHandler(scene){
 		cancelAnimationFrame(drawing);
             	showStartMenu();
 	}
+    },
+    this.loadScene = function(){
+    
+	if(isSpreadsheetLoaded && isImage1Loaded && isImage2Loaded){
+	   isImage1Loaded = false;
+	   isImage2Loaded = false;
+	   isSpreadsheetLoaded = false;
+		
+	   
+	   cancelAnimationFrame(drawing);
+			
+           drawing = requestAnimationFrame(sceneHandler.drawScene);
+	}
+	    
+        drawing = requestAnimationFrame(sceneHandler.loadScene);
     }
 }
 
@@ -107,11 +123,11 @@ function Scene(name, map){
 		    
 		isImage1Loaded = true;
 		    
-		if(isImage1Loaded && isImage2Loaded){
+		/*if(isImage1Loaded && isImage2Loaded){
 			drawing = requestAnimationFrame(sceneHandler.drawScene);
 			isImage1Loaded = false;
 			isImage2Loaded = false;
-		}
+		}*/
             }
 
 	    //repeats the same process for loading information about the foreground tiles
@@ -131,11 +147,11 @@ function Scene(name, map){
 		    
 		isImage2Loaded = true;
 		    
-		if(isImage1Loaded && isImage2Loaded){
+		/*if(isImage1Loaded && isImage2Loaded){
 			drawing = requestAnimationFrame(sceneHandler.drawScene);
 			isImage1Loaded = false;
 			isImage2Loaded = false;
-		}
+		}*/
             }
             
             //sets default values for the level
@@ -153,6 +169,7 @@ function Scene(name, map){
         }
         
 	//begins game loop
+	drawing = requestAnimationFrame(sceneHandler.loadScene);
         //drawing = requestAnimationFrame(sceneHandler.drawScene);
     },
     this.draw = function(){
@@ -195,6 +212,9 @@ function Map(name){
     },
     this.getMap = function(sheetName){
         this.image.src = sheetName;
+	this.image.onload = function(){
+		isSpreadsheetLoaded = true;
+	};
     }
 }
 
