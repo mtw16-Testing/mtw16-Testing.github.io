@@ -39,8 +39,8 @@ function basicEnemyAI() {
 	if ( Player.standUp > Enemy.Y + (dy/8)*64)
 		Enemy.Y+=2;
 	
-	if ( Enemy.death == false )
+	//if ( Enemy.death == false )
 		//enemyAnimation = requestAnimationFrame(basicEnemyAI);
-	else		
+	//else		
     		//cancelAnimationFrame(enemyAnimation);
 }
