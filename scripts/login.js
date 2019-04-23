@@ -9,12 +9,16 @@ function checkLogin(){
             document.getElementById("error-message").innerHTML = "";
             showStartMenu();
             
+            alert("In");
             db.collection("SaveFile").get().then(snapshot => {
                    alert("Here");
                 //snapshot.docs.forEach(doc => {
                 //    alert(doc.data().name);
                 //});
-            });
+            }).catch(function(error) {
+            //if an error occured, displays the error message to the user
+                alert(error.message);
+        });
         }
       });
 }
