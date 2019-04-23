@@ -1,6 +1,10 @@
 var isImage1Loaded = false;
 var isImage2Loaded = false;
 var isSpreadsheetLoaded = false;
+
+var image1;
+var image2;
+
 //loads the player in at the middle of the screen 
 Player = new initPlayer({
        X: 1024,
@@ -97,8 +101,8 @@ function Scene(name, map){
         document.onkeydown = null;
         
         var isLevel = true;
-        var image1 = new Image();
-        var image2 = new Image();
+        image1 = new Image();
+        image2 = new Image();
         
         switch(this.name){
             case "Level 1":
