@@ -9,9 +9,8 @@ function checkLogin(){
             document.getElementById("error-message").innerHTML = "";
             showStartMenu();
             
-            alert("In");
             db.collection('SaveFile').doc(user.uid).get().then(doc=> {
-                alert("Here: " + doc.data().name);
+                //alert("Here: " + doc.data().name);
             }).catch(function(error) {
                 alert(error.message);
             });
