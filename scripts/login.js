@@ -44,7 +44,13 @@ function createUser(){
                     formFields[i].className += " form-error";
             }
             
-        waiting.innerHTML = "";
+            waiting.innerHTML = "";
+        }).then( cred => {
+            db.collection('SaveFile').doc(cred.user.uid).set({
+                location: "start",
+                name: displayName,
+                time: 0
+            });
         });
     }
 
