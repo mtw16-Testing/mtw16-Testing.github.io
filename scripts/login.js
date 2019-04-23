@@ -10,8 +10,8 @@ function checkLogin(){
             showStartMenu();
             
             alert("In");
-            db.collection('SaveFile').doc(user.uid).get().then(snapshot=> {
-                alert("Here");
+            db.collection('SaveFile').doc(user.uid).get().then(doc=> {
+                alert("Here: " + doc.data().name);
             }).catch(function(error) {
                 alert(error.message);
             });
