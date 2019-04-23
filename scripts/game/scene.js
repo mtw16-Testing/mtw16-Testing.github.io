@@ -478,10 +478,10 @@ function drawSaveFileScreen(){
 
 ctx.textAlign = "center"; 
     ctx.fillStyle = "white";
-    ctx.font = "bold 100px Sniglet";
+    ctx.font = "bold 120px Sniglet";
     ctx.fillText("Save Files", width / 2, 200);
     ctx.strokeStyle = "black";
-    ctx.lineWidth = 5;
+    ctx.lineWidth = 2;
     ctx.strokeText("Save Files", width / 2, 200);
 	
 	
