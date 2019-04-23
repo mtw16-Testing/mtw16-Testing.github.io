@@ -11,9 +11,9 @@ function checkLogin(){
             
             db.collection("SaveFile").get().then(snapshot => {
                    alert("Here");
-                snapshot.docs.forEach(doc => {
-                    alert(doc.data().name);
-                });
+                //snapshot.docs.forEach(doc => {
+                //    alert(doc.data().name);
+                //});
             });
         }
       });
