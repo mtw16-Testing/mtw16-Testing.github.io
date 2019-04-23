@@ -480,7 +480,11 @@ ctx.textAlign = "center";
     ctx.fillStyle = "white";
     ctx.font = "100px Sniglet";
     ctx.fillText("Save Files", width / 2, 200);
-    
+    ctx.strokeStyle = "black";
+    ctx.lineWidth = 10;
+    ctx.strokeText("Save Files", width / 2, 200);
+	
+	
     ctx.font = "60px Sniglet";
     for(var i = 0; i < options.length-1; i++){
         if(i == currentOption){
