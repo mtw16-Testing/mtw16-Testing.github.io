@@ -20,6 +20,14 @@ var isSpreadsheetLoaded = false;
 var image1;
 var image2;
 
+//Save File information
+function SaveFile(data){
+	this.name = data.name,
+	this.location = data.location
+}
+
+var saveFile1;
+
 //handles switching between different scenes and drawing from the scene that is loaded in
 function SceneHandler(scene){
     this.scene = scene,
@@ -456,7 +464,7 @@ function optionsHandler(event){
 
 //--------------------------------Save Menu Option---------------------------------
 function initSaveFile(){
-    options = ["Save File 1", "Save File 2", "Save File 3", "Exit"];
+    options = ["1. " + saveFile1.name + " - " + saveFile1.location, "Save File 2", "Save File 3", "Exit"];
     currentOption = 0;
     
     background.src= "images/backgrounds/SaveMenuBackground.png";
