@@ -31,7 +31,51 @@ function SceneHandler(scene){
 	   isImage2Loaded = false;
 	   isSpreadsheetLoaded = false;
 		
+           var tiles1 = [];
+           var tiles2 = [];   
 	   
+	   //creates temporary canvas to draw the map file on so its
+	   //pixel data can be extracted to draw the map
+           var canvas = document.createElement('canvas');
+	   
+	   //draws image to hidden canvas
+           canvas.width = image1.width;
+           canvas.height = image1.height;
+           canvas.getContext('2d').drawImage(image1,0,0,image1.width,image1.height);
+                
+	   //gets the pixel data of the map file represented as an array where every 4 indexes
+	   //represent the Red, Green, Blue, and Alpha values of a pixel respectively
+	   var pixelData = canvas.getContext('2d').getImageData(0,0,image1.width,image1.height).data;
+                
+	   //goes through the pixel array and converts it to a 2d array where each
+	   //entry represents a type of tile that will be drawn to the screen
+	   for(var i = 0; i < image1.height; i++){
+       		    var row = i * image1.width * 4;
+		    var backTiles = [];
+                    for(var j = 0; j < image1.width*4; j += 4){
+                        backTiles.push([pixelData[row+j+1],y=pixelData[row+j+2]]);
+                    }
+                    tiles1.push(backTiles);
+                }
+                
+           map.backgroundTiles = tiles1;
+            
+           map.rowSize = image1.height;
+           map.colSize = image1.width;
+		
+	   canvas.getContext('2d').drawImage(image2,0,0,image1.width,image1.height);
+           pixelData = canvas.getContext('2d').getImageData(0,0,image2.width,image2.height).data;
+           for(var i = 0; i < image2.height; i++){
+               var row = i * image2.width * 4;
+               var foreTiles = [];
+               for(var j = 0; j < image2.width*4; j += 4){
+                   foreTiles.push([pixelData[row+j+1],y=pixelData[row+j+2]]);
+               }
+               tiles2.push(foreTiles);
+           }
+                
+           map.foregroundTiles = tiles2;
+	  
 	   cancelAnimationFrame(drawing);
 			
            drawing = requestAnimationFrame(sceneHandler.drawScene);
@@ -89,69 +133,13 @@ function Scene(name, map){
         }
 
         if(isLevel){
-            var tiles1 = [];
-            var tiles2 = [];   
 		
-	    //creates temporary canvas to draw the map file on so its
-	    //pixel data can be extracted to draw the map
-            var canvas = document.createElement('canvas');
 	    image1.onload = function(){
-		//draws image to hidden canvas
-                canvas.width = image1.width;
-                canvas.height = image1.height;
-                canvas.getContext('2d').drawImage(image1,0,0,image1.width,image1.height);
-                
-		//gets the pixel data of the map file represented as an array where every 4 indexes
-		//represent the Red, Green, Blue, and Alpha values of a pixel respectively
-		var pixelData = canvas.getContext('2d').getImageData(0,0,image1.width,image1.height).data;
-                
-		//goes through the pixel array and converts it to a 2d array where each
-		//entry represents a type of tile that will be drawn to the screen
-		for(var i = 0; i < image1.height; i++){
-		    var row = i * image1.width * 4;
-		    var backTiles = [];
-                    for(var j = 0; j < image1.width*4; j += 4){
-                        backTiles.push([pixelData[row+j+1],y=pixelData[row+j+2]]);
-                    }
-                    tiles1.push(backTiles);
-                }
-                
-                map.backgroundTiles = tiles1;
-            
-                map.rowSize = image1.height;
-                map.colSize = image1.width;
-		    
 		isImage1Loaded = true;
-		    
-		/*if(isImage1Loaded && isImage2Loaded){
-			drawing = requestAnimationFrame(sceneHandler.drawScene);
-			isImage1Loaded = false;
-			isImage2Loaded = false;
-		}*/
             }
 
-	    //repeats the same process for loading information about the foreground tiles
             image2.onload = function(){
-		canvas.getContext('2d').drawImage(image2,0,0,image1.width,image1.height);
-                pixelData = canvas.getContext('2d').getImageData(0,0,image2.width,image2.height).data;
-                for(var i = 0; i < image2.height; i++){
-                   var row = i * image2.width * 4;
-                   var foreTiles = [];
-                    for(var j = 0; j < image2.width*4; j += 4){
-                        foreTiles.push([pixelData[row+j+1],y=pixelData[row+j+2]]);
-                    }
-                    tiles2.push(foreTiles);
-                }
-                
-                map.foregroundTiles = tiles2;
-		    
 		isImage2Loaded = true;
-		    
-		/*if(isImage1Loaded && isImage2Loaded){
-			drawing = requestAnimationFrame(sceneHandler.drawScene);
-			isImage1Loaded = false;
-			isImage2Loaded = false;
-		}*/
             }
             
             //sets default values for the level
