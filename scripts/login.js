@@ -10,7 +10,7 @@ function checkLogin(){
             showStartMenu();
             
             alert("In");
-            db.collection('SaveFile').doc(cred.user.uid).get().then(snapshot=> {
+            db.collection('SaveFile').doc(user.uid).get().then(snapshot=> {
                 alert("Here");
             });
         }
