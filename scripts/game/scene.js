@@ -451,6 +451,7 @@ function optionsHandler(event){
     var keyCode = event.which || event.keyCode;
     switch(keyCode){
         case 13:
+    	    document.onkeydown = null;
             cancelAnimationFrame(drawing);
             showStartMenu();
             break;
@@ -511,6 +512,7 @@ function saveFileHandler(){
     switch(keyCode){
         case 13:
             if(currentOption == options.length - 1){
+    	    	document.onkeydown = null;
                 cancelAnimationFrame(drawing);    
                 showStartMenu();
             }else{
