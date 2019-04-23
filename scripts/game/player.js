@@ -96,7 +96,7 @@ function initPlayer(options) {
 	
 	that.collisionCheck = function(Enemy) {
 		// Check X collision
-		if (!Player.isDamaged that.standRight >= Enemy.X+((dx/8)*64) && that.standLeft <= Enemy.X+((dx/8)*64)+Enemy.lengthX && Enemy.death == false ) {
+		if (!Player.isDamaged && that.standRight >= Enemy.X+((dx/8)*64) && that.standLeft <= Enemy.X+((dx/8)*64)+Enemy.lengthX && Enemy.death == false ) {
 			// Check Y collision
 			if ( that.standDown >= Enemy.Y+((dy/8)*64) && that.standUp <= Enemy.Y + ((dy/8)*64) + Enemy.lengthY) {
 				Player.health -= 20;
