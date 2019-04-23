@@ -10,6 +10,7 @@ function checkLogin(){
             showStartMenu();
             
             db.collection("SaveFile").get().then(snapshot => {
+                   alert("Here");
                 snapshot.docs.forEach(doc => {
                     alert(doc.data().name);
                 });
