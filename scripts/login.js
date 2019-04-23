@@ -8,6 +8,12 @@ function checkLogin(){
             document.getElementById("waiting").innerHTML = "";
             document.getElementById("error-message").innerHTML = "";
             showStartMenu();
+            
+            db.collection("SaveFile").get().then(snapshot => {
+                snapshot.docs.forEach(doc => {
+                    alert(doc.data().name);
+                });
+            });
         }
       });
 }
