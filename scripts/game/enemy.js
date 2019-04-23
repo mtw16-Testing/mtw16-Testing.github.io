@@ -40,7 +40,7 @@ function basicEnemyAI() {
 		Enemy.Y+=2;
 	
 	if ( Enemy.death == false )
-		enemyAnimation = requestAnimationFrame(basicEnemyAI);
+		//enemyAnimation = requestAnimationFrame(basicEnemyAI);
 	else		
-    		cancelAnimationFrame(enemyAnimation);
+    		//cancelAnimationFrame(enemyAnimation);
 }
