@@ -12,6 +12,8 @@ function checkLogin(){
             alert("In");
             db.collection('SaveFile').doc(user.uid).get().then(snapshot=> {
                 alert("Here");
+            }).catch(function(error) {
+                alert(error.message);
             });
         }
       });
