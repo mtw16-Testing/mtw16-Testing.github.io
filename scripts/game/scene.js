@@ -476,9 +476,10 @@ function drawSaveFileScreen(){
     ctx.clearRect(0,0,width,height);
     ctx.drawImage(background, 0, 0, width, height);
 
+ctx.textAlign = "center"; 
     ctx.fillStyle = "white";
     ctx.font = "100px Sniglet";
-    ctx.fillText("Save Files", width / 2 - 200, 200);
+    ctx.fillText("Save Files", width / 2, 200);
     
     ctx.font = "60px Sniglet";
     for(var i = 0; i < options.length-1; i++){
@@ -488,7 +489,7 @@ function drawSaveFileScreen(){
             ctx.fillStyle = "white";
         }
 
-        ctx.fillText(options[i], width / 2 - 500, 450+i*100);
+        ctx.fillText(options[i], width / 2, 450+i*100);
     }
     
     if(options.length - 1 == currentOption){
@@ -497,6 +498,8 @@ function drawSaveFileScreen(){
         ctx.fillStyle = "white";
     }
     ctx.fillText(options[options.length-1], width / 2 - 50, 800);
+	
+ctx.textAlign = "start"; 
 }
 
 function saveFileHandler(){
