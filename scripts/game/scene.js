@@ -30,7 +30,6 @@ function SceneHandler(scene){
 	}
     },
     this.loadScene = function(){
-    	drawLoadingScreen();
 	if(isSpreadsheetLoaded && isImage1Loaded && isImage2Loaded){
 	   isImage1Loaded = false;
 	   isImage2Loaded = false;
@@ -103,6 +102,8 @@ function Scene(name, map){
         var isLevel = true;
         image1 = new Image();
         image2 = new Image();
+	    
+    	drawLoadingScreen();
         
         switch(this.name){
             case "Level 1":
