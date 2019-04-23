@@ -5,10 +5,7 @@ var isSpreadsheetLoaded = false;
 var image1;
 var image2;
 
-		
-//var tiles1 = [];
-//var tiles2 = [];   
-
+	
 //loads the player in at the middle of the screen 
 Player = new initPlayer({
        X: 1024,
@@ -17,33 +14,6 @@ Player = new initPlayer({
     });
 
 Enemy = new initEnemy({}); 
-
-/*
-function loadLevel(image, tiles, map){	
-	   //creates temporary canvas to draw the map file on so its
-	   //pixel data can be extracted to draw the map
-           var canvas = document.createElement('canvas');
-	   
-	   //draws image to hidden canvas
-           canvas.width = image.width;
-           canvas.height = image.height;
-           canvas.getContext('2d').drawImage(image,0,0,image.width,image.height);
-                
-	   //gets the pixel data of the map file represented as an array where every 4 indexes
-	   //represent the Red, Green, Blue, and Alpha values of a pixel respectively
-	   var pixelData = canvas.getContext('2d').getImageData(0,0,image.width,image.height).data;
-                
-	   //goes through the pixel array and converts it to a 2d array where each
-	   //entry represents a type of tile that will be drawn to the screen
-	   for(var i = 0; i < image.height; i++){
-       		    var row = i * image.width * 4;
-		    var backTiles = [];
-                    for(var j = 0; j < image1.width*4; j += 4){
-                        backTiles.push([pixelData[row+j+1],y=pixelData[row+j+2]]);
-                    }
-                    tiles.push(backTiles);
-           }		
-}*/
 
 //handles switching between different scenes and drawing from the scene that is loaded in
 function SceneHandler(scene){
@@ -93,12 +63,10 @@ function SceneHandler(scene){
                     tiles1.push(backTiles);
             }
 
-	   //loadLevel(image1, tiles1, scene.map);
            scene.map.backgroundTiles = tiles1;
            scene.map.rowSize = image1.height;
            scene.map.colSize = image1.width;		
 		
-	   //loadLevel(image2, tiles2, scene.map);
 	   canvas.getContext('2d').drawImage(image2,0,0,image1.width,image1.height);
            pixelData = canvas.getContext('2d').getImageData(0,0,image2.width,image2.height).data;
            for(var i = 0; i < image2.height; i++){
