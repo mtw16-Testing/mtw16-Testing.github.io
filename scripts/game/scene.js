@@ -62,10 +62,10 @@ function SceneHandler(scene){
                     tiles1.push(backTiles);
                 }
                 
-           map.backgroundTiles = tiles1;
+           this.scene.map.backgroundTiles = tiles1;
             
-           map.rowSize = image1.height;
-           map.colSize = image1.width;
+           this.scene.map.rowSize = image1.height;
+           this.scene.map.colSize = image1.width;
 		
 	   canvas.getContext('2d').drawImage(image2,0,0,image1.width,image1.height);
            pixelData = canvas.getContext('2d').getImageData(0,0,image2.width,image2.height).data;
@@ -78,7 +78,7 @@ function SceneHandler(scene){
                tiles2.push(foreTiles);
            }
                 
-           map.foregroundTiles = tiles2;
+           this.scene.map.foregroundTiles = tiles2;
 	  
 	   cancelAnimationFrame(drawing);
 			
