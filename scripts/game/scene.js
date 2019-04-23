@@ -384,7 +384,6 @@ function initOptions(){
 
 function drawOptionsScreen(){
     ctx.clearRect(0,0,width,height);
-    drawLoadingScreen();
     
     ctx.drawImage(background, 0, 0, width, height);
 
@@ -422,7 +421,6 @@ function initSaveFile(){
 
 function drawSaveFileScreen(){
     ctx.clearRect(0,0,width,height);
-    drawLoadingScreen();
     ctx.drawImage(background, 0, 0, width, height);
 
     ctx.fillStyle = "white";
