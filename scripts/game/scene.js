@@ -348,7 +348,7 @@ function levelHandler(){
             toggleFullScreen();
             break;
 	case 86: //v
-	    if ( collisionInteraction(Player.iBox[0],Player.iBox[1],Player.iBox[2],Player.iBox[3],Villager.startX+(dx/8)*64,Villager.endX,Villager.startY+(dy/8)*64,Villager.endY) == true )
+	    if ( collisionInteraction(Player.iBox[0],Player.iBox[1],Player.iBox[2],Player.iBox[3],Villager.startX+(dx/8)*64,Villager.endX,Villager.startY+(dy/8)*64,Villager.endY) != -1 )
 		 initTextBox();
 	    break;
         default:
@@ -561,11 +561,14 @@ function drawLoadingScreen(){
 function generalCollision() {
 	for (var i = 0; i < bounds.length; i++ ) {
 		console.log(bounds[i]);
-		if ( collisionInteraction(Player.standLeft,Player.standRight,Player.standUp,Player.standDown,
-				bounds[i].startX+(dx/8)*64,bounds[i].endX,bounds[i].startY+(dy/8)*64,bounds[i].endY) == true ) {
-			
-			Player.X = (bounds[i].startX+(dx/8)*64) - 1;
-			Player.Y = (bounds[i].startY+(dy/8)*64) - 1;
+		var hit = collisionInteraction(Player.standLeft,Player.standRight,Player.standUp,Player.standDown,
+				bounds[i].startX+(dx/8)*64,bounds[i].endX,bounds[i].startY+(dy/8)*64,bounds[i].endY);
+		if ( hit != -1 ) {
+			if(hit == 1){
+				Player.X -= 2;
+			}else if(hit == 2){
+				Player.y -= 2;
+			}
 			pLeft = false;
 			pRight = false;
 			pUp = false;
