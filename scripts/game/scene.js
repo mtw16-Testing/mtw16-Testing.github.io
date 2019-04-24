@@ -560,7 +560,6 @@ function drawLoadingScreen(){
 
 function generalCollision() {
 	for (var i = 0; i < bounds.length; i++ ) {
-		console.log(bounds[i]);
 		var hit = collisionInteraction(Player.standLeft,Player.standRight,Player.standUp,Player.standDown,
 				bounds[i].startX+(dx/8)*64,bounds[i].endX,bounds[i].startY+(dy/8)*64,bounds[i].endY);
 		if ( hit != -1 ) {
@@ -581,7 +580,6 @@ function generalCollision() {
 			right = false;
 			up = false;
 			down = false;
-			console.log("collision");
 			break;
 		}
 	}
