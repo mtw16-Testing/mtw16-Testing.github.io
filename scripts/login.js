@@ -21,10 +21,6 @@ function checkLogin(){
 
 //sign up function
 function createUser(){
-    //displays loading message while attempting to connect to the Firebase database
-    var waiting = document.getElementById("waiting");
-    waiting.innerHTML = "Waiting...";
-
     var errorMessage = document.getElementById("error-message");
 
     //gets the values entered in the form for the new user
