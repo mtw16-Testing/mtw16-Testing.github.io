@@ -564,6 +564,8 @@ function generalCollision() {
 		if ( collisionInteraction(Player.standLeft,Player.standRight,Player.standUp,Player.standDown,
 				bounds[i].startX+(dx/8)*64,bounds[i].endX,bounds[i].startY+(dy/8)*64,bounds[i].endY) == true ) {
 			
+			Player.X = (bounds[i].startX+(dx/8)*64) - 1;
+			Player.Y = (bounds[i].startY+(dy/8)*64) - 1;
 			pLeft = false;
 			pRight = false;
 			pUp = false;
