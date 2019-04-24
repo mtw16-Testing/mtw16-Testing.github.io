@@ -562,7 +562,7 @@ function generalCollision() {
 	for (var i = 0; i < bounds.length; i++ ) {
 		console.log(bounds[i]);
 		if ( collisionInteraction(Player.standLeft,Player.standRight,Player.standUp,Player.standDown,
-				bounds[i].startX+(dx/8)*64,bounds[i].endX,bounds[i].y1+(dy/8)*64,bounds[i].endY) == true ) {
+				bounds[i].startX+(dx/8)*64,bounds[i].endX,bounds[i].startY+(dy/8)*64,bounds[i].endY) == true ) {
 			
 			pLeft = false;
 			pRight = false;
