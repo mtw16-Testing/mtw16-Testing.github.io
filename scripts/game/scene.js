@@ -411,11 +411,11 @@ function levelHandler2(){
 function moveMap(direction){
     	var collision = generalCollision();
 	console.log("move map: " + collision);
-	//collision[0] => upper left corner
-	//collision[1] => upper right corner
-	//collision[2] => bottom left corner
-	//collision[3] => bottom right corner
-	if(direction == 37){// && collision[0] != 1 && collision[0]){
+	//collision[0] => upper right corner
+	//collision[1] => upper leftt corner
+	//collision[2] => bottom right corner
+	//collision[3] => bottom leftt corner
+	if(direction == 37 && collision[0] != 1 && collision[2] != 1){
 		pLeft = true;
 		left = true;
 	}else if(direction == 38 ){//&& collision != 3){
