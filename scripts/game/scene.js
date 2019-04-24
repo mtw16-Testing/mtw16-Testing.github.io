@@ -100,6 +100,7 @@ function SceneHandler(scene){
 	  
 	   cancelAnimationFrame(drawing);
 			
+	console.log("Here");
            drawing = requestAnimationFrame(sceneHandler.drawScene);
 	}
 	    
@@ -300,7 +301,7 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
 	dy--;
     }
 	
-console.log("dx: " + dx + " dy: " + dy);
+//console.log("dx: " + dx + " dy: " + dy);
 	
     var xPos = 0, yPos = 0; 
     for(var i = 0; i < rowSize; i++){
@@ -567,10 +568,10 @@ function generalCollision() {
 		if ( hit != -1 ) {
 			if(hit == 1){
 				console.log("Left side");
-				//Player.X -= 2;
+				Player.Y -= 2;
 			}else if(hit == 2){
 				console.log("Up side");
-				//Player.Y -= 2;
+				Player.X -= 2;
 			}else if(hit == 3){
 				console.log("Right side");
 				//Player.X += 2;
