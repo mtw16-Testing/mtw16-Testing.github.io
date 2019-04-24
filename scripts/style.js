@@ -24,7 +24,7 @@ function showSignUp(){
 
     var formFields = document.getElementsByTagName("input");
     for(var i = 0; i < formFields.length; i++){
-        formFields[i].className = "form-row";
+        formFields[i].className = "";
     }
     
     var signupLink = document.getElementById("signup-link");
