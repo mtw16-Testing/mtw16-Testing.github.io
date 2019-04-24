@@ -386,19 +386,19 @@ function levelHandler2(){
 function moveMap(direction){
     	var collision = generalCollision();
 	switch(direction){
-		case 37 && collision != 2: //left, moves player left
+		case 37: //left, moves player left
 		    pLeft = true;
 		    left = true;
 		    break;
-		case 38 && collision != 1: //up, moves player up
+		case 38: //up, moves player up
 		    pUp = true;
 		    up = true;
 		    break;
-		case 39: //right, moves player right
+		case 39 && collision != 2: //right, moves player right
 		    pRight = true;
 		    right = true;
 		    break;
-		case 40: //down, moves player down
+		case 40 && collision != 1: //down, moves player down
 		    pDown = true;
 		    down = true;
 		    break;
