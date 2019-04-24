@@ -411,16 +411,20 @@ function levelHandler2(){
 function moveMap(direction){
     	var collision = generalCollision();
 	console.log("move map: " + collision);
-	if(direction == 37 && collision != 1){
+	//collision[0] => upper left corner
+	//collision[1] => upper right corner
+	//collision[2] => bottom left corner
+	//collision[3] => bottom right corner
+	if(direction == 37){// && collision[0] != 1 && collision[0]){
 		pLeft = true;
 		left = true;
-	}else if(direction == 38 && collision != 3){
+	}else if(direction == 38 ){//&& collision != 3){
 		pUp = true;
 		up = true;
-	}else if(direction == 39 && collision != 2){
+	}else if(direction == 39){// && collision != 2){
 		pRight = true;
 		right = true;
-	}else if(direction == 40 && collision != 4){
+	}else if(direction == 40){// && collision != 4){
 		pDown = true;
 		down = true;
 	}
@@ -605,7 +609,8 @@ function generalCollision() {
 	for (var i = 0; i < bounds.length; i++ ) {
 		hit = collisionInteraction(Player.standLeft,Player.standRight,Player.standUp,Player.standDown,
 				bounds[i].startX+(dx/8)*64,bounds[i].endX,bounds[i].startY+(dy/8)*64,bounds[i].endY);
-		if ( hit != -1 ) {
+		var isEmpty = hit[0] + hit[1] + hit[2] + hit[3];
+		if ( isEmpty != 0) {
 			/*if(hit == 1){
 				console.log("Left side");
 				Player.Y -= 2;
@@ -627,7 +632,7 @@ function generalCollision() {
 			right = false;
 			up = false;
 			down = false;
-			console.log(hit)
+			console.log("0: " + hit[0] + " 1: " + hit[1] + " 2: " + hit[2] + " 3: " + hit[3])
 			return hit;
 		}
 	}
