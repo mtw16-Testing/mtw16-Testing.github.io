@@ -300,7 +300,7 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
 	dy--;
     }
 	
-console.log("dx: " + dx + " dy: " dy);
+console.log("dx: " + dx + " dy: " + dy);
 	
     var xPos = 0, yPos = 0; 
     for(var i = 0; i < rowSize; i++){
