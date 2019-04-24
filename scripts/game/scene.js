@@ -567,7 +567,11 @@ function generalCollision() {
 			if(hit == 1){
 				Player.X -= 2;
 			}else if(hit == 2){
-				Player.y -= 2;
+				Player.Y -= 2;
+			}else if(hit == 3){
+				Player.X += 2;
+			}else if(hit == 4){
+				Player.Y += 2;
 			}
 			pLeft = false;
 			pRight = false;
