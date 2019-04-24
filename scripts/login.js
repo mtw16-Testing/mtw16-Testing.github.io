@@ -60,7 +60,7 @@ function createUser(){
 }
 
 //login function
-function signInUser(){
+function logInUser(){
     //removes link to create new user
     var signupLink = document.getElementById("signup-link");
     var signupLinkMessage = signupLink.innerHTML;
