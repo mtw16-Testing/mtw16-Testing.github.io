@@ -64,7 +64,7 @@ function signInUser(){
     //removes link to create new user
     var signupLink = document.getElementById("signup-link");
     var signupLinkMessage = signupLink.innerHTML;
-    sinupLink.innerHTML = "";
+    signupLink.innerHTML = "";
     
     //displays loading message
     var waiting = document.getElementById("waiting");
@@ -86,7 +86,7 @@ function signInUser(){
                 formFields[i].className += " form-error";
         }
         
-        sinupLink.innerHTML = signupLinkMessage;
+        signupLink.innerHTML = signupLinkMessage;
         waiting.innerHTML = "";
     });
 }
