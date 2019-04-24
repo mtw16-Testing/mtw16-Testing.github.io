@@ -330,7 +330,6 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
 //handles events for when keys are pressed down
 function levelHandler(){
     var keyCode = event.which || event.keyCode;
-    var collision = generalCollision();
     switch(keyCode){        
         case 27: //escape key, toggles the pause menu
                 mainMenuOn = true;
@@ -345,9 +344,7 @@ function levelHandler(){
         case 38:
         case 39:
         case 40:
-	    if(collision){
-	    	moveMap(keyCode);
-    	    }
+	    moveMap(keyCode);
 	    break;
         case 70: //f, toggles full screen
             toggleFullScreen();
@@ -387,12 +384,13 @@ function levelHandler2(){
 }
 
 function moveMap(direction){
+    	var collision = generalCollision();
 	switch(direction){
-		case 37: //left, moves player left
+		case 37 && collision != 2: //left, moves player left
 		    pLeft = true;
 		    left = true;
 		    break;
-		case 38: //up, moves player up
+		case 38 && collision != 1: //up, moves player up
 		    pUp = true;
 		    up = true;
 		    break;
@@ -564,8 +562,9 @@ function drawLoadingScreen(){
 }
 
 function generalCollision() {
+	var hit;
 	for (var i = 0; i < bounds.length; i++ ) {
-		var hit = collisionInteraction(Player.standLeft,Player.standRight,Player.standUp,Player.standDown,
+		hit = collisionInteraction(Player.standLeft,Player.standRight,Player.standUp,Player.standDown,
 				bounds[i].startX+(dx/8)*64,bounds[i].endX,bounds[i].startY+(dy/8)*64,bounds[i].endY);
 		if ( hit != -1 ) {
 			/*if(hit == 1){
@@ -589,9 +588,9 @@ function generalCollision() {
 			right = false;
 			up = false;
 			down = false;
-			return true;
+			return hit;
 		}
 	}
 	
-	return false;
+	return -1;
 }
