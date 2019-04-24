@@ -281,23 +281,25 @@ function collisionInteraction(pX1,pX2,pY1,pY2,oX1,oX2,oY1,oY2) {
 		
 		return collision;
 	}
-	
-	var size = 0;
-	
-	if ( pX1 >= oX1 && pX1 <= oX2 && oY1 <= pY2 && oY2 >= pY1) // pX1 collision
+		
+	//if ( pX1 >= oX1 && pX1 <= oX2 && oY1 <= pY2 && oY2 >= pY1) // pX1 collision
+	if ( pX1 <= oX2 && (pY2 >= oY1 || pY1 <= oY2) ) // right block collision
 		collision[0] = 1;
 		//return 1;
 		//return true;
-	if ( pX2 >= oX1 && pX2 <= oX2 && oY1 <= pY2 && oY2 >= pY1 ) // pX2 collision
+	//if ( pX2 >= oX1 && pX1 <= oX2 && oY1 <= pY2 && oY2 >= pY1 ) // pX2 collision	
+	if ( pX2 >= oX1 && (pY2 >= oY1 || pY1 <= oY2) ) // left block collision
 		collision[1] = 1;
 		//collision += ;
 		//return 2;
-		//return true;
-	if ( pY1 >= oY1 && pY1 <= oY2 && oX1 <= pX2 && oX2 >= pX1 ) // pY1 collision
+		//return true;	
+	//if ( pY1 <= oY2 && oX1 <= pX2 && oX2 >= pX1 ) // pY1 collision
+	if ( pY2 >= oY1 && (pX2 >= oX1 || pX1 <= oX2) ) // top block collision
 		collision[2] = 1;
 		//return 3;
 		//return true;
-	if ( pY2 >= oY1 && pY2 <= oY2 && oX1 <= pX2 && oX2 >= pX1 ) // pY2 collision
+	//if ( pY2 <= oY1 && oX1 <= pX2 && oX2 >= pX1 ) // pY2 collision	
+	if ( pY1 <= oY2 && (pX2 >= oX1 || pX1 <= oX2) ) // bottom block collision
 		collision[3] = 1;
 		//return 4;
 		//return true;
