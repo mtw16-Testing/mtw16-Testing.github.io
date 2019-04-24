@@ -13,7 +13,7 @@ basicEnemyAI();
 printText = 0;
 
 // Creates array of boundary conditions
-var bounds = new Array(1);
+var bounds;
 //bounds.push({x1: Villager.startX+(dx/8)*64 ,x2: Villager.endX ,y1: Villager.startY+(dy/8)*64 ,y2: Villager.endY });
 bounds.push(Villager);
 //detects if all images have been loaded in before starting the level
@@ -559,7 +559,8 @@ function drawLoadingScreen(){
 }
 
 function generalCollision() {
-	for ( i = 0; i < bounds.length; i++ ) {
+	for (var i = 0; i < bounds.length; i++ ) {
+		console.log(bounds[i]);
 		if ( collisionInteraction(Player.standLeft,Player.standRight,Player.standUp,Player.standDown,bounds[i].x1,bounds[i].x2,bounds[i].y1,bounds[i].y2) == true ) {
 			pLeft = false;
 			pRight = false;
