@@ -272,23 +272,37 @@ function collisionBetter(theX,theY,Enemy) {
 
 // Collision that deals with squares
 function collisionInteraction(pX1,pX2,pY1,pY2,oX1,oX2,oY1,oY2) {
-	if ( pX1 >= oX1 && pX2 <= oX2 && pY1 >= oY1 && pY2 <= oY2 )
-		return 0;
-		//return true;
+	var collision = [0, 0, 0, 0];
+	if ( pX1 >= oX1 && pX2 <= oX2 && pY1 >= oY1 && pY2 <= oY2 ){
+		collision[0] = -1;
+		collision[1] = -1;
+		collision[2] = -1;
+		collision[3] = -1;
+		
+		return collision;
+	}
+	
+	var size = 0;
 	
 	if ( pX1 >= oX1 && pX1 <= oX2 && oY1 <= pY2 && oY2 >= pY1) // pX1 collision
-		return 1;
+		collision[0] = 1;
+		//return 1;
 		//return true;
-	else if ( pX2 >= oX1 && pX2 <= oX2 && oY1 <= pY2 && oY2 >= pY1 ) // pX2 collision
-		return 2;
+	if ( pX2 >= oX1 && pX2 <= oX2 && oY1 <= pY2 && oY2 >= pY1 ) // pX2 collision
+		collision[1] = 1;
+		//collision += ;
+		//return 2;
 		//return true;
-	else if ( pY1 >= oY1 && pY1 <= oY2 && oX1 <= pX2 && oX2 >= pX1 ) // pY1 collision
-		return 3;
+	if ( pY1 >= oY1 && pY1 <= oY2 && oX1 <= pX2 && oX2 >= pX1 ) // pY1 collision
+		collision[2] = 1;
+		//return 3;
 		//return true;
-	else if ( pY2 >= oY1 && pY2 <= oY2 && oX1 <= pX2 && oX2 >= pX1 ) // pY2 collision
-		return 4;
+	if ( pY2 >= oY1 && pY2 <= oY2 && oX1 <= pX2 && oX2 >= pX1 ) // pY2 collision
+		collision[3] = 1;
+		//return 4;
 		//return true;
-  	return -1;
+  	
+	return collision;
 	//return false;
 }
 
