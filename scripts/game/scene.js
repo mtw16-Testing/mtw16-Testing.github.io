@@ -100,11 +100,11 @@ function SceneHandler(scene){
 	  
 	   cancelAnimationFrame(drawing);
 			
-	console.log("Here");
+	   console.log("Here");
            drawing = requestAnimationFrame(sceneHandler.drawScene);
+	}else{ 
+        	drawing = requestAnimationFrame(sceneHandler.loadScene);
 	}
-	    
-        drawing = requestAnimationFrame(sceneHandler.loadScene);
     }
 }
 
