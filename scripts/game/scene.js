@@ -386,7 +386,20 @@ function levelHandler2(){
 function moveMap(direction){
     	var collision = generalCollision();
 	console.log("move map: " + collision);
-	switch(direction){
+	if(direction == 37){
+		pLeft = true;
+		left = true;
+	}else if(direction == 38){
+		pUp = true;
+		up = true;
+	}else if((direction == 39 && collision != 2){
+		pRight = true;
+		right = true;
+	}else if((direction == 40 && collision != 1){
+		pDown = true;
+		down = true;
+	}
+	/*switch(direction){
 		case 37: //left, moves player left
 		    pLeft = true;
 		    left = true;
@@ -408,7 +421,7 @@ function moveMap(direction){
 		    break;
 		default:
 		    break;
-	}
+	}*/
 }
 
 //------------------------------Text Box-------------------------------------------
