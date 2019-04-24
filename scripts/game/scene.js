@@ -392,10 +392,10 @@ function moveMap(direction){
 	}else if(direction == 38){
 		pUp = true;
 		up = true;
-	}else if((direction == 39 && collision != 2){
+	}else if(direction == 39 && collision != 2){
 		pRight = true;
 		right = true;
-	}else if((direction == 40 && collision != 1){
+	}else if(direction == 40 && collision != 1){
 		pDown = true;
 		down = true;
 	}
