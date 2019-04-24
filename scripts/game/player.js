@@ -286,12 +286,12 @@ function collisionInteraction(pX1,pX2,pY1,pY2,oX1,oX2,oY1,oY2) {
 	}
 		
 	//if ( pX1 >= oX1 && pX1 <= oX2 && oY1 <= pY2 && oY2 >= pY1) // pX1 collision
-	if ( pX1 <= oX2 && pX2 >= oX2 ) // right block collision
+	if ( pX1 <= oX2 && (pX2+2) >= oX2 ) // right block collision
 		collision[0] = 1;
 		//return 1;
 		//return true;
 	//if ( pX2 >= oX1 && pX1 <= oX2 && oY1 <= pY2 && oY2 >= pY1 ) // pX2 collision	
-	if ( pX2 >= oX1 && pX1 <= oX1 ) // left block collision
+	if ( pX2 >= oX1 && (pX1 - 2) <= oX1 ) // left block collision
 		collision[1] = 1;
 		//collision += ;
 		//return 2;
