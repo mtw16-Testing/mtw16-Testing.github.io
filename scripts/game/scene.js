@@ -203,6 +203,7 @@ function Map(name){
 		
 		//only draws player and updates player logic if the pause menu is not toggled
 		if(!mainMenuOn){
+			generalCollision();
 			Player.moveCheck(pUp,pDown,pLeft,pRight,width,height);
 			Player.draw();
 			Player.collisionCheck(Enemy);
