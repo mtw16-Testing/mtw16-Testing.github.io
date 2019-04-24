@@ -27,6 +27,8 @@ function showSignUp(){
         formFields[i].className = "";
     }
     
+    document.getElementById("error-message").innerHTML = "";
+    
     var signupLink = document.getElementById("signup-link");
 
     signup.style.display = "block";
