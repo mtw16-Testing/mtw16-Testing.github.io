@@ -555,7 +555,7 @@ function drawLoadingScreen(){
     ctx.font = "100px Sniglet";
     ctx.fillText("Loading...", width / 2 - 200, height / 2 - 50);
 }
-/*
+
 function generalCollision() {
 	for ( i = 0; i < bounds.length; i++ ) {
 		if ( collisionInteraction(Player.standLeft,Player.standRight,Player.standUp,Player.standDown,bounds[i].x1,bounds[i].x2,bounds[i].y1,bounds[i].y2) == true ) {
@@ -571,4 +571,3 @@ function generalCollision() {
 		}
 	}
 }
-*/
