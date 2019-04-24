@@ -4,14 +4,17 @@ Player = new initPlayer({
        Y: 512,
        aFrame: 0
     });
+Villager = new initVillager({});
 
 Enemy = new initEnemy({}); 
 basicEnemyAI();
-Villager = new initVillager({});
 
 // Helps Textbox Printing
 printText = 0;
 
+// Creates array of boundary conditions
+var bounds = new Array(1);
+bounds.push({x1: Villager.startX+(dx/8)*64 ,x2: Villager.endX ,y1: Villager.startY+(dy/8)*64 ,y2: Villager.endY });
 //detects if all images have been loaded in before starting the level
 var isImage1Loaded = false;
 var isImage2Loaded = false;
@@ -29,16 +32,13 @@ function SaveFile(data){
 
 var saveFile1;
 
-var gameIActive = false;
 
 //handles switching between different scenes and drawing from the scene that is loaded in
 function SceneHandler(scene){
     this.scene = scene,
     this.drawScene = function(){
-        drawing = requestAnimationFrame(sceneHandler.drawScene);
         scene.draw();
-	//if(){
-        //drawing = requestAnimationFrame(sceneHandler.drawScene);
+        drawing = requestAnimationFrame(sceneHandler.drawScene);
 	    
 	//ends game if the player is dead
 	if(Player.death){
@@ -114,7 +114,6 @@ function Scene(name, map){
         this.name = name;
         this.map.name = name;
 	    
-	gameIsActive = true;
 	//removes any keyboard input handler that is currently active
         document.onkeydown = null;
         
@@ -207,10 +206,10 @@ function Map(name){
 			Player.moveCheck(pUp,pDown,pLeft,pRight,width,height);
 			Player.draw();
 			Player.collisionCheck(Enemy);
-			Enemy.draw();
 			Villager.draw();
 			if ( Villager.drawText == true )
 				drawTextBox(Villager.sentence,printText);
+			Enemy.draw();
 		}
                 break;
             case "Options":
@@ -269,7 +268,16 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
     if(((rowSize-1+(dy/8))+0.75)*64 < height || Player.Y < 512){
     	down = false;
     }
-		
+	
+    if ( Player.whichAction == "attack" ) {
+	left = false;
+	right = false;
+	up = false;
+	down = false;
+    }
+	
+    //generalCollision();
+	
     //moves map to the left if left arrow key is pressed
     if(left){
 	dx++;
@@ -412,16 +420,16 @@ function drawTextBox(sentence,position) {
 	   ctx.fillRect(width*.10,height*.70,width*.80,height*.20);
 	   ctx.font = "60px Sniglet";
 	   ctx.fillStyle = "#000000";
-	   ctx.fillText(sentence.substring(position*30,position*30+30),width*.11,height*.78);
-	if ( sentence.length > position*30+30 )
-	   ctx.fillText(sentence.substring(position*30+30,position*30+60),width*.11,height*(.86));
+	   ctx.fillText(sentence.substring(position*60,position*60+60),width*.11,height*.78);
+	if ( sentence.length > position*60+60 )
+	   ctx.fillText(sentence.substring(position*60+60,position*60+120),width*.11,height*(.86));
 	}
 }
 
 function textHandler(event) {
 	var keyCode = event.which || event.keyCode;
 	if ( keyCode == 32 ) {
-	 if ( Villager.sentence.length <= printText*30 + 60 ){
+	 if ( Villager.sentence.length <= printText*60 + 120 ){
 	   Villager.drawText = false;
 	   document.onkeydown = null;
 	   document.onkeydown = levelHandler;
@@ -456,8 +464,6 @@ function optionsHandler(event){
     var keyCode = event.which || event.keyCode;
     switch(keyCode){
         case 13:
-    	    document.onkeydown = null;
-	    gameIsActive = false;
             cancelAnimationFrame(drawing);
             showStartMenu();
             break;
@@ -473,7 +479,6 @@ function optionsHandler(event){
 //--------------------------------Save Menu Option---------------------------------
 function initSaveFile(){
     options = ["1. " + saveFile1.name + " - Location: " + saveFile1.location + " " + saveFile1.time + ":00", "Exit"];
-    //options = ["1. " + saveFile1.name + " - " + saveFile1.location, "Save File 2", "Save File 3", "Exit"];
     currentOption = 0;
     
     background.src= "images/backgrounds/SaveMenuBackground.png";
@@ -483,14 +488,13 @@ function drawSaveFileScreen(){
     ctx.clearRect(0,0,width,height);
     ctx.drawImage(background, 0, 0, width, height);
 
-ctx.textAlign = "center"; 
+    ctx.textAlign = "center"; 
     ctx.fillStyle = "white";
     ctx.font = "bold 120px Sniglet";
     ctx.fillText("Save Files", width / 2, 200);
     ctx.strokeStyle = "black";
     ctx.lineWidth = 2;
     ctx.strokeText("Save Files", width / 2, 200);
-	
 	
     ctx.font = "60px Sniglet";
     for(var i = 0; i < options.length-1; i++){
@@ -510,7 +514,7 @@ ctx.textAlign = "center";
     }
     ctx.fillText(options[options.length-1], width / 2 - 50, 800);
 	
-ctx.textAlign = "start"; 
+    ctx.textAlign = "start"; 
 }
 
 function saveFileHandler(){
@@ -518,8 +522,6 @@ function saveFileHandler(){
     switch(keyCode){
         case 13:
             if(currentOption == options.length - 1){
-    	    	document.onkeydown = null;
-	    	gameIsActive = false;
                 cancelAnimationFrame(drawing);    
                 showStartMenu();
             }else{
@@ -553,3 +555,20 @@ function drawLoadingScreen(){
     ctx.font = "100px Sniglet";
     ctx.fillText("Loading...", width / 2 - 200, height / 2 - 50);
 }
+/*
+function generalCollision() {
+	for ( i = 0; i < bounds.length; i++ ) {
+		if ( collisionInteraction(Player.standLeft,Player.standRight,Player.standUp,Player.standDown,bounds[i].x1,bounds[i].x2,bounds[i].y1,bounds[i].y2) == true ) {
+			pLeft = false;
+			pRight = false;
+			pUp = false;
+			pDown = false;
+			left = false;
+			right = false;
+			up = false;
+			down = false;
+			break;
+		}
+	}
+}
+*/

@@ -20,10 +20,12 @@ function initPlayer(options) {
 	that.standLeft = that.X +40;
 	that.standUp = that.Y + 20;
 	that.standDown = that.Y + 125;
+	that.totalHealth = 100;
 	that.health = 100;
 	that.weapon = "shortSword";
 	that.isDamaged = false;
 	that.death = false;
+	that.type = "Player";
 	
 	// x1,x2,y1,y2
 	that.iBox = [that.X+105,that.X+135,that.Y+57,that.Y+88];
@@ -31,6 +33,7 @@ function initPlayer(options) {
 	that.draw = function() {
 		ctx.drawImage(that.image,63*that.aFrame,63*(action+that.direction),63,63,that.X,that.Y,126,126);
 		ctx.fillRect(that.iBox[0],that.iBox[2],30,31);
+		drawHealth(that);
 	};
 	
 	that.moveCheck = function(Up,Down,Left,Right,width,height) {
@@ -96,7 +99,9 @@ function initPlayer(options) {
 	
 	that.collisionCheck = function(Enemy) {
 		// Check X collision
-		if (!Player.isDamaged && that.standRight >= Enemy.X+((dx/8)*64) && that.standLeft <= Enemy.X+((dx/8)*64)+Enemy.lengthX && Enemy.death == false ) {
+		if ( Player.isDamaged == true ) 
+			return;
+		if ( that.standRight >= Enemy.X+((dx/8)*64) && that.standLeft <= Enemy.X+((dx/8)*64)+Enemy.lengthX && Enemy.death == false ) {
 			// Check Y collision
 			if ( that.standDown >= Enemy.Y+((dy/8)*64) && that.standUp <= Enemy.Y + ((dy/8)*64) + Enemy.lengthY) {
 				Player.health -= 20;
@@ -115,8 +120,6 @@ function initPlayer(options) {
 				action = startWalk;
 				Player.isDamaged = true;
 				setTimeout(Player.canDamage,3000);
-				
-    				cancelAnimationFrame(enemyAnimation);
 				//alert("YOU TOUCH MR.BONES");
 				if(Player.health <= 0){
 					this.health = 120;
@@ -160,6 +163,25 @@ function changeIBox(dir,iBox,X,Y) {
 		iBox[2] = Y+57;
 		iBox[3] = Y+88;
 	}
+}
+
+function drawHealth(Entity) {
+	if ( Entity.type == "Player" ) {
+	  X = Entity.X;
+	  Y = Entity.Y;
+	}
+	else {
+	  X = Entity.X - Entity.xOff+(dx/8)*64
+	  Y = Entity.Y - Entity.yOff+(dy/8)*64
+	}
+	
+	ctx.fillStyle = "#000000";
+	ctx.fillRect(X,Y-5,128,5);
+	ctx.fillRect(X-5,Y,5,10);
+	ctx.fillRect(X,Y+10,128,5);
+	ctx.fillRect(X+128,Y,5,10);
+	ctx.fillStyle = "#00FF00";
+	ctx.fillRect(X,Y,128*(Entity.health/Entity.totalHealth),10);
 }
 
 function swordCollision(that,Enemy) {
@@ -273,7 +295,7 @@ function animateAttack(that) {
 		action = startWalk;
 	}
 	else 
-		setTimeout(animateAttack,1000/24,that); 
+		setTimeout(animateAttack,0,that); 
    }
 }
 
