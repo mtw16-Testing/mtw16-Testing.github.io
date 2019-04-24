@@ -410,7 +410,7 @@ function levelHandler2(){
 
 function moveMap(direction){
     	var collision = generalCollision();
-	console.log("move map: " + collision);
+	console.log("move map: " + collision[0] + " : " + collision[2]);
 	//collision[0] => upper right corner
 	//collision[1] => upper leftt corner
 	//collision[2] => bottom right corner
