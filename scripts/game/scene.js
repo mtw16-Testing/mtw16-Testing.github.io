@@ -15,6 +15,10 @@ printText = 0;
 function Tile(X, Y, collision){
   this.X = X,
   this.Y = Y,
+  this.startX,
+  this.startY,
+  this.endX,
+  this.endY,
   this.collision = collision
 }
 
@@ -99,7 +103,14 @@ function SceneHandler(scene){
                var foreTiles = [];
                for(var j = 0; j < image2.width*4; j += 4){
                    //foreTiles.push([pixelData[row+j+1],y=pixelData[row+j+2]]);
-		   foreTiles.push(new Tile(pixelData[row+j+1],pixelData[row+j+2], false));
+		   var tile = new Tile(pixelData[row+j+1],pixelData[row+j+2], true)
+		   tile.startX = j*64;
+		   tile.startY = i*64;
+		   tile.endX = (j+1)*64;
+		   tile.endY = (i+1)*64;
+		   foreTiles.push(tile);
+		       
+		   bounds.push(tile);
                }
                tiles2.push(foreTiles);
            }
