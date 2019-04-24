@@ -300,6 +300,8 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
 	dy--;
     }
 	
+console.log("dx: " + dx + " dy: " dy);
+	
     var xPos = 0, yPos = 0; 
     for(var i = 0; i < rowSize; i++){
         for(var j = 0; j < colSize; j++){
@@ -564,13 +566,17 @@ function generalCollision() {
 				bounds[i].startX+(dx/8)*64,bounds[i].endX,bounds[i].startY+(dy/8)*64,bounds[i].endY);
 		if ( hit != -1 ) {
 			if(hit == 1){
-				Player.X -= 2;
+				console.log("Left side");
+				//Player.X -= 2;
 			}else if(hit == 2){
-				Player.Y -= 2;
+				console.log("Up side");
+				//Player.Y -= 2;
 			}else if(hit == 3){
-				Player.X += 2;
+				console.log("Right side");
+				//Player.X += 2;
 			}else if(hit == 4){
-				Player.Y += 2;
+				console.log("Down side");
+				//Player.Y += 2;
 			}
 			pLeft = false;
 			pRight = false;
