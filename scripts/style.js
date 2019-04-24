@@ -21,6 +21,11 @@ function clearForms(){
 function showSignUp(){
     var signup = document.getElementById("signup");
     var login = document.getElementById("login");
+
+    var formFields = document.getElementsByTagName("input");
+    for(var i = 0; i < formFields.length; i++){
+        formFields[i].className = "form-row";
+    }
     
     var signupLink = document.getElementById("signup-link");
 
