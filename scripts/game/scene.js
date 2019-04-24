@@ -415,7 +415,7 @@ function moveMap(direction){
 	//collision[1] => upper leftt corner
 	//collision[2] => bottom right corner
 	//collision[3] => bottom leftt corner
-	if(direction == 37 && (collision[0] == 0 || collision[2] == 0)){
+	if(direction == 37 && (collision[0] == 0 || collision[1] == 0)){
 		pLeft = true;
 		left = true;
 	}else if(direction == 38 ){//&& collision != 3){
