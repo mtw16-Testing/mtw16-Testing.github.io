@@ -110,7 +110,7 @@ function SceneHandler(scene){
 		   tile.endY = (i+1)*64;
 		   foreTiles.push(tile);
 		       
-		   bounds.push(tile);
+		   //bounds.push(tile);
                }
                tiles2.push(foreTiles);
            }
