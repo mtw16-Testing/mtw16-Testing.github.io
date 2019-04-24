@@ -566,7 +566,7 @@ function generalCollision() {
 		var hit = collisionInteraction(Player.standLeft,Player.standRight,Player.standUp,Player.standDown,
 				bounds[i].startX+(dx/8)*64,bounds[i].endX,bounds[i].startY+(dy/8)*64,bounds[i].endY);
 		if ( hit != -1 ) {
-			if(hit == 1){
+			/*if(hit == 1){
 				console.log("Left side");
 				Player.Y -= 2;
 			}else if(hit == 2){
@@ -578,7 +578,7 @@ function generalCollision() {
 			}else if(hit == 4){
 				console.log("Down side");
 				//Player.Y += 2;
-			}
+			}*/
 			pLeft = false;
 			pRight = false;
 			pUp = false;
