@@ -423,13 +423,13 @@ function moveMap(direction){
 	if(direction == 37 && lowerRight != 2 && upperRight != 2){
 		pLeft = true;
 		left = true;
-	}else if(direction == 38){// && (collision[1] == 0 || collision[3] == 0)){
+	}else if(direction == 38 && lowerLeft != 2 && lowerRight != 2){
 		pUp = true;
 		up = true;
-	}else if(direction == 39){// && (collision[1] == 0 || collision[3] == 0)){
+	}else if(direction == 39 && lowerLeft != 2 && upperLeft != 2){
 		pRight = true;
 		right = true;
-	}else if(direction == 40){// && (collision[1] == 0 || collision[2] == 0)){
+	}else if(direction == 40 && upperRight != 2 && lowerRight != 2){
 		pDown = true;
 		down = true;
 	}
