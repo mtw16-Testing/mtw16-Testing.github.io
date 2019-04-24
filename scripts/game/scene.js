@@ -385,6 +385,7 @@ function levelHandler2(){
 
 function moveMap(direction){
     	var collision = generalCollision();
+	console.log("move map: " + collision);
 	switch(direction){
 		case 37: //left, moves player left
 		    pLeft = true;
