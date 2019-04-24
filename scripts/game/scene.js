@@ -588,6 +588,7 @@ function generalCollision() {
 			right = false;
 			up = false;
 			down = false;
+			console.log(hit)
 			return hit;
 		}
 	}
