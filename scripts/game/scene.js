@@ -411,20 +411,25 @@ function levelHandler2(){
 function moveMap(direction){
     	var collision = generalCollision();
 	console.log("move map: " + collision[0] + ", " + collision[1] + ", " + collision[2] + ", " + collision[3]);
+	
+	var upperLeft = collision[1] + collision[2];
+	var upperRight = collision[0] + collision[2];
+	var lowerLeft = collision[1] + collision[3];
+	var lowerRight = collision[0] + collision[3];
 	//collision[0] => upper right corner
 	//collision[1] => bottom right corner +
 	//collision[2] => bottom right corner
 	//collision[3] => bottom leftt corner
-	if(direction == 37 && (collision[0] == 0 || collision[3] == 0)){
+	if(direction == 37 && lowerRight != 2 && upperRight != 2){
 		pLeft = true;
 		left = true;
-	}else if(direction == 38 && (collision[1] == 0 || collision[3] == 0)){
+	}else if(direction == 38){// && (collision[1] == 0 || collision[3] == 0)){
 		pUp = true;
 		up = true;
-	}else if(direction == 39 && (collision[1] == 0 || collision[3] == 0)){
+	}else if(direction == 39){// && (collision[1] == 0 || collision[3] == 0)){
 		pRight = true;
 		right = true;
-	}else if(direction == 40 && (collision[1] == 0 || collision[2] == 0)){
+	}else if(direction == 40){// && (collision[1] == 0 || collision[2] == 0)){
 		pDown = true;
 		down = true;
 	}
