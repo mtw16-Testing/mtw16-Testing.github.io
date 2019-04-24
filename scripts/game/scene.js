@@ -411,16 +411,16 @@ function levelHandler2(){
 function moveMap(direction){
     	var collision = generalCollision();
 	console.log("move map: " + collision);
-	if(direction == 37){
+	if(direction == 37 && collision != 1){
 		pLeft = true;
 		left = true;
-	}else if(direction == 38){
+	}else if(direction == 38 && collision != 4){
 		pUp = true;
 		up = true;
 	}else if(direction == 39 && collision != 2){
 		pRight = true;
 		right = true;
-	}else if(direction == 40 && collision != 1){
+	}else if(direction == 40 && collision != 3){
 		pDown = true;
 		down = true;
 	}
