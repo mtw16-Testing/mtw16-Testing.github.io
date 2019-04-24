@@ -273,17 +273,23 @@ function collisionBetter(theX,theY,Enemy) {
 // Collision that deals with squares
 function collisionInteraction(pX1,pX2,pY1,pY2,oX1,oX2,oY1,oY2) {
 	if ( pX1 >= oX1 && pX2 <= oX2 && pY1 >= oY1 && pY2 <= oY2 )
-		return true;
+		return 0;
+		//return true;
 	
 	if ( pX1 >= oX1 && pX1 <= oX2 && oY1 <= pY2 && oY2 >= pY1) // pX1 collision
-		return true;
+		return 1;
+		//return true;
 	else if ( pX2 >= oX1 && pX2 <= oX2 && oY1 <= pY2 && oY2 >= pY1 ) // pX2 collision
-		return true;
+		return 2;
+		//return true;
 	else if ( pY1 >= oY1 && pY1 <= oY2 && oX1 <= pX2 && oX2 >= pX1 ) // pY1 collision
-		return true;
+		return 3;
+		//return true;
 	else if ( pY2 >= oY1 && pY2 <= oY2 && oX1 <= pX2 && oX2 >= pX1 ) // pY2 collision
-		return true;
-  	return false;
+		return 4;
+		//return true;
+  	return -1;
+	//return false;
 }
 
 function animateAttack(that) {
