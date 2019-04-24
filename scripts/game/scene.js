@@ -429,7 +429,7 @@ function moveMap(direction){
 	}else if(direction == 39 && lowerLeft != 2 && upperLeft != 2){
 		pRight = true;
 		right = true;
-	}else if(direction == 40 && upperRight != 2 && lowerRight != 2){
+	}else if(direction == 40 && upperRight != 2 && upperLeft != 2){
 		pDown = true;
 		down = true;
 	}
