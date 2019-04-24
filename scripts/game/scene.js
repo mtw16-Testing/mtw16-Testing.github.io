@@ -14,8 +14,8 @@ printText = 0;
 
 // Creates array of boundary conditions
 var bounds = new Array();
-bounds.push({x1: Villager.startX+(dx/8)*64 ,x2: Villager.endX ,y1: Villager.startY+(dy/8)*64 ,y2: Villager.endY });
-//bounds.push(Villager);
+//bounds.push({x1: Villager.startX+(dx/8)*64 ,x2: Villager.endX ,y1: Villager.startY+(dy/8)*64 ,y2: Villager.endY });
+bounds.push(Villager);
 //detects if all images have been loaded in before starting the level
 var isImage1Loaded = false;
 var isImage2Loaded = false;
@@ -561,7 +561,9 @@ function drawLoadingScreen(){
 function generalCollision() {
 	for (var i = 0; i < bounds.length; i++ ) {
 		console.log(bounds[i]);
-		if ( collisionInteraction(Player.standLeft,Player.standRight,Player.standUp,Player.standDown,bounds[i].x1,bounds[i].x2,bounds[i].y1,bounds[i].y2) == true ) {
+		if ( collisionInteraction(Player.standLeft,Player.standRight,Player.standUp,Player.standDown,
+				bounds[i].startX+(dx/8)*64,bounds[i].endX,bounds[i].y1+(dy/8)*64,bounds[i].endY) == true ) {
+			
 			pLeft = false;
 			pRight = false;
 			pUp = false;
