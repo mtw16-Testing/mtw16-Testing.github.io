@@ -207,7 +207,6 @@ function Map(name){
 		if(!mainMenuOn){
 			Player.moveCheck(pUp,pDown,pLeft,pRight,width,height);
 			Player.draw();
-			generalCollision();
 			Player.collisionCheck(Enemy);
 			Villager.draw();
 			if ( Villager.drawText == true )
@@ -331,6 +330,7 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
 //handles events for when keys are pressed down
 function levelHandler(){
     var keyCode = event.which || event.keyCode;
+    var collision = generalCollision();
     switch(keyCode){        
         case 27: //escape key, toggles the pause menu
                 mainMenuOn = true;
@@ -345,7 +345,9 @@ function levelHandler(){
         case 38:
         case 39:
         case 40:
-	    moveMap(keyCode);
+	    if(collision){
+	    	moveMap(keyCode);
+    	    }
 	    break;
         case 70: //f, toggles full screen
             toggleFullScreen();
@@ -587,7 +589,9 @@ function generalCollision() {
 			right = false;
 			up = false;
 			down = false;
-			break;
+			return true;
 		}
 	}
+	
+	return false;
 }
