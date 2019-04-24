@@ -412,10 +412,10 @@ function moveMap(direction){
     	var collision = generalCollision();
 	console.log("move map: " + collision[0] + " : " + collision[2]);
 	//collision[0] => upper right corner
-	//collision[1] => upper leftt corner
-	//collision[2] => bottom right corner +
+	//collision[1] => bottom right corner +
+	//collision[2] => bottom right corner
 	//collision[3] => bottom leftt corner
-	if(direction == 37 && (collision[3] == 0 || collision[2] == 0)){
+	if(direction == 37 && (collision[1] == 0 || collision[0] == 0)){
 		pLeft = true;
 		left = true;
 	}else if(direction == 38 ){//&& collision != 3){
