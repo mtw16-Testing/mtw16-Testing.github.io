@@ -204,9 +204,9 @@ function Map(name){
 		
 		//only draws player and updates player logic if the pause menu is not toggled
 		if(!mainMenuOn){
-			generalCollision();
 			Player.moveCheck(pUp,pDown,pLeft,pRight,width,height);
 			Player.draw();
+			generalCollision();
 			Player.collisionCheck(Enemy);
 			Villager.draw();
 			if ( Villager.drawText == true )
@@ -569,6 +569,7 @@ function generalCollision() {
 			right = false;
 			up = false;
 			down = false;
+			console.log("collision");
 			break;
 		}
 	}
