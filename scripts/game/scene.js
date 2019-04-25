@@ -411,7 +411,6 @@ function levelHandler2(){
 
 function moveMap(direction){
     	var collision = generalCollision();
-	console.log("move map: " + collision[0] + ", " + collision[1] + ", " + collision[2] + ", " + collision[3]);
 	
 	var upperLeft = collision[1] + collision[2];
 	var upperRight = collision[0] + collision[2];
