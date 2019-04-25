@@ -104,9 +104,9 @@ function SceneHandler(scene){
                for(var j = 0; j < image2.width*4; j += 4){
                    //foreTiles.push([pixelData[row+j+1],y=pixelData[row+j+2]]);
 		   var tile = new Tile(pixelData[row+j+1],pixelData[row+j+2], true)
-		   tile.startX = j*64;
+		   tile.startX = (j/4)*64;
 		   tile.startY = i*64;
-		   tile.endX = (j+1)*64;
+		   tile.endX = ((j/4)+1)*64;
 		   tile.endY = (i+1)*64;
 		   foreTiles.push(tile);
 		       
