@@ -341,7 +341,7 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
             yPos = foregroundTiles[i][j].Y / 16;
             
             ctx.drawImage(map.image,xPos*64,yPos*64,64,64,(j+(dx/8))*64,(i+(dy/8))*64,64,64);		
-            ctx.strokeRect(foregroundTiles[i][j].startX, foregroundTiles[i][j].startY,foregroundTiles[i][j].endX,foregroundTiles[i][j].endY);
+            ctx.strokeRect((j+(dx/8))*64,(i+(dy/8))*64,64,64);
         }
     }
     
