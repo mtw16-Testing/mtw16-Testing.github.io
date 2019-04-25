@@ -110,7 +110,7 @@ function SceneHandler(scene){
 		   tile.endY = (i+1)*64;
 		   foreTiles.push(tile);
 		       
-		   //bounds.push(tile);
+		   bounds.push(tile);
                }
                tiles2.push(foreTiles);
            }
@@ -340,7 +340,8 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
 	    xPos = foregroundTiles[i][j].X / 16;
             yPos = foregroundTiles[i][j].Y / 16;
             
-            ctx.drawImage(map.image,xPos*64,yPos*64,64,64,(j+(dx/8))*64,(i+(dy/8))*64,64,64);
+            ctx.drawImage(map.image,xPos*64,yPos*64,64,64,(j+(dx/8))*64,(i+(dy/8))*64,64,64);		
+            ctx.strokeRect((j+(dx/8))*64,(i+(dy/8))*64,64,64);
         }
     }
     
