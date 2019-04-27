@@ -515,7 +515,6 @@ function moveMap(direction){
 	var lowerLeft = collision[1] + collision[3];
 	var lowerRight = collision[0] + collision[3];
 	
-	console.log("Upper left: " + upperLeft + " Upper right: " + upperRight + " lower left: " + lowerLeft + " lower right: " + lowerRight);
 	
 	if(direction == 37 && lowerRight != 2 && upperRight != 2){
 		pLeft = true;
@@ -529,6 +528,8 @@ function moveMap(direction){
 	}else if(direction == 40 && upperRight != 2 && upperLeft != 2){
 		pDown = true;
 		down = true;
+	}else{
+		console.log("Upper left: " + upperLeft + " Upper right: " + upperRight + " lower left: " + lowerLeft + " lower right: " + lowerRight);
 	}
 }
 
@@ -709,7 +710,7 @@ function generalCollision() {
 		
 		//if(isEmpty > 1 && bounds[i].solid){
 		if(isEmpty != 0){
-			pLeft = false;
+			/*pLeft = false;
 			pRight = false;
 			pUp = false;
 			pDown = false;
@@ -717,7 +718,7 @@ function generalCollision() {
 			right = false;
 			up = false;
 			down = false;
-			
+			*/
 			return hit;
 		}else if(isEmpty > 1){
 			hit[0] = bounds[i].side+2;
