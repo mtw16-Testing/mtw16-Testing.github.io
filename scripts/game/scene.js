@@ -218,6 +218,9 @@ function Scene(name, map){
 		Player.X = 1024;
 		Player.Y = 512;
 			
+		dx = 0;
+		dy = 0;
+			
 		this.nextMaps[0] = "Level 1";
 		
 		break;	
