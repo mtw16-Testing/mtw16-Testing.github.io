@@ -137,11 +137,13 @@ function SceneHandler(scene){
 			   if(i < 5){
 			   	console.log("X: " + tile.startX + " Y: " + tile.startY );
 		   	   }
-		   	bounds.push(new initVillager({
-				X: 800,
-				Y: 800+(i*100),
-				sentence: "Please work"
-				}));
+			   var newVillager = new initVillager({
+					X: 2000,
+					Y: 1000,
+					sentence: "My Lord! The prophecies heralded your return. Your path to take back your throne begins now, sire. Your rivals stand in your way, once you defeat them, you may leave this province in the top right and head towards the castle!"
+					});
+			   Villagers.push(newVillager);
+		   	bounds.push(newVillager);
 			//bounds.push(tile);
 		   }
                }
