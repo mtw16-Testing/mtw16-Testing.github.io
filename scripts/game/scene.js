@@ -137,7 +137,12 @@ function SceneHandler(scene){
 			   if(i < 5){
 			   	console.log("X: " + tile.startX + " Y: " + tile.startY );
 		   	   }
-		   	bounds.push(tile);
+		   	bounds.push(new initVillager({
+				X: 800,
+				Y: 800+(i*100),
+				sentence: "Please work"
+				}));
+			//bounds.push(tile);
 		   }
                }
                tiles2.push(foreTiles);
