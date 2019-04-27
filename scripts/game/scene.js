@@ -697,7 +697,7 @@ function generalCollision() {
 			hit[1] = 0;			
 			hit[2] = 0;			
 			hit[3] = 0;
-			//console.log("Inside but not hit: " + hit[0]);
+			console.log("Inside but not hit: " + isEmpty);
 			
 			return hit;
 		}
