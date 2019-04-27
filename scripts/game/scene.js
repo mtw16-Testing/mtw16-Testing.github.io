@@ -655,7 +655,6 @@ function generalCollision() {
 			right = false;
 			up = false;
 			down = false;
-			console.log(bounds.length);
 		//console.log("i: " + i + " Start X: " + bounds[i].startX + " Start Y: " + 
 		//	    bounds[i].startY + " End X: " + bounds[i].endX + " End Y: "  + bounds[i].endY);
 			
