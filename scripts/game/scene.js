@@ -134,7 +134,7 @@ function SceneHandler(scene){
 		   //tile.endY = -120;
 		   foreTiles.push(tile);
 		   if(j == 28){
-			   console.log("X: " + tile.startX + " Y: " + tile.startY );
+			   //console.log("X: " + tile.startX + " Y: " + tile.startY );
 		   	bounds.push(tile);
 		   }
                }
@@ -372,8 +372,8 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
         	    ctx.strokeRect( foregroundTiles[i][j].startX+(dx/8)*64, foregroundTiles[i][j].startY+(dy/8)*64, foregroundTiles[i][j].endX , foregroundTiles[i][j].endY );
 		}
 		
-	     foregroundTiles[i][j].endX = foregroundTiles[i][j].startX + 64;
-    	     foregroundTiles[i][j].endY = foregroundTiles[i][j].startY + 64;
+	     //foregroundTiles[i][j].endX = foregroundTiles[i][j].startX + 64;
+    	     //foregroundTiles[i][j].endY = foregroundTiles[i][j].startY + 64;
         }
     }
     
