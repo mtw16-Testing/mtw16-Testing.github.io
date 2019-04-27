@@ -115,7 +115,9 @@ function SceneHandler(scene){
 
            scene.map.backgroundTiles = tiles1;
            scene.map.rowSize = image1.height;
-           scene.map.colSize = image1.width;		
+           scene.map.colSize = image1.width;
+		
+	   canvas.getContext('2d').clearRect(0,0,image1.width,image1.heig);
 		
 	   canvas.getContext('2d').drawImage(image2,0,0,image1.width,image1.height);
            pixelData = canvas.getContext('2d').getImageData(0,0,image2.width,image2.height).data;
