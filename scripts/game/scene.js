@@ -133,7 +133,8 @@ function SceneHandler(scene){
 		   tile.endY = (i+1)*64;
 		   //tile.endY = -120;
 		   foreTiles.push(tile);
-		   if(j == 5){    
+		   if(j == 5){
+			   console.log("X: " + tile.startX + " Y: " + tile.startY );
 		   	bounds.push(tile);
 		   }
                }
