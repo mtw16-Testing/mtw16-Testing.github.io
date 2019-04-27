@@ -139,12 +139,12 @@ function SceneHandler(scene){
 		   	   }
 			   var newVillager = new initVillager({
 					X: 800,
-					Y: (200+i*100),
+					Y: (i*100),
 					sentence: "My Lord! The prophecies heralded your return. Your path to take back your throne begins now, sire. Your rivals stand in your way, once you defeat them, you may leave this province in the top right and head towards the castle!"
 					});
-			   Villagers.push(newVillager);
-		   	bounds.push(newVillager);
-			//bounds.push(tile);
+			   //Villagers.push(newVillager);
+		   	//bounds.push(newVillager);
+			bounds.push(tile);
 		   }
                }
                tiles2.push(foreTiles);
@@ -655,7 +655,7 @@ function generalCollision() {
 		console.log("Tile: "+ i + " Start X: " + bounds[i].startX + " Start Y: " + 
 			    bounds[i].startY + " End X: " + bounds[i].endX + " End Y: "  + bounds[i].endY);
 		}*/
-		if ( isEmpty > 1) {
+		if ( isEmpty != 0) {
 			pLeft = false;
 			pRight = false;
 			pUp = false;
