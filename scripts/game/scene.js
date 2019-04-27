@@ -351,6 +351,7 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
     }
 	
     var xPos = 0, yPos = 0; 
+	console.log(colSize);
     for(var i = 0; i < rowSize; i++){
         for(var j = 0; j < colSize; j++){
 		
