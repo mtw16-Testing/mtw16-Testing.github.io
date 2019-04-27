@@ -655,7 +655,7 @@ function generalCollision() {
 		console.log("Tile: "+ i + " Start X: " + bounds[i].startX + " Start Y: " + 
 			    bounds[i].startY + " End X: " + bounds[i].endX + " End Y: "  + bounds[i].endY);
 		}*/
-		if ( isEmpty != 0) {
+		if ( isEmpty > 1) {
 			pLeft = false;
 			pRight = false;
 			pUp = false;
