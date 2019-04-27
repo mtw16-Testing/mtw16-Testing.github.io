@@ -134,7 +134,9 @@ function SceneHandler(scene){
 		   //tile.endY = -120;
 		   foreTiles.push(tile);
 		   if(j == 28){
-			   //console.log("X: " + tile.startX + " Y: " + tile.startY );
+			   if(i == 0){
+			   	console.log("X: " + tile.startX + " Y: " + tile.startY );
+		   	   }
 		   	bounds.push(tile);
 		   }
                }
