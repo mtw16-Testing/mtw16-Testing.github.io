@@ -18,7 +18,7 @@ sentence: "Please work"
 }));
 
 var Enemies = new Array();
-Enemies.push(new initEnemy({ 
+/*Enemies.push(new initEnemy({ 
 	X: 500,
 	Y: 300,
 	totalHealth: 300
@@ -28,7 +28,7 @@ X: 500,
 Y: 600,
 totalHealth: 100
 }));
-
+*/
 // Helps Textbox Printing
 printText = 0;
 
