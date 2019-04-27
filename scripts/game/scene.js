@@ -357,7 +357,8 @@ function Map(name){
 var mainMenuOn = false;
 var dx = 0, dy = 0;
 var left = false, up = false, right = false, down = false;
-var pLeft = false, pRight = false, pDown = false, pUp = false
+var pLeft = false, pRight = false, pDown = false, pUp = false;
+var isBlocked = false;
 function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
     ctx.clearRect(0,0,width,height);
     drawLoadingScreen();
@@ -528,8 +529,7 @@ function moveMap(direction){
 	}else if(direction == 40 && upperRight != 2 && upperLeft != 2){
 		pDown = true;
 		down = true;
-	}else{
-		
+	}else if(isBlocked){
 		pLeft = false;
 		pRight = false;
 		pUp = false;
@@ -538,6 +538,8 @@ function moveMap(direction){
 		right = false;
 		up = false;
 		down = false;
+		
+		isBlocked = false;
 		//console.log("Upper left: " + upperLeft + " Upper right: " + upperRight + " lower left: " + lowerLeft + " lower right: " + lowerRight);
 	}
 }
@@ -719,7 +721,7 @@ function generalCollision() {
 		
 		//if(isEmpty > 1 && bounds[i].solid){
 		if(isEmpty != 0){
-			
+			isBlocked = true;
 			return hit;
 		}else if(isEmpty > 1){
 			hit[0] = bounds[i].side+2;
