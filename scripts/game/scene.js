@@ -143,8 +143,8 @@ function SceneHandler(scene){
 					sentence: "My Lord! The prophecies heralded your return. Your path to take back your throne begins now, sire. Your rivals stand in your way, once you defeat them, you may leave this province in the top right and head towards the castle!"
 					});
 			   //Villagers.push(newVillager);
-		   	bounds.push(newVillager);
-			//bounds.push(tile);
+		   	//bounds.push(newVillager);
+			bounds.push(tile);
 		   }
                }
                tiles2.push(foreTiles);
