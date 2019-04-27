@@ -139,7 +139,8 @@ function SceneHandler(scene){
 		   	tile.empty = true;   
 		   }
 		       
-		   if(pixelData[row+j+1] == 0 && pixelData[row+j+2] == 176){
+		   if((pixelData[row+j+1] == 0 && pixelData[row+j+2] == 176) ||
+		     	(pixelData[row+j+1] == 16 && pixelData[row+j+2] == 176)){
 			bounds.push(tile);		   	   
 			/*var newVillager = new initVillager({
 					X: (j/4)*64,
