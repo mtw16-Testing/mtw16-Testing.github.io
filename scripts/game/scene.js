@@ -213,7 +213,7 @@ function Scene(name, map){
                 image2.src = "maps/Level2Foreground.png";
                 
 		//loads in the spritesheet that will be used
-		map.getMap("images/spritesheets/level1.png");
+		map.getMap("images/spritesheets/level2.png");
 			
 		Player.X = 1024;
 		Player.Y = 512;
