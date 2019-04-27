@@ -160,6 +160,9 @@ function Scene(name, map){
         image1 = new Image();
         image2 = new Image();
 	    
+	bounds = [];
+	Enemies = [];
+	Villagers = [];
 	    
         dx = 0;
         dy = 0;
@@ -283,27 +286,15 @@ function Map(name){
 			var hit = generalCollision();
 			if((hit[0] - 2) == 1 && sceneHandler.scene.nextMaps[0] != -1){
 				cancelAnimationFrame(drawing);
-				bounds = [];
-				Enemies = [];
-				Villagers = [];
                 		sceneHandler.scene.getScene(sceneHandler.scene.nextMaps[0]);
 			}else if((hit[0] - 2) == 2 && sceneHandler.scene.nextMaps[1] != -1){
 				cancelAnimationFrame(drawing);
-				bounds = [];
-				Enemies = [];
-				Villagers = [];
                 		sceneHandler.scene.getScene(sceneHandler.scene.nextMaps[1]);
 			}else if((hit[0] - 2) == 3 && sceneHandler.scene.nextMaps[2] != -1){
 				cancelAnimationFrame(drawing);
-				bounds = [];
-				Enemies = [];
-				Villagers = [];
                 		sceneHandler.scene.getScene(sceneHandler.scene.nextMaps[2]);
 			}else if((hit[0] - 2) == 4 && sceneHandler.scene.nextMaps[3] != -1){
 				cancelAnimationFrame(drawing);
-				bounds = [];
-				Enemies = [];
-				Villagers = [];
                 		sceneHandler.scene.getScene(sceneHandler.scene.nextMaps[3]);
 			}
 		}
