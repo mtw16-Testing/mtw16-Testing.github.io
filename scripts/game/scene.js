@@ -39,6 +39,7 @@ function Tile(X, Y, collision){
   this.startY,
   this.endX,
   this.endY,
+  this.empty = false,
   this.collision = collision
 }
 
@@ -133,6 +134,10 @@ function SceneHandler(scene){
 		   tile.endX = ((j/4)+1)*64;
 		   tile.endY = (i+1)*64;
 		   foreTiles.push(tile);
+		    
+		   if(pixelData[row+j+1] == 0 && pixelData[row+j+2] == 0){
+		   	tile.empty = true;   
+		   }
 		       
 		   if(pixelData[row+j+1] == 48 && pixelData[row+j+2] == 16){
 			//bounds.push(tile);		   	   
@@ -387,8 +392,9 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
 	    xPos = foregroundTiles[i][j].X / 16;
             yPos = foregroundTiles[i][j].Y / 16;
             
-            ctx.drawImage(map.image,xPos*64,yPos*64,64,64,(j+(dx/8))*64,(i+(dy/8))*64,64,64);
-		
+	    if(!foregroundTiles[i][j].empty){
+            	ctx.drawImage(map.image,xPos*64,yPos*64,64,64,(j+(dx/8))*64,(i+(dy/8))*64,64,64);
+	    }
 	     //foregroundTiles[i][j].endX = foregroundTiles[i][j].startX + 64;
     	     //foregroundTiles[i][j].endY = foregroundTiles[i][j].startY + 64;
         }
