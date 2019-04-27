@@ -282,8 +282,8 @@ function Map(name){
 				Enemies[i].draw();
 		
 			var hit = generalCollision();
-			if((hit[0] - 2) == 1 && sceneHandler.scene.mapNames[0] != -1){
-				console.log("Go to " + sceneHandler.scene.mapNames[0]);
+			if((hit[0] - 2) == 1 && sceneHandler.scene.nextMaps[0] != -1){
+				console.log("Go to " + sceneHandler.scene.nextMaps[0]);
 				//nextLevel();
 			}
 		}
