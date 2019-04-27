@@ -132,7 +132,7 @@ function SceneHandler(scene){
 		   tile.endY = (i+1)*64;
 		   foreTiles.push(tile);
 		   if(j == 100){
-			   if(i < 10){
+			   if(i < 20){
 			   	console.log("X: " + tile.startX + " Y: " + tile.startY + " 1: " + pixelData[row+j+1]+ " 2: " + pixelData[row+j+2]);
 		   	   }
 			   var newVillager = new initVillager({
