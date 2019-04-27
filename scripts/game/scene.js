@@ -131,7 +131,11 @@ function SceneHandler(scene){
 		   tile.endX = ((j/4)+1)*64;
 		   tile.endY = (i+1)*64;
 		   foreTiles.push(tile);
-		   if(j == 100){
+		       
+		   if(pixelData[row+j+1] != 255 && pixelData[row+j+2] != 255){
+			bounds.push(tile);
+		   }
+		   /*if(j == 100){
 			   if(i < 20){
 			   	console.log("X: " + tile.startX + " Y: " + tile.startY + " 1: " + pixelData[row+j+1]+ " 2: " + pixelData[row+j+2]);
 		   	   }
@@ -143,7 +147,7 @@ function SceneHandler(scene){
 			   //Villagers.push(newVillager);
 		   	//bounds.push(newVillager);
 			bounds.push(tile);
-		   }
+		   }*/
                }
                tiles2.push(foreTiles);
            }
