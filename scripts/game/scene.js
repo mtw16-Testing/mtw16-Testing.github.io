@@ -216,6 +216,7 @@ function Scene(name, map){
 		map.getMap("images/spritesheets/level1.png");
 			
 		Player.X = 1024;
+		Player.Y = 512;
 			
 		this.nextMaps[0] = "Level 1";
 		
@@ -300,6 +301,7 @@ function Map(name){
 			var hit = generalCollision();
 			if((hit[0] - 2) == 1 && sceneHandler.scene.nextMaps[0] != -1){
 				console.log("Go to " + sceneHandler.scene.nextMaps[0]);
+				cancelAnimationFrame(drawing);
                 		sceneHandler.scene.getScene(sceneHandler.scene.nextMaps[0]);
 			}else if((hit[0] - 2) == 2 && sceneHandler.scene.nextMaps[1] != -1){
 				console.log("Go to " + sceneHandler.scene.nextMaps[1]);
