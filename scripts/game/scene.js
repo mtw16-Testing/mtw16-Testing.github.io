@@ -41,6 +41,7 @@ function Tile(X, Y, collision){
   this.endY,
   this.empty = false,
   this.solid = false,
+  this.side = -1,
   this.collision = collision
 }
 
@@ -142,6 +143,15 @@ function SceneHandler(scene){
 		       
 		   if((pixelData[row+j+1] == 0 && pixelData[row+j+2] == 176) ||
 		     	(pixelData[row+j+1] == 16 && pixelData[row+j+2] == 176)){
+			  	if(i < 5){
+					tile.side = 1;
+				}else if (j < 5){					
+					tile.side = 2;
+				}else if(i > (image2.height - 5)){
+					tile.side = 3;
+				}else if(j > (image2.height - 5)){
+					tile.side = 4;
+				}
 			bounds.push(tile);	
 		   }
                }
