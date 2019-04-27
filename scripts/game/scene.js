@@ -140,14 +140,14 @@ function SceneHandler(scene){
 		   }
 		       
 		   if(pixelData[row+j+1] == 0 && pixelData[row+j+2] == 176){
-			//bounds.push(tile);		   	   
-			var newVillager = new initVillager({
+			bounds.push(tile);		   	   
+			/*var newVillager = new initVillager({
 					X: (j/4)*64,
 					Y: i*64,
 					sentence: "Door!"
 					});
 			Villagers.push(newVillager);
-		   	bounds.push(newVillager);
+		   	bounds.push(newVillager);*/
 		   }
 		   /*if(j == 100){
 			   if(i < 20){
@@ -395,8 +395,9 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
 	    if(!foregroundTiles[i][j].empty){
             	ctx.drawImage(map.image,xPos*64,yPos*64,64,64,(j+(dx/8))*64,(i+(dy/8))*64,64,64);
 	    }
-	     //foregroundTiles[i][j].endX = foregroundTiles[i][j].startX + 64;
-    	     //foregroundTiles[i][j].endY = foregroundTiles[i][j].startY + 64;
+	    
+	    foregroundTiles[i][j].endX = foregroundTiles[i][j].startX + (dx/8)*64 + 64;
+    	    foregroundTiles[i][j].endY = foregroundTiles[i][j].startY + (dy/8)*64 + 64;
         }
     }
     
