@@ -364,9 +364,10 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
 	    xPos = foregroundTiles[i][j].X / 16;
             yPos = foregroundTiles[i][j].Y / 16;
             
-            ctx.drawImage(map.image,xPos*64,yPos*64,64,64,(j+(dx/8))*64,(i+(dy/8))*64,64,64);		
-            ctx.strokeRect( foregroundTiles[i][j].startX+(dx/8)*64, foregroundTiles[i][j].startY+(dy/8)*64, foregroundTiles[i][j].endX , foregroundTiles[i][j].endY );
-        
+            ctx.drawImage(map.image,xPos*64,yPos*64,64,64,(j+(dx/8))*64,(i+(dy/8))*64,64,64);
+		if(j == 5){
+        	    ctx.strokeRect( foregroundTiles[i][j].startX+(dx/8)*64, foregroundTiles[i][j].startY+(dy/8)*64, foregroundTiles[i][j].endX , foregroundTiles[i][j].endY );
+		}
         }
     }
     
