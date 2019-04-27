@@ -303,6 +303,8 @@ function Map(name){
 				console.log("Go to " + sceneHandler.scene.nextMaps[0]);
 				cancelAnimationFrame(drawing);
 				bounds = [];
+				Enemies = [];
+				Villagers = [];
                 		sceneHandler.scene.getScene(sceneHandler.scene.nextMaps[0]);
 			}else if((hit[0] - 2) == 2 && sceneHandler.scene.nextMaps[1] != -1){
 				console.log("Go to " + sceneHandler.scene.nextMaps[1]);
