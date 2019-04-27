@@ -133,7 +133,7 @@ function SceneHandler(scene){
 		   tile.endY = (i+1)*64;
 		   //tile.endY = -120;
 		   foreTiles.push(tile);
-		   if(j == 28){
+		   if(j == 200){
 			   if(i == 0){
 			   	console.log("X: " + tile.startX + " Y: " + tile.startY );
 		   	   }
@@ -657,10 +657,10 @@ function generalCollision() {
 			right = false;
 			up = false;
 			down = false;
-			if(isEmpty > 1){
+			/*if(isEmpty > 1){
 				console.log("Hit, i: " + i + " Start X: "+ bounds[i].startX + " Start Y: " + 
 			    		bounds[i].startY + " End X: " + bounds[i].endX + " End Y: "  + bounds[i].endY);
-			}
+			}*/
 		//console.log("i: " + i + " Start X: " + bounds[i].startX + " Start Y: " + 
 		//	    bounds[i].startY + " End X: " + bounds[i].endX + " End Y: "  + bounds[i].endY);
 			
