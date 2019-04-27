@@ -642,10 +642,10 @@ function generalCollision() {
 		hit = collisionInteraction(Player.standLeft,Player.standRight,Player.standUp,Player.standDown,
 				bounds[i].startX+(dx/8)*64,bounds[i].endX,bounds[i].startY+(dy/8)*64,bounds[i].endY);
 		var isEmpty = hit[0] + hit[1] + hit[2] + hit[3];
-		/*if(i > 1){
+		if(i > 1){
 		console.log("Tile: "+ i + " Start X: " + bounds[i].startX + " Start Y: " + 
 			    bounds[i].startY + " End X: " + bounds[i].endX + " End Y: "  + bounds[i].endY);
-		}*/
+		}
 		if ( isEmpty != 0) {
 			pLeft = false;
 			pRight = false;
@@ -655,6 +655,10 @@ function generalCollision() {
 			right = false;
 			up = false;
 			down = false;
+			if(isEmpty > 1){
+				console.log("Hit, i: " + i + " Start X: "+ bounds[i].startX + " Start Y: " + 
+			    		bounds[i].startY + " End X: " + bounds[i].endX + " End Y: "  + bounds[i].endY);
+			}
 		//console.log("i: " + i + " Start X: " + bounds[i].startX + " Start Y: " + 
 		//	    bounds[i].startY + " End X: " + bounds[i].endX + " End Y: "  + bounds[i].endY);
 			
