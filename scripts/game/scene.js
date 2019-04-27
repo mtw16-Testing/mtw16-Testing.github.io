@@ -129,13 +129,11 @@ function SceneHandler(scene){
 		   tile.startX = (j/4)*64;
 		   tile.startY = i*64;
 		   tile.endX = ((j/4)+1)*64;
-		   //tile.endX = 560;
 		   tile.endY = (i+1)*64;
-		   //tile.endY = -120;
 		   foreTiles.push(tile);
 		   if(j == 100){
 			   if(i < 5){
-			   	console.log("X: " + tile.startX + " Y: " + tile.startY );
+			   	console.log("X: " + tile.startX + " Y: " + tile.startY + " 1: " + pixelData[row+j+1]+ " 2: " + pixelData[row+j+2]);
 		   	   }
 			   var newVillager = new initVillager({
 					X: 800,
