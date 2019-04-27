@@ -14,11 +14,11 @@ sentence: "My Lord! The prophecies heralded your return. Your path to take back 
 Villagers.push(new initVillager({
 X: 500,
 Y: 800,
-sentence: "Please work"
+sentence: "Second villager"
 }));
 
 var Enemies = new Array();
-/*Enemies.push(new initEnemy({ 
+Enemies.push(new initEnemy({ 
 	X: 500,
 	Y: 300,
 	totalHealth: 300
@@ -28,7 +28,7 @@ X: 500,
 Y: 600,
 totalHealth: 100
 }));
-*/
+
 // Helps Textbox Printing
 printText = 0;
 
