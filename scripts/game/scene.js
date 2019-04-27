@@ -692,9 +692,13 @@ function generalCollision() {
 			consolo.log("Here");
 			return hit;
 		}else if(isEmpty > 1){
-			//hit[0] = 2;
-			console.log("Inside but not hit");
-			//return hit;
+			hit[0] = bounds[i].side+2;
+			hit[1] = 0;			
+			hit[2] = 0;			
+			hit[3] = 0;
+			console.log("Inside but not hit: " + hit[0]);
+			
+			return hit;
 		}
 	}
 	
