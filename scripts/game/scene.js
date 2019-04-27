@@ -128,10 +128,10 @@ function SceneHandler(scene){
 		   var tile = new Tile(pixelData[row+j+1],pixelData[row+j+2], true)
 		   tile.startX = (j/4)*64;
 		   tile.startY = i*64;
-		   //tile.endX = ((j/4)+1)*64;
-		   tile.endX = 560;
-		   //tile.endY = (i+1)*64;
-		   tile.endY = -120;
+		   tile.endX = ((j/4)+1)*64;
+		   //tile.endX = 560;
+		   tile.endY = (i+1)*64;
+		   //tile.endY = -120;
 		   foreTiles.push(tile);
 		   if(j == 5){    
 		   	bounds.push(tile);
@@ -370,6 +370,9 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
 		if(j == 5){
         	    ctx.strokeRect( foregroundTiles[i][j].startX+(dx/8)*64, foregroundTiles[i][j].startY+(dy/8)*64, foregroundTiles[i][j].endX , foregroundTiles[i][j].endY );
 		}
+		
+	     foregroundTiles[i][j].endX = foregroundTiles[i][j].startX + 64;
+    	     foregroundTiles[i][j].endY = foregroundTiles[i][j].startY + 64;
         }
     }
     
