@@ -278,7 +278,7 @@ function Map(name){
     this.draw = function(){
         switch(this.name){
             case "Level 1":
-	    case "Level 2":
+	    //case "Level 2":
                 drawLevel(this, this.backgroundTiles,this.foregroundTiles, this.rowSize, this.colSize);
 		
 		//only draws player and updates player logic if the pause menu is not toggled
