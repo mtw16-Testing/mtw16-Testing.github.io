@@ -44,6 +44,7 @@ function Tile(X, Y, collision){
 
 var bounds = new Array();
 bounds.push(Villagers[0]);
+bounds.push(Villagers[1]);
 
 
 //detects if all images have been loaded in before starting the level
