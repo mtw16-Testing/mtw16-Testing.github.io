@@ -285,6 +285,15 @@ function Map(name){
 			if((hit[0] - 2) == 1 && sceneHandler.scene.nextMaps[0] != -1){
 				console.log("Go to " + sceneHandler.scene.nextMaps[0]);
 				//nextLevel();
+			}else if((hit[0] - 2) == 2 && sceneHandler.scene.nextMaps[1] != -1){
+				console.log("Go to " + sceneHandler.scene.nextMaps[1]);
+				//nextLevel();
+			}else if((hit[0] - 2) == 3 && sceneHandler.scene.nextMaps[2] != -1){
+				console.log("Go to " + sceneHandler.scene.nextMaps[2]);
+				//nextLevel();
+			}else if((hit[0] - 2) == 4 && sceneHandler.scene.nextMaps[3] != -1){
+				console.log("Go to " + sceneHandler.scene.nextMaps[3]);
+				//nextLevel();
 			}
 		}
 			
