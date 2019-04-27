@@ -5,29 +5,8 @@ Player = new initPlayer({
        aFrame: 0
     });
 var Villagers = new Array();
-Villagers.push(new initVillager({
-X: 2000,
-Y: 1000,
-sentence: "My Lord! The prophecies heralded your return. Your path to take back your throne begins now, sire. Your rivals stand in your way, once you defeat them, you may leave this province in the top right and head towards the castle!"
-}));
-
-Villagers.push(new initVillager({
-X: 500,
-Y: 800,
-sentence: "Second villager"
-}));
 
 var Enemies = new Array();
-Enemies.push(new initEnemy({ 
-	X: 500,
-	Y: 300,
-	totalHealth: 300
-})); 	     
-Enemies.push(new initEnemy({
-X: 500,
-Y: 600,
-totalHealth: 100
-}));
 
 // Helps Textbox Printing
 printText = 0;
@@ -205,7 +184,33 @@ function Scene(name, map){
 		map.getMap("images/spritesheets/level1.png");
 			
 		this.nextMaps[0] = "Level 2";
-		
+			
+			
+		Villagers.push(new initVillager({
+				X: 2000,
+				Y: 1000,
+				sentence: "My Lord! The prophecies heralded your return. Your path to take back your throne begins now, sire. Your rivals stand in your way, once you defeat them, you may leave this province in the top right and head towards the castle!"
+				}));
+			
+
+		Villagers.push(new initVillager({
+				X: 500,
+				Y: 800,
+				sentence: "Second villager"
+				}));
+			
+		Enemies.push(new initEnemy({ 
+					X: 500,
+					Y: 300,
+					totalHealth: 300
+				})); 	    
+			
+		Enemies.push(new initEnemy({
+					X: 500,
+					Y: 600,
+					totalHealth: 100
+					}));
+
                 break;
 	    case "Level 2":
 		//sets keyboard input handlers for player movement and map logic
