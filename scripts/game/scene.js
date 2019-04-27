@@ -138,8 +138,8 @@ function SceneHandler(scene){
 			   	console.log("X: " + tile.startX + " Y: " + tile.startY );
 		   	   }
 			   var newVillager = new initVillager({
-					X: 2000,
-					Y: 1000,
+					X: 800,
+					Y: (200+i*100),
 					sentence: "My Lord! The prophecies heralded your return. Your path to take back your throne begins now, sire. Your rivals stand in your way, once you defeat them, you may leave this province in the top right and head towards the castle!"
 					});
 			   Villagers.push(newVillager);
