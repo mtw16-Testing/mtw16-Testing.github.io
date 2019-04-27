@@ -25,10 +25,6 @@ function Tile(X, Y, collision){
 }
 
 var bounds = new Array();
-bounds.push(Villagers[0]);
-bounds.push(Villagers[1]);
-
-var endTiles = new Array();
 
 //detects if all images have been loaded in before starting the level
 var isImage1Loaded = false;
@@ -210,6 +206,11 @@ function Scene(name, map){
 					Y: 600,
 					totalHealth: 100
 					}));
+			
+			
+bounds.push(Villagers[0]);
+bounds.push(Villagers[1]);
+
 
                 break;
 	    case "Level 2":
