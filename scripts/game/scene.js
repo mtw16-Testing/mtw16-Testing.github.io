@@ -138,7 +138,7 @@ function SceneHandler(scene){
 					X: (j/4)*64,
 					Y: i*64,
 					sentence: "Door"
-					});
+					}));
 		   }
 		   /*if(j == 100){
 			   if(i < 20){
