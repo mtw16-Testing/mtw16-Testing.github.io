@@ -714,6 +714,7 @@ function generalCollision() {
 			right = false;
 			up = false;
 			down = false;*/
+			moveMap(-1);
 			
 			return hit;
 		}else if(isEmpty > 1){
