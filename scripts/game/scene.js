@@ -708,14 +708,14 @@ function generalCollision() {
 		var isEmpty = hit[0] + hit[1] + hit[2] + hit[3];
 		
 		if(isEmpty > 1 && bounds[i].solid){
-			/*pLeft = false;
+			pLeft = false;
 			pRight = false;
 			pUp = false;
 			pDown = false;
 			left = false;
 			right = false;
 			up = false;
-			down = false;*/
+			down = false;
 			
 			return hit;
 		}else if(isEmpty > 1){
