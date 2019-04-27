@@ -689,7 +689,7 @@ function generalCollision() {
 			}*/
 		//console.log("i: " + i + " Start X: " + bounds[i].startX + " Start Y: " + 
 		//	    bounds[i].startY + " End X: " + bounds[i].endX + " End Y: "  + bounds[i].endY);
-			
+			consolo.log("Here");
 			return hit;
 		}else if(isEmpty > 1){
 			//hit[0] = 2;
