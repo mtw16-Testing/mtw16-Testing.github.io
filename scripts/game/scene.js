@@ -146,7 +146,7 @@ function SceneHandler(scene){
 					Y: i*64,
 					sentence: "Door!"
 					});
-			Villagers.push(newVillager);
+			//Villagers.push(newVillager);
 		   	bounds.push(newVillager);
 		   }
 		   /*if(j == 100){
