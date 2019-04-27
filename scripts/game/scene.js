@@ -131,8 +131,9 @@ function SceneHandler(scene){
 		   tile.endX = ((j/4)+1)*64;
 		   tile.endY = (i+1)*64;
 		   foreTiles.push(tile);
-		       
-		   bounds.push(tile);
+		   if(j == 5){    
+		   	bounds.push(tile);
+		   }
                }
                tiles2.push(foreTiles);
            }
