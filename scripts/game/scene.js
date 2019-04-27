@@ -202,9 +202,22 @@ function Scene(name, map){
 			
 		this.nextMaps[0] = "Level 2";
 		
-		//loads in enemy
-		//Enemy = new initEnemy({});
                 break;
+	    case "Level 2":
+		//sets keyboard input handlers for player movement and map logic
+		document.onkeydown = levelHandler;
+                document.onkeyup = levelHandler2;
+		
+		//loads in map files
+                image1.src = "maps/Level2Background.png";
+                image2.src = "maps/Level2Foreground.png";
+                
+		//loads in the spritesheet that will be used
+		map.getMap("images/spritesheets/level1.png");
+			
+		this.nextMaps[0] = "Level 1";
+		
+		break;	
             case "Options":
                 initOptions();
                 document.onkeydown = optionsHandler;
@@ -284,7 +297,7 @@ function Map(name){
 			var hit = generalCollision();
 			if((hit[0] - 2) == 1 && sceneHandler.scene.nextMaps[0] != -1){
 				console.log("Go to " + sceneHandler.scene.nextMaps[0]);
-				//nextLevel();
+                		sceneHandler.scene.getScene(sceneHandler.scene.nextMaps[0]);
 			}else if((hit[0] - 2) == 2 && sceneHandler.scene.nextMaps[1] != -1){
 				console.log("Go to " + sceneHandler.scene.nextMaps[1]);
 				//nextLevel();
