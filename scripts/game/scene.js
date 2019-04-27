@@ -117,7 +117,7 @@ function SceneHandler(scene){
            scene.map.rowSize = image1.height;
            scene.map.colSize = image1.width;
 		
-	   canvas.getContext('2d').clearRect(0,0,image1.width,image1.heig);
+	   canvas.getContext('2d').clearRect(0,0,image1.width,image1.height);
 		
 	   canvas.getContext('2d').drawImage(image2,0,0,image1.width,image1.height);
            pixelData = canvas.getContext('2d').getImageData(0,0,image2.width,image2.height).data;
@@ -135,9 +135,7 @@ function SceneHandler(scene){
 		   foreTiles.push(tile);
 		       
 		   if(pixelData[row+j+1] == 48 && pixelData[row+j+2] == 16){
-			//bounds.push(tile);
-			console.log("Blue: " + pixelData[row+j+1]+ "Green: " + pixelData[row+j+2]);
-		   	   
+			//bounds.push(tile);		   	   
 			var newVillager = new initVillager({
 					X: (j/4)*64,
 					Y: i*64,
