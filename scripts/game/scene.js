@@ -185,6 +185,10 @@ function Scene(name, map){
         image1 = new Image();
         image2 = new Image();
 	    
+	    
+        dx = 0;
+        dy = 0;
+	    
     	drawLoadingScreen();
         
         switch(this.name){
@@ -253,8 +257,6 @@ function Scene(name, map){
             
             //sets default values for the level
             mainMenuOn = false;
-            dx = 0;
-            dy = 0;
             left = false;
             up = false;
             right = false;
