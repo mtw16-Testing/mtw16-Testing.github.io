@@ -710,10 +710,10 @@ function generalCollision() {
 		
 		//if(isEmpty > 1 && bounds[i].solid){
 		if(isEmpty != 0){
-			pLeft = false;
+			/*pLeft = false;
 			pRight = false;
 			pUp = false;
-			pDown = false;
+			pDown = false;*/
 			left = false;
 			right = false;
 			up = false;
