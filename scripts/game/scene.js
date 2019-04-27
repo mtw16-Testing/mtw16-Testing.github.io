@@ -133,7 +133,12 @@ function SceneHandler(scene){
 		   foreTiles.push(tile);
 		       
 		   if(pixelData[row+j+1] == 48 && pixelData[row+j+2] == 16){
-			bounds.push(tile);
+			//bounds.push(tile);
+		   	bounds.push( new initVillager({
+					X: (j/4)*64,
+					Y: i*64,
+					sentence: "Door"
+					});
 		   }
 		   /*if(j == 100){
 			   if(i < 20){
