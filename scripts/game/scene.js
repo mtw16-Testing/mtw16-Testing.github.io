@@ -515,6 +515,8 @@ function moveMap(direction){
 	var lowerLeft = collision[1] + collision[3];
 	var lowerRight = collision[0] + collision[3];
 	
+	console.log("Upper left: " + upperLeft + " Upper right: " + upperRight + " lower left: " + lowerLeft + " lower right: " + lowerRight);
+	
 	if(direction == 37 && lowerRight != 2 && upperRight != 2){
 		pLeft = true;
 		left = true;
