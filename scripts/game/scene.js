@@ -129,7 +129,7 @@ function SceneHandler(scene){
 		   tile.startX = (j/4)*64;
 		   tile.startY = i*64;
 		   //tile.endX = ((j/4)+1)*64;
-		   tile.endX = 550;
+		   tile.endX = 560;
 		   //tile.endY = (i+1)*64;
 		   tile.endY = -120;
 		   foreTiles.push(tile);
