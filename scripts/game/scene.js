@@ -281,10 +281,11 @@ function Map(name){
 			for ( i = 0; i < Enemies.length; i++ )
 				Enemies[i].draw();
 		
-			//var hit = generalCollision();
-			//if(hit[0] == -2){
+			var hit = generalCollision();
+			if((hit[0] - 2) == 1 && sceneHandler.scene.mapNames[0] != -1){
+				console.log("Go to " + sceneHandler.scene.mapNames[0]);
 				//nextLevel();
-			//}
+			}
 		}
 			
 		
@@ -689,14 +690,14 @@ function generalCollision() {
 			}*/
 		//console.log("i: " + i + " Start X: " + bounds[i].startX + " Start Y: " + 
 		//	    bounds[i].startY + " End X: " + bounds[i].endX + " End Y: "  + bounds[i].endY);
-			console.log("Here");
+			//console.log("Here");
 			return hit;
 		}else if(isEmpty > 1){
 			hit[0] = bounds[i].side+2;
 			hit[1] = 0;			
 			hit[2] = 0;			
 			hit[3] = 0;
-			console.log("Inside but not hit: " + hit[0]);
+			//console.log("Inside but not hit: " + hit[0]);
 			
 			return hit;
 		}
