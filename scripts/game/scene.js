@@ -135,8 +135,8 @@ function SceneHandler(scene){
 		   if(pixelData[row+j+1] == 48 && pixelData[row+j+2] == 16){
 			//bounds.push(tile);
 			var newVillager = new initVillager({
-					X: 800,
-					Y: (i*100),
+					X: (j/4)*64,
+					Y: i*64,
 					sentence: "My Lord! The prophecies heralded your return. Your path to take back your throne begins now, sire. Your rivals stand in your way, once you defeat them, you may leave this province in the top right and head towards the castle!"
 					});
 			Villagers.push(newVillager);
