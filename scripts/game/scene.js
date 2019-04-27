@@ -719,8 +719,7 @@ function generalCollision() {
 				bounds[i].startX+(dx/8)*64,bounds[i].endX,bounds[i].startY+(dy/8)*64,bounds[i].endY);
 		var isEmpty = hit[0] + hit[1] + hit[2] + hit[3];
 		
-		//if(isEmpty > 1 && bounds[i].solid){
-		if(isEmpty != 0){
+		if(isEmpty > 1 && bounds[i].solid){
 			isBlocked = true;
 			return hit;
 		}else if(isEmpty > 1){
