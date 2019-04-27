@@ -303,21 +303,29 @@ function Map(name){
 		
 			var hit = generalCollision();
 			if((hit[0] - 2) == 1 && sceneHandler.scene.nextMaps[0] != -1){
-				console.log("Go to " + sceneHandler.scene.nextMaps[0]);
 				cancelAnimationFrame(drawing);
 				bounds = [];
 				Enemies = [];
 				Villagers = [];
                 		sceneHandler.scene.getScene(sceneHandler.scene.nextMaps[0]);
 			}else if((hit[0] - 2) == 2 && sceneHandler.scene.nextMaps[1] != -1){
-				console.log("Go to " + sceneHandler.scene.nextMaps[1]);
-				//nextLevel();
+				cancelAnimationFrame(drawing);
+				bounds = [];
+				Enemies = [];
+				Villagers = [];
+                		sceneHandler.scene.getScene(sceneHandler.scene.nextMaps[1]);
 			}else if((hit[0] - 2) == 3 && sceneHandler.scene.nextMaps[2] != -1){
-				console.log("Go to " + sceneHandler.scene.nextMaps[2]);
-				//nextLevel();
+				cancelAnimationFrame(drawing);
+				bounds = [];
+				Enemies = [];
+				Villagers = [];
+                		sceneHandler.scene.getScene(sceneHandler.scene.nextMaps[2]);
 			}else if((hit[0] - 2) == 4 && sceneHandler.scene.nextMaps[3] != -1){
-				console.log("Go to " + sceneHandler.scene.nextMaps[3]);
-				//nextLevel();
+				cancelAnimationFrame(drawing);
+				bounds = [];
+				Enemies = [];
+				Villagers = [];
+                		sceneHandler.scene.getScene(sceneHandler.scene.nextMaps[3]);
 			}
 		}
 			
@@ -387,8 +395,6 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
 	down = false;
     }
 	
-    //generalCollision();
-	
     //moves map to the left if left arrow key is pressed
     if(left){
 	dx++;
@@ -414,16 +420,10 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
         for(var j = 0; j < colSize; j++){
 		
 	    //gets the image to be cropped from the spritesheet to be displayed for the current tile
-            //xPos = backgroundTiles[i][j][0] / 16;
-            //yPos = backgroundTiles[i][j][1] / 16;
-		
 	    xPos = backgroundTiles[i][j].X / 16;
             yPos = backgroundTiles[i][j].Y / 16;
             
             ctx.drawImage(map.image,xPos*64,yPos*64,64,64,(j+(dx/8))*64,(i+(dy/8))*64,64,64);
-		
-            //xPos = foregroundTiles[i][j][0] / 16;
-            //yPos = foregroundTiles[i][j][1] / 16;
 		
 	    xPos = foregroundTiles[i][j].X / 16;
             yPos = foregroundTiles[i][j].Y / 16;
@@ -702,13 +702,8 @@ function generalCollision() {
 		hit = collisionInteraction(Player.standLeft,Player.standRight,Player.standUp,Player.standDown,
 				bounds[i].startX+(dx/8)*64,bounds[i].endX,bounds[i].startY+(dy/8)*64,bounds[i].endY);
 		var isEmpty = hit[0] + hit[1] + hit[2] + hit[3];
-		/*if(i > 1){
-		console.log("Tile: "+ i + " Start X: " + bounds[i].startX + " Start Y: " + 
-			    bounds[i].startY + " End X: " + bounds[i].endX + " End Y: "  + bounds[i].endY);
-		}*/
 		
 		if(isEmpty > 1 && bounds[i].solid){
-		//if ( isEmpty > 1) {
 			pLeft = false;
 			pRight = false;
 			pUp = false;
@@ -717,20 +712,14 @@ function generalCollision() {
 			right = false;
 			up = false;
 			down = false;
-			/*if(isEmpty > 1){
-				console.log("Hit, i: " + i + " Start X: "+ bounds[i].startX + " Start Y: " + 
-			    		bounds[i].startY + " End X: " + bounds[i].endX + " End Y: "  + bounds[i].endY);
-			}*/
-		//console.log("i: " + i + " Start X: " + bounds[i].startX + " Start Y: " + 
-		//	    bounds[i].startY + " End X: " + bounds[i].endX + " End Y: "  + bounds[i].endY);
-			//console.log("Here");
+			
 			return hit;
 		}else if(isEmpty > 1){
 			hit[0] = bounds[i].side+2;
 			hit[1] = 0;			
 			hit[2] = 0;			
 			hit[3] = 0;
-			console.log("Inside but not hit: " + isEmpty);
+			//console.log("Inside but not hit: " + isEmpty);
 			
 			return hit;
 		}
