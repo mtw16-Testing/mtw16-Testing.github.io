@@ -137,7 +137,7 @@ function SceneHandler(scene){
 			var newVillager = new initVillager({
 					X: (j/4)*64,
 					Y: i*64,
-					sentence: "My Lord! The prophecies heralded your return. Your path to take back your throne begins now, sire. Your rivals stand in your way, once you defeat them, you may leave this province in the top right and head towards the castle!"
+					sentence: "Door!"
 					});
 			Villagers.push(newVillager);
 		   	bounds.push(newVillager);
