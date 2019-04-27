@@ -529,7 +529,16 @@ function moveMap(direction){
 		pDown = true;
 		down = true;
 	}else{
-		console.log("Upper left: " + upperLeft + " Upper right: " + upperRight + " lower left: " + lowerLeft + " lower right: " + lowerRight);
+		
+		pLeft = false;
+		pRight = false;
+		pUp = false;
+		pDown = false;
+		left = false;
+		right = false;
+		up = false;
+		down = false;
+		//console.log("Upper left: " + upperLeft + " Upper right: " + upperRight + " lower left: " + lowerLeft + " lower right: " + lowerRight);
 	}
 }
 
@@ -710,14 +719,6 @@ function generalCollision() {
 		
 		//if(isEmpty > 1 && bounds[i].solid){
 		if(isEmpty != 0){
-			/*pLeft = false;
-			pRight = false;
-			pUp = false;
-			pDown = false;*/
-			left = false;
-			right = false;
-			up = false;
-			down = false;
 			
 			return hit;
 		}else if(isEmpty > 1){
