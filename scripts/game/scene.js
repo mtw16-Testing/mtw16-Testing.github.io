@@ -136,6 +136,8 @@ function SceneHandler(scene){
 		       
 		   if(pixelData[row+j+1] == 48 && pixelData[row+j+2] == 16){
 			//bounds.push(tile);
+			console.log("Blue: " + pixelData[row+j+1]+ "Green: " + pixelData[row+j+2]);
+		   	   
 			var newVillager = new initVillager({
 					X: (j/4)*64,
 					Y: i*64,
