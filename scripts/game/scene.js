@@ -632,7 +632,6 @@ function drawLoadingScreen(){
 
 function generalCollision() {
 	var hit = [0, 0, 0, 0];
-	console.log("-------------------------");
 	for (var i = 0; i < bounds.length; i++ ) {
 		hit = collisionInteraction(Player.standLeft,Player.standRight,Player.standUp,Player.standDown,
 				bounds[i].startX+(dx/8)*64,bounds[i].endX,bounds[i].startY+(dy/8)*64,bounds[i].endY);
