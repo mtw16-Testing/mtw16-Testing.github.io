@@ -639,7 +639,7 @@ function generalCollision() {
 				bounds[i].startX+(dx/8)*64,bounds[i].endX,bounds[i].startY+(dy/8)*64,bounds[i].endY);
 		var isEmpty = hit[0] + hit[1] + hit[2] + hit[3];
 		if(i > 1){
-		console.log("i: " + i + " Start X: " + bounds[i].startX + " Start Y: " + 
+		console.log("Tile: "+ i + " Start X: " + bounds[i].startX + " Start Y: " + 
 			    bounds[i].startY + " End X: " + bounds[i].endX + " End Y: "  + bounds[i].endY);
 		}
 		if ( isEmpty != 0) {
