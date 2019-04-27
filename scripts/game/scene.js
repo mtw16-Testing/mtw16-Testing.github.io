@@ -132,7 +132,7 @@ function SceneHandler(scene){
 		   tile.endY = (i+1)*64;
 		   foreTiles.push(tile);
 		       
-		   if(pixelData[row+j+1] != 0 && pixelData[row+j+2] != 0){
+		   if(pixelData[row+j+1] == 48 && pixelData[row+j+2] == 16){
 			bounds.push(tile);
 		   }
 		   /*if(j == 100){
