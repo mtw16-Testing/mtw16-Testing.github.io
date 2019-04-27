@@ -223,7 +223,7 @@ function Scene(name, map){
 		Player.Y = 512;
 			
 		dx = 0;
-		dy = 200;
+		dy = -100;
 			
 		this.nextMaps[0] = "Level 1";
 		
