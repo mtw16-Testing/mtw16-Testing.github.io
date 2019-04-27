@@ -40,6 +40,7 @@ function Tile(X, Y, collision){
   this.endX,
   this.endY,
   this.empty = false,
+  this.solid = false,
   this.collision = collision
 }
 
@@ -47,6 +48,7 @@ var bounds = new Array();
 bounds.push(Villagers[0]);
 bounds.push(Villagers[1]);
 
+var endTiles = new Array();
 
 //detects if all images have been loaded in before starting the level
 var isImage1Loaded = false;
@@ -126,7 +128,6 @@ function SceneHandler(scene){
                var row = i * image2.width * 4;
                var foreTiles = [];
                for(var j = 0; j < image2.width*4; j += 4){
-                   //foreTiles.push([pixelData[row+j+1],y=pixelData[row+j+2]]);
 		       
 		   var tile = new Tile(pixelData[row+j+1],pixelData[row+j+2], true);
 		   tile.startX = (j/4)*64;
@@ -141,28 +142,8 @@ function SceneHandler(scene){
 		       
 		   if((pixelData[row+j+1] == 0 && pixelData[row+j+2] == 176) ||
 		     	(pixelData[row+j+1] == 16 && pixelData[row+j+2] == 176)){
-			bounds.push(tile);		   	   
-			/*var newVillager = new initVillager({
-					X: (j/4)*64,
-					Y: i*64,
-					sentence: "Door!"
-					});
-			Villagers.push(newVillager);
-		   	bounds.push(newVillager);*/
+			bounds.push(tile);	
 		   }
-		   /*if(j == 100){
-			   if(i < 20){
-			   	console.log("X: " + tile.startX + " Y: " + tile.startY + " 1: " + pixelData[row+j+1]+ " 2: " + pixelData[row+j+2]);
-		   	   }
-			   var newVillager = new initVillager({
-					X: 800,
-					Y: (i*100),
-					sentence: "My Lord! The prophecies heralded your return. Your path to take back your throne begins now, sire. Your rivals stand in your way, once you defeat them, you may leave this province in the top right and head towards the castle!"
-					});
-			   //Villagers.push(newVillager);
-		   	//bounds.push(newVillager);
-			bounds.push(tile);
-		   }*/
                }
                tiles2.push(foreTiles);
            }
@@ -182,6 +163,7 @@ function SceneHandler(scene){
 function Scene(name, map){
     this.map = map,
     this.name = name,
+    this.nextMaps = [-1,-1,-1,-1],
     this.getScene = function(name){
         this.name = name;
         this.map.name = name;
@@ -207,6 +189,8 @@ function Scene(name, map){
                 
 		//loads in the spritesheet that will be used
 		map.getMap("images/spritesheets/level1.png");
+			
+		this.nextMaps[0] = "Level 2";
 		
 		//loads in enemy
 		//Enemy = new initEnemy({});
@@ -286,7 +270,14 @@ function Map(name){
 			}		
 			for ( i = 0; i < Enemies.length; i++ )
 				Enemies[i].draw();
+		
+			//var hit = generalCollision();
+			//if(hit[0] == -2){
+				//nextLevel();
+			//}
 		}
+			
+		
                 break;
             case "Options":
                 drawOptionsScreen();
@@ -671,7 +662,9 @@ function generalCollision() {
 		console.log("Tile: "+ i + " Start X: " + bounds[i].startX + " Start Y: " + 
 			    bounds[i].startY + " End X: " + bounds[i].endX + " End Y: "  + bounds[i].endY);
 		}*/
-		if ( isEmpty > 1) {
+		
+		if(isEmpty > 1 && bounds[i].solid){
+		//if ( isEmpty > 1) {
 			pLeft = false;
 			pRight = false;
 			pUp = false;
@@ -688,6 +681,10 @@ function generalCollision() {
 		//	    bounds[i].startY + " End X: " + bounds[i].endX + " End Y: "  + bounds[i].endY);
 			
 			return hit;
+		}else if(isEmpty > 1){
+			//hit[0] = 2;
+			console.log("Inside but not hit");
+			//return hit;
 		}
 	}
 	
