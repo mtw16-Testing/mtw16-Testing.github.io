@@ -269,8 +269,7 @@ function collisionBetter(theX,theY,Enemy) {
 
 	return false;
 }
-
-// Collision that deals with squares
+// Collision that deals with tiles
 function collisionInteraction(pX1,pX2,pY1,pY2,oX1,oX2,oY1,oY2) {
 	var collision = [0, 0, 0, 0];
 	if ( pX1 >= oX1 && pX2 <= oX2 && pY1 >= oY1 && pY2 <= oY2 ){
@@ -282,39 +281,48 @@ function collisionInteraction(pX1,pX2,pY1,pY2,oX1,oX2,oY1,oY2) {
 		return collision;
 	}
 		
-	//if ( pX1 >= oX1 && pX1 <= oX2 && oY1 <= pY2 && oY2 >= pY1) // pX1 collision
 	if ( pX1 <= oX2 && (pX2+2) >= oX2 ) // right block collision
 		collision[0] = 1;
-		//return 1;
-		//return true;
-	//if ( pX2 >= oX1 && pX1 <= oX2 && oY1 <= pY2 && oY2 >= pY1 ) // pX2 collision	
 	if ( pX2 >= oX1 && (pX1 - 2) <= oX1 ) // left block collision
 		collision[1] = 1;
-		//collision += ;
-		//return 2;
-		//return true;	
-	//if ( pY1 <= oY2 && oX1 <= pX2 && oX2 >= pX1 ) // pY1 collision
 	if ( pY2 >= oY1 && pY1 <= oY1 ) // top block collision
-		collision[2] = 1;
-		//return 3;
-		//return true;
-	//if ( pY2 <= oY1 && oX1 <= pX2 && oX2 >= pX1 ) // pY2 collision	
+		collision[2] = 1;	
 	if ( pY1 <= oY2 && pY2 >= oY2 ) // bottom block collision
 		collision[3] = 1;
-		//return 4;
-		//return true;
   	
 	return collision;
-	//return false;
+}
+
+// Collision that deals with squares
+function collisionSquare(pX1,pX2,pY1,pY2,oX1,oX2,oY1,oY2) {
+
+	if ( pX1 >= oX1 && pX2 <= oX2 && pY1 >= oY1 && pY2 <= oY2 )
+		return true;
+	
+	if ( pX1 >= oX1 && pX1 <= oX2 && oY1 <= pY2 && oY2 >= pY1) // pX1 collision
+		return true;
+	else if ( pX2 >= oX1 && pX2 <= oX2 && oY1 <= pY2 && oY2 >= pY1 ) // pX2 collision
+		return true;
+	else if ( pY1 >= oY1 && pY1 <= oY2 && oX1 <= pX2 && oX2 >= pX1 ) // pY1 collision
+		return true;
+	else if ( pY2 >= oY1 && pY2 <= oY2 && oX1 <= pX2 && oX2 >= pX1 ) // pY2 collision
+		return true;
+  	
+	return false;
 }
 
 function animateAttack(that) {
    if ( that.whichAction == "attack" ) {
 	that.aFrame++;
-	if ( that.aFrame == swordAFrame ) {
+	if ( that.type == "Player" && that.aFrame == swordAFrame ) {
 		that.aFrame = 0;
 		that.whichAction = "stand";
 		action = startWalk;
+	}
+	else if ( that.type == "Enemy" && that.aFrame == that.attackAFrame ) {
+		that.aFrame = 0;
+		that.whichAction = "alive";
+		that.action = that.startWalk;
 	}
 	else 
 		setTimeout(animateAttack,0,that); 

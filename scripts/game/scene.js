@@ -4,28 +4,32 @@ Player = new initPlayer({
        Y: 512,
        aFrame: 0
     });
-Villager = new initVillager({});
+var Villagers = new Array();
+Villagers.push(new initVillager({
+X: 2000,
+Y: 1000,
+sentence: "My Lord! The prophecies heralded your return. Your path to take back your throne begins now, sire. Your rivals stand in your way, once you defeat them, you may leave this province in the top right and head towards the castle!"
+}));
 
-Enemy = new initEnemy({}); 
-basicEnemyAI();
+var Enemies = new Array();
+Enemies.push(new initEnemy({ 
+	X: 500,
+	Y: 300,
+	totalHealth: 300
+})); 	     
+Enemies.push(new initEnemy({
+X: 500,
+Y: 600,
+totalHealth: 100
+}));
 
 // Helps Textbox Printing
 printText = 0;
 
-function Tile(X, Y, collision){
-  this.X = X,
-  this.Y = Y,
-  this.startX,
-  this.startY,
-  this.endX,
-  this.endY,
-  this.collision = collision
-}
-
-// Creates array of boundary conditions
 var bounds = new Array();
-//bounds.push({x1: Villager.startX+(dx/8)*64 ,x2: Villager.endX ,y1: Villager.startY+(dy/8)*64 ,y2: Villager.endY });
-bounds.push(Villager);
+bounds.push(Villagers[0]);
+
+
 //detects if all images have been loaded in before starting the level
 var isImage1Loaded = false;
 var isImage2Loaded = false;
@@ -86,8 +90,7 @@ function SceneHandler(scene){
        		    var row = i * image1.width * 4;
 		    var backTiles = [];
                     for(var j = 0; j < image1.width*4; j += 4){
-                        //backTiles.push([pixelData[row+j+1],y=pixelData[row+j+2]]);
-			backTiles.push(new Tile(pixelData[row+j+1],pixelData[row+j+2], false));
+                        backTiles.push([pixelData[row+j+1],y=pixelData[row+j+2]]);
                     }
                     tiles1.push(backTiles);
             }
@@ -102,15 +105,7 @@ function SceneHandler(scene){
                var row = i * image2.width * 4;
                var foreTiles = [];
                for(var j = 0; j < image2.width*4; j += 4){
-                   //foreTiles.push([pixelData[row+j+1],y=pixelData[row+j+2]]);
-		   var tile = new Tile(pixelData[row+j+1],pixelData[row+j+2], true)
-		   tile.startX = (j/4)*64;
-		   tile.startY = i*64;
-		   tile.endX = ((j/4)+1)*64;
-		   tile.endY = (i+1)*64;
-		   foreTiles.push(tile);
-		       
-		   bounds.push(tile);
+                   foreTiles.push([pixelData[row+j+1],y=pixelData[row+j+2]]);
                }
                tiles2.push(foreTiles);
            }
@@ -119,9 +114,8 @@ function SceneHandler(scene){
 	  
 	   cancelAnimationFrame(drawing);
 			
-	   console.log("Here");
            drawing = requestAnimationFrame(sceneHandler.drawScene);
-	}else{ 
+	}else{    
         	drawing = requestAnimationFrame(sceneHandler.loadScene);
 	}
     }
@@ -158,7 +152,7 @@ function Scene(name, map){
 		map.getMap("images/spritesheets/level1.png");
 		
 		//loads in enemy
-		Enemy = new initEnemy({});
+		//Enemy = new initEnemy({});
                 break;
             case "Options":
                 initOptions();
@@ -226,11 +220,15 @@ function Map(name){
 		if(!mainMenuOn){
 			Player.moveCheck(pUp,pDown,pLeft,pRight,width,height);
 			Player.draw();
-			Player.collisionCheck(Enemy);
-			Villager.draw();
-			if ( Villager.drawText == true )
-				drawTextBox(Villager.sentence,printText);
-			Enemy.draw();
+			for ( i = 0; i < Enemies.length; i++ )
+				Player.collisionCheck(Enemies[i]);
+			for ( i = 0; i < Villagers.length; i++ ) {
+				Villagers[i].draw();
+				if ( Villagers[i].drawText == true )
+					drawTextBox(Villagers[i].sentence,printText);
+			}		
+			for ( i = 0; i < Enemies.length; i++ )
+				Enemies[i].draw();
 		}
                 break;
             case "Options":
@@ -290,7 +288,7 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
     	down = false;
     }
 	
-    if ( Player.whichAction == "attack" ) {
+    if ( Player.whichAction == "attack" || Player.whichAction == "listen" ) {
 	left = false;
 	right = false;
 	up = false;
@@ -319,29 +317,20 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
 	dy--;
     }
 	
-//console.log("dx: " + dx + " dy: " + dy);
-	
     var xPos = 0, yPos = 0; 
     for(var i = 0; i < rowSize; i++){
         for(var j = 0; j < colSize; j++){
 		
 	    //gets the image to be cropped from the spritesheet to be displayed for the current tile
-            //xPos = backgroundTiles[i][j][0] / 16;
-            //yPos = backgroundTiles[i][j][1] / 16;
-		
-	    xPos = backgroundTiles[i][j].X / 16;
-            yPos = backgroundTiles[i][j].Y / 16;
+            xPos = backgroundTiles[i][j][0] / 16;
+            yPos = backgroundTiles[i][j][1] / 16;
             
             ctx.drawImage(map.image,xPos*64,yPos*64,64,64,(j+(dx/8))*64,(i+(dy/8))*64,64,64);
 		
-            //xPos = foregroundTiles[i][j][0] / 16;
-            //yPos = foregroundTiles[i][j][1] / 16;
-		
-	    xPos = foregroundTiles[i][j].X / 16;
-            yPos = foregroundTiles[i][j].Y / 16;
+            xPos = foregroundTiles[i][j][0] / 16;
+            yPos = foregroundTiles[i][j][1] / 16;
             
-            ctx.drawImage(map.image,xPos*64,yPos*64,64,64,(j+(dx/8))*64,(i+(dy/8))*64,64,64);		
-            ctx.strokeRect( foregroundTiles[i][j].startX, foregroundTiles[i][j].startY, foregroundTiles[i][j].endX , foregroundTiles[i][j].endY );
+            ctx.drawImage(map.image,xPos*64,yPos*64,64,64,(j+(dx/8))*64,(i+(dy/8))*64,64,64);
         }
     }
     
@@ -376,8 +365,12 @@ function levelHandler(){
             toggleFullScreen();
             break;
 	case 86: //v
-	    if ( collisionInteraction(Player.iBox[0],Player.iBox[1],Player.iBox[2],Player.iBox[3],Villager.startX+(dx/8)*64,Villager.endX,Villager.startY+(dy/8)*64,Villager.endY) != -1 )
-		 initTextBox();
+	for ( i = 0; i < Villagers.length; i++ ) {
+	    if ( collisionSquare(Player.iBox[0],Player.iBox[1],Player.iBox[2],Player.iBox[3],Villagers[i].startX+(dx/8)*64,Villagers[i].endX,Villagers[i].startY+(dy/8)*64,Villagers[i].endY) == true ) {
+		 initTextBox(i);
+	    	break;
+	    }
+	}
 	    break;
         default:
             break;
@@ -409,17 +402,14 @@ function levelHandler2(){
 	}
 }
 
-function moveMap(direction){
+function moveMap(direction){	
     	var collision = generalCollision();
 	
 	var upperLeft = collision[1] + collision[2];
 	var upperRight = collision[0] + collision[2];
 	var lowerLeft = collision[1] + collision[3];
 	var lowerRight = collision[0] + collision[3];
-	//collision[0] => upper right corner
-	//collision[1] => bottom right corner +
-	//collision[2] => bottom right corner
-	//collision[3] => bottom leftt corner
+	
 	if(direction == 37 && lowerRight != 2 && upperRight != 2){
 		pLeft = true;
 		left = true;
@@ -433,38 +423,20 @@ function moveMap(direction){
 		pDown = true;
 		down = true;
 	}
-	/*switch(direction){
-		case 37: //left, moves player left
-		    pLeft = true;
-		    left = true;
-		    break;
-		case 38: //up, moves player up
-		    pUp = true;
-		    up = true;
-		    break;
-		case 39 && collision != 2: //right, moves player right
-		    pRight = true;
-		    right = true;
-		    break;
-		case 40 && collision != 1: //down, moves player down
-		    pDown = true;
-		    down = true;
-		    break;
-		case 70: //f, toggles full screen
-		    toggleFullScreen();
-		    break;
-		default:
-		    break;
-	}*/
 }
 
 //------------------------------Text Box-------------------------------------------
-function initTextBox() {
+function initTextBox(i) {
 	printText = 0;
-	Villager.drawText = true;
+	Villagers[i].drawText = true;
 	document.onkeydown = null;
 	document.onkeyup = null;
-	document.onkeydown = textHandler;		
+	document.onkeydown = textHandler;
+	for ( j = 0; j < Enemies.length; j++ ) {
+		if ( Enemies[j].death == false )
+		Enemies[j].whichAction = "listen";
+	}
+	Player.whichAction = "listen";
 }
 
 function drawTextBox(sentence,position) {
@@ -480,13 +452,25 @@ function drawTextBox(sentence,position) {
 }
 
 function textHandler(event) {
+	var j = 0;
+	for ( i = 0; i < Villagers.length; i++ ) {
+		if ( textInteraction(Villagers[i]) == true ){
+		    j = i;
+		    break;
+		}
+	}
 	var keyCode = event.which || event.keyCode;
 	if ( keyCode == 32 ) {
-	 if ( Villager.sentence.length <= printText*60 + 120 ){
-	   Villager.drawText = false;
+	 if ( Villagers[j].sentence.length <= printText*60 + 120 ){
+	   Villagers[j].drawText = false;
 	   document.onkeydown = null;
 	   document.onkeydown = levelHandler;
 	   document.onkeyup = levelHandler2;
+	   for ( i = 0; i < Enemies.length; i++ ) {
+		if ( Enemies[i].death == false )
+		   Enemies[i].whichAction = "alive";
+	   }
+	   Player.whichAction = "stand";
 	 }
 	 else 
 	 printText+=2;
@@ -612,24 +596,10 @@ function drawLoadingScreen(){
 function generalCollision() {
 	var hit = [0, 0, 0, 0];
 	for (var i = 0; i < bounds.length; i++ ) {
-		//console.log(bounds[i].startX + " start y: " + bounds[i].startY + " end X:" +  bounds[i].endX);
 		hit = collisionInteraction(Player.standLeft,Player.standRight,Player.standUp,Player.standDown,
 				bounds[i].startX+(dx/8)*64,bounds[i].endX,bounds[i].startY+(dy/8)*64,bounds[i].endY);
 		var isEmpty = hit[0] + hit[1] + hit[2] + hit[3];
 		if ( isEmpty != 0) {
-			/*if(hit == 1){
-				console.log("Left side");
-				Player.Y -= 2;
-			}else if(hit == 2){
-				console.log("Up side");
-				Player.X -= 2;
-			}else if(hit == 3){
-				console.log("Right side");
-				//Player.X += 2;
-			}else if(hit == 4){
-				console.log("Down side");
-				//Player.Y += 2;
-			}*/
 			pLeft = false;
 			pRight = false;
 			pUp = false;
@@ -638,7 +608,7 @@ function generalCollision() {
 			right = false;
 			up = false;
 			down = false;
-			//console.log("0: " + hit[0] + " 1: " + hit[1] + " 2: " + hit[2] + " 3: " + hit[3])
+			
 			return hit;
 		}
 	}
