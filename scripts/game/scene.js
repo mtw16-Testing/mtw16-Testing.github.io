@@ -35,15 +35,6 @@ var isSpreadsheetLoaded = false;
 var image1;
 var image2;
 
-//Save File information
-function SaveFile(data){
-	this.name = data.name,
-	this.location = data.location,
-	this.time = data.time
-}
-
-var saveFiles = new Array();
-
 var mainMenuOn = false;
 var dx = 0, dy = 0;
 var left = false, up = false, right = false, down = false;
