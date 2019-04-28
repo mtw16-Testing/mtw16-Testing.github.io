@@ -54,7 +54,8 @@ function createUser(){
                 name: displayName,
                 hours: 0,
                 minutes: 0,
-                seconds: "00"
+                seconds: "00",
+                mapEntries: ["Level 1"]
             });
         });
     }
