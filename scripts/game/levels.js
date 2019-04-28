@@ -6,6 +6,7 @@ function loadLevel1(side){
 		//loads in map files
                 image1.src = "maps/Level1Background.png";
                 image2.src = "maps/Level1Foreground.png";
+		image3.src = "maps/CastleBoundaries.png";
                 
 		//loads in the spritesheet that will be used
 		sceneHandler.scene.map.getMap("images/spritesheets/level1.png");
@@ -67,6 +68,8 @@ function loadLevel2(side){
 	//loads in map files
         image1.src = "maps/Level2Background.png";
         image2.src = "maps/Level2Foreground.png";
+	image3.src = "maps/CastleBoundaries.png";
+	
                 
 	//loads in the spritesheet that will be used
 	sceneHandler.scene.map.getMap("images/spritesheets/level2.png");
@@ -120,6 +123,7 @@ function loadCastle(side){
 	//loads in map files
         image1.src = "maps/CastleBackground.png";
         image2.src = "maps/CastleForeground.png";
+	image3.src = "maps/CastleBoundaries.png";
                 
 	//loads in the spritesheet that will be used
 	sceneHandler.scene.map.getMap("images/spritesheets/Castle_sheet.png");
