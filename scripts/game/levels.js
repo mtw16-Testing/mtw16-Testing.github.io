@@ -197,11 +197,11 @@ function loadBeach(side){
 	sceneHandler.scene.map.getMap("images/spritesheets/beach_sheet.png");
 	
 			
-	Player.X = 1024;
-	Player.Y = 800;
+	Player.X = 200;
+	Player.Y = 50;
 			
 	dx = 0;
-	dy = -125;
+	dy = 0;
 	
 	sceneHandler.scene.nextMaps[0] = "Level 1";
 	
