@@ -211,6 +211,27 @@ function loadBeach(side){
 	
 	sceneHandler.scene.nextMaps[0] = "Level 1";
 	
+	Enemies.push(new initEnemy({
+			X: 750,
+			Y: 2000,
+			totalHealth: 300,
+			moveSpeed: 2
+			}));
+	
+	Enemies.push(new initEnemy({
+			X: 1500,
+			Y: 600,
+			totalHealth: 150,
+			moveSpeed: 5
+			}));
+	
+	Enemies.push(new initEnemy({
+			X: 1000,
+			Y: 450,
+			totalHealth: 250,
+			moveSpeed: 3
+			}));
+		
 	Villagers.push(new initVillager({
 			X: 2100,
 			Y: 1100,
