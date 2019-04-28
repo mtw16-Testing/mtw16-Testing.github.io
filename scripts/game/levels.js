@@ -33,7 +33,7 @@ function loadLevel1(){
 function loadLevel2(){
 	
 	Villagers.push(new initVillager({
-			X: 1200,
+			X: 1000,
 			Y: 1700,
 			sentence: "You are here at last! Thank the gods!"
 			}));
