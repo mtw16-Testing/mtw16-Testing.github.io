@@ -33,9 +33,14 @@ function saveGame(){
                 alert("Unknown error, unable to get save data.");
             });
 	
+		
+	console.log("hours before: " + timeHours);
+	
 	timeHours = oldHours + timeHours;
 	timeMinutes = oldMinutes + timeMinutes;	
 	timeSeconds = oldSeconds + timeSeconds;
+	
+	console.log("hours after: " + timeHours);
 	
 	if(timeSeconds > 59){
 		timeSeconds = timeSeconds % 60;
