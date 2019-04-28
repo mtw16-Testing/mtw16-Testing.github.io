@@ -67,7 +67,9 @@ function mainMenuHandler(){
             }else if(currentOption == 1){
                 subMenu = 1;
                 document.onkeydown = null;
+                console.log("here 1");
                 document.onkeydown = mapMenuHandler;
+                console.log("here 2");
             }else if(currentOption == 2){
                 saveGame();
                 alert("Game succesfully saved.");
