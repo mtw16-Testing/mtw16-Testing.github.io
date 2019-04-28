@@ -450,7 +450,7 @@ function initTextBox(i) {
 function drawTextBox(sentence,position) {
 	if ( sentence.length != 0 ) {
 	   ctx.fillStyle = "#FFFFFF";
-	   ctx.drawImage(interactionMenuImage, width*.09, height*.70, width*.83, height*.20);	   
+	   ctx.drawImage(interactionMenuImage, width*.09, height*.70, width*.84, height*.20);	   
 	   //ctx.fillRect(width*.10,height*.70,width*.80,height*.20);
 	   ctx.font = "60px Sniglet";
 	   ctx.fillStyle = "#000000";
