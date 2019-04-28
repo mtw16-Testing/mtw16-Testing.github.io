@@ -52,7 +52,8 @@ function createUser(){
             db.collection('SaveFile').doc(cred.user.uid).set({
                 location: "start",
                 name: displayName,
-                time: 0
+                minutes: 0,
+                seconds: 0
             });
         });
     }
