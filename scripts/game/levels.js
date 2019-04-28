@@ -101,7 +101,7 @@ function loadLevel2(side){
 	Villagers.push(new initVillager({
 			X: 800,
 			Y: 800,
-			sentence: "It is you! The legendary hero " + saveFile1[0].name + "!"
+			sentence: "It is you! The legendary hero " + saveFiles[0].name + "!"
 			}));
 			
 
