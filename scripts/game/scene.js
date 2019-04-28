@@ -110,7 +110,7 @@ function SceneHandler(scene){
 		       
 		   if((pixelData[row+j+1] == 127 && pixelData[row+j+2] == 136)){
 			bounds.push(tile);
-			ctx.strokeRect(tile.startX, tile.startY, tile.endX, tile.endY);
+			   console.log("Start X: " + tile.startX + " Start Y: " + tile.startY);
 		   }
                }
                tiles2.push(foreTiles);
