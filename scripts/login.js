@@ -9,9 +9,23 @@ function checkLogin(){
             document.getElementById("error-message").innerHTML = "";
             showStartMenu();
             
-            db.collection('SaveFile1').doc(user.uid).get().then(doc=> {
-                //alert("Here: " + doc.data().name);
-                saveFile = new SaveFile(doc.data());
+            db.collection('SaveFile1').doc(user.uid).get().then(doc=> {          
+                saveFiles.push(new SaveFile(doc.data));
+                //saveFile = new SaveFile(doc.data());
+            }).catch(function(error) {
+                alert(error.message);
+            });
+            
+            db.collection('SaveFile2').doc(user.uid).get().then(doc=> {          
+                saveFiles.push(new SaveFile(doc.data));
+                //saveFile = new SaveFile(doc.data());
+            }).catch(function(error) {
+                alert(error.message);
+            });
+            
+            db.collection('SaveFile3').doc(user.uid).get().then(doc=> {          
+                saveFiles.push(new SaveFile(doc.data));
+                //saveFile = new SaveFile(doc.data());
             }).catch(function(error) {
                 alert(error.message);
             });
