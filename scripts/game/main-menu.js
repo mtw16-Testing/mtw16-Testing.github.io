@@ -51,35 +51,6 @@ function showMapMenu(){
     }
 }
 
-function mapMenuHandler(){
-    var keyCode = event.which || event.keyCode;
-    switch(keyCode){
-        case 13:
-            //here
-            break;      
-        case 27:
-            mainMenuOn = false;
-            document.onkeydown = null;
-            document.onkeydown = levelHandler;
-            break;
-        case 38:
-            if(currentMapOption > 0){
-                currentMapOption--;
-            }
-            break;
-        case 40:
-            if(currentMapOption < mapEntries.length-1){
-                currentMapOption++;
-            }
-            break;
-        case 70:
-            toggleFullScreen();
-            break;
-        default:
-            break;
-    }
-}
-
 function mainMenuHandler(){
     var keyCode = event.which || event.keyCode;
     switch(keyCode){
@@ -96,7 +67,6 @@ function mainMenuHandler(){
                 subMenu = 1;
                 document.onkeydown = null;
                 document.onkeydown = mapMenuHandler;
-                showMapEntries();
             }else if(currentOption == 2){
                 saveGame();
                 alert("Game succesfully saved.");
@@ -130,8 +100,32 @@ function mainMenuHandler(){
     }
 }
 
-function showMapEntries(){
-    for(var i = 0; i < mapEntries.length; i++){
-            console.log("Map entry: " + mapEntries[i]);
+
+function mapMenuHandler(){
+    var keyCode = event.which || event.keyCode;
+    switch(keyCode){
+        case 13:
+            //here
+            break;      
+        case 27:
+            mainMenuOn = false;
+            document.onkeydown = null;
+            document.onkeydown = levelHandler;
+            break;
+        case 38:
+            if(currentMapOption > 0){
+                currentMapOption--;
+            }
+            break;
+        case 40:
+            if(currentMapOption < mapEntries.length-1){
+                currentMapOption++;
+            }
+            break;
+        case 70:
+            toggleFullScreen();
+            break;
+        default:
+            break;
     }
 }
