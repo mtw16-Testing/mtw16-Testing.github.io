@@ -157,9 +157,8 @@ function initPlayer(options) {
 				Player.isDamaged = false;
 				Player.invincible = true;
 				setTimeout(Player.canDamage,1500);
-				//alert("YOU TOUCH MR.BONES");
 				if(Player.health <= 0){
-					this.health = 120;
+					this.health = 100;
 					this.death = true;
 				}
 		}
