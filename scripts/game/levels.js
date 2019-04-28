@@ -197,7 +197,7 @@ function loadBeach(side){
 	sceneHandler.scene.map.getMap("images/spritesheets/beach_sheet.png");
 	
 			
-	Player.X = 250;
+	Player.X = 300;
 	Player.Y = 50;
 			
 	dx = 0;
