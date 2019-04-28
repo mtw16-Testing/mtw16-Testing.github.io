@@ -39,7 +39,7 @@ function showTopLevelMenu(){
 }
 
 function showMapMenu(){
-    ctx.font = "24px Sniglet";
+    ctx.font = "32px Sniglet";
     for(var i = 0; i < mapEntries.length; i++){
         if(i == currentMapOption){
             ctx.fillStyle = "yellow";
@@ -47,7 +47,7 @@ function showMapMenu(){
             ctx.fillStyle = "white";
         }
 
-        ctx.fillText(mapEntries[i], 100 + (mapColumnNumber*100), 50 + (i*50));        
+        ctx.fillText(mapEntries[i], 300 + (mapColumnNumber*100), 300 + (i*50));        
     }
 }
 
