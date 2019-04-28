@@ -8,10 +8,6 @@ function showMainMenu(){
     ctx.globalAlpha = 1.0;
 
     ctx.drawImage(menuImage,224,100,1600,850);
-
-    ctx.fillStyle = "white";
-    ctx.font = "100px Sniglet";
-    ctx.fillText("Main Menu", 820, 260);
     
     switch(subMenu){
         case 0:
@@ -26,6 +22,10 @@ function showMainMenu(){
 }
 
 function showTopLevelMenu(){
+    ctx.fillStyle = "white";
+    ctx.font = "100px Sniglet";
+    ctx.fillText("Main Menu", 820, 260);
+    
     ctx.font = "80px Sniglet";
     for(var i = 0; i < options.length; i++){
         if(i == currentOption){
@@ -39,6 +39,12 @@ function showTopLevelMenu(){
 }
 
 function showMapMenu(){
+    ctx.fillStyle = "white";
+    ctx.font = "100px Sniglet";
+    ctx.textAlign = "center"; 
+    ctx.fillText("Choose Destination To Travel To", width/2, 260);
+    ctx.textAlign = "start"; 
+    
     ctx.font = "48px Sniglet";
     for(var i = 0; i < mapEntries.length; i++){
         if(i == currentMapOption){
