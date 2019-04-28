@@ -16,6 +16,12 @@ function showMainMenu(){
         case 1:
             showMapMenu();
             break;
+        case 2:
+            ctx.fillStyle = "white";
+            ctx.textAlign = "center"; 
+            ctx.fillText("File saved successfully", width/2, height/2 + 350);   
+            ctx.textAlign = "start";
+            break;
         default:
             break;
     }
@@ -82,10 +88,6 @@ function mainMenuHandler(){
             }else if(currentOption == 3){
                 saveGame();
                 subMenu = 2;
-                ctx.fillStyle = "white";
-                ctx.textAlign = "center"; 
-                ctx.fillText("File saved successfully", width/2, height/2 + 350);   
-                ctx.textAlign = "start";
                 document.onkeydown = null;
                 
                 setTimeout(function(){
