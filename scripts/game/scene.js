@@ -141,6 +141,7 @@ function Scene(name, map){
         var isLevel = true;
         image1 = new Image();
         image2 = new Image();
+        image3 = new Image();
 	    
 	bounds = [];
 	Enemies = [];
