@@ -35,6 +35,7 @@ function saveGame(){
 	
 		
 	console.log("hours before: " + timeHours);
+	console.log("Hours from database: " + oldHours);
 	
 	timeHours = oldHours + timeHours;
 	timeMinutes = oldMinutes + timeMinutes;	
