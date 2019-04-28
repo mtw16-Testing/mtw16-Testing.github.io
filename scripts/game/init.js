@@ -44,6 +44,7 @@ var isSpreadsheetLoaded = false;
 
 var image1;
 var image2;
+var image3;
 
 var mainMenuOn = false;
 var dx = 0, dy = 0;
