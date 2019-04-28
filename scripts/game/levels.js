@@ -10,7 +10,13 @@ function loadLevel1(side){
 		//loads in the spritesheet that will be used
 		sceneHandler.scene.map.getMap("images/spritesheets/level1.png");
 	
-		if(side == 3){			
+		if(side == 1){		
+			Player.X = 300;
+			Player.Y = 800;
+			
+			dx = -140;
+			dy = 1000;
+		}else if(side == 3){			
 			Player.X = 1240;
 			Player.Y = 150;
 
