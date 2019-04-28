@@ -10,8 +10,9 @@ function showMainMenu(){
 
     ctx.fillStyle = "white";
     ctx.font = "100px Sniglet";
-    ctx.fillText("Main Menu", 820, 280);
-
+    ctx.fillText("Main Menu", 820, 270);
+    
+    ctx.font = "80px Sniglet";
     for(var i = 0; i < options.length; i++){
         if(i == currentOption){
             ctx.fillStyle = "yellow";
