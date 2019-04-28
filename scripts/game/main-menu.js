@@ -47,7 +47,7 @@ function showMapMenu(){
             ctx.fillStyle = "white";
         }
 
-        ctx.fillText(mapEntries[i], 350 + (mapColumnNumber*100), 350 + (i*50));        
+        ctx.fillText(mapEntries[i], 350 + (mapColumnNumber*100), 350 + (i*70));        
     }
 }
 
