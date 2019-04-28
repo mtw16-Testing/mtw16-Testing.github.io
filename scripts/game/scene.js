@@ -560,8 +560,10 @@ function optionsHandler(event){
 //--------------------------------Save Menu Option---------------------------------
 function initSaveFile(){
     options = [];
+    var secondsString = (saveFiles[0].seconds < 10) ? "0" + saveFiles[0].seconds : saveFiles[0].seconds;
+	
     options.push("1. " + saveFiles[0].name + " - Location: " + saveFiles[0].location + " " +
-		 saveFiles[0].hours + ":" + saveFiles[0].minutes + ":" + saveFiles[0].seconds);
+		 saveFiles[0].hours + ":" + saveFiles[0].minutes + ":" + secondsString);
 	    
     /*for(var i = 0; i < 3; i++){
 	    if(saveFiles[i].newGame == "no"){
