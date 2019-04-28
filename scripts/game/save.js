@@ -17,8 +17,10 @@ function saveGame(){
 	
 	startTime = endTime;
 	
+	
+	var timeHours = Math.floor(timeElapsed / 3600);
 	var timeMinutes = Math.floor(timeElapsed / 60);
-	var timeSeconds = timeElapsed % 60;
+	var timeSeconds = Math.floor(timeElapsed % 60);
 	
 	var user = firebase.auth().currentUser;
 	
@@ -30,11 +32,18 @@ function saveGame(){
                 alert("Unknown error, unable to get save data.");
             });
 	
-	db.collection('SaveFile').doc(user.uid).set({
+	db.collection('SaveFile').doc(user.uid).update({
+		hours: timeHours,
                 minutes: timeMinutes,
 		seconds: timeSeconds,
 		location: sceneHandler.scene.name
         }).catch(function(error) {
                 alert("Unknown error, unable to save.");
         });
+	
+	db.collection('SaveFile').doc(user.uid).get().then(doc=> {	
+		saveFiles[0] = new SaveFile();
+            }).catch(function(error) {
+                alert("Unknown error, unable to get save data.");
+            });
 }
