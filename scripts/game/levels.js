@@ -122,7 +122,7 @@ function loadCastle(){
 	
 	Villagers.push(new initVillager({
 			X: 1000,
-			Y: 100,
+			Y: 200,
 			sentence: "I am the king. Long have I awaited you."
 			}));
 
