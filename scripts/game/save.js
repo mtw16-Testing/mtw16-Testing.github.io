@@ -4,6 +4,7 @@ var startTime = 0;
 function SaveFile(data){
 	this.name = data.name,
 	this.location = data.location,
+	this.hours = data.hours,
 	this.minutes = data.minutes,
 	this.seconds = data.seconds
 }
