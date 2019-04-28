@@ -109,7 +109,12 @@ function SceneHandler(scene){
 		   tile.solid = true;
 		       
 		   if((pixelData[row+j+1] == 127 && pixelData[row+j+2] == 136)){
-			bounds.push(tile);
+			//bounds.push(tile);
+			bounds.push(new initVillager({
+				X: tile.startX,
+				Y: tile.startY,
+				sentence: "Walls have ears"
+				});
 			   console.log("Start X: " + tile.startX + " Start Y: " + tile.startY);
 		   }
                }
