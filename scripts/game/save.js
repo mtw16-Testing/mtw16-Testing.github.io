@@ -25,21 +25,12 @@ function saveGame(){
 	var user = firebase.auth().currentUser;
 	
 	db.collection('SaveFile').doc(user.uid).get().then(doc=> {
-		console.log("In " + doc.data().hours);
 		oldHours = Number(doc.data().hours);
 		oldMinutes = Number(doc.data().minutes);
 		oldSeconds = Number(doc.data().seconds);		
-		
-		console.log("hours before: " + timeHours);
-		console.log("Hours from database: " + oldHours);
-
 		timeHours = oldHours + timeHours;
 		timeMinutes = oldMinutes + timeMinutes;	
 		timeSeconds = oldSeconds + timeSeconds;
-
-		Number(timeHours);
-
-		console.log("hours after: " + timeHours);
 
 		if(timeSeconds > 59){
 			timeSeconds = timeSeconds % 60;
