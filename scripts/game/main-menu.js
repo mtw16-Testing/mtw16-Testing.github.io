@@ -17,9 +17,10 @@ function showMainMenu(){
             showMapMenu();
             break;
         case 2:
+            ctx.font = "64px Sniglet";
             ctx.fillStyle = "white";
             ctx.textAlign = "center"; 
-            ctx.fillText("File saved successfully", width/2, height/2 + 350);   
+            ctx.fillText("File saved successfully", width/2, height/2);   
             ctx.textAlign = "start";
             break;
         default:
