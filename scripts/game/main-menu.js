@@ -50,8 +50,9 @@ function showMapMenu(){
         ctx.fillText(mapEntries[i], 350 + (mapColumnNumber*100), 350 + (i*70));        
     }
     
+    ctx.fillStyle = "white";
     ctx.textAlign = "center"; 
-    ctx.fillText("Press Esc to Go Back", width/2, height/2 + 400);   
+    ctx.fillText("Press Esc to Go Back", width/2, height/2 + 350);   
     ctx.textAlign = "start"; 
 }
 
