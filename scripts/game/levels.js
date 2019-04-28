@@ -14,8 +14,8 @@ function loadLevel1(side){
 			Player.X = 300;
 			Player.Y = 800;
 			
-			dx = -140;
-			dy = -500;
+			dx = 0;
+			dy = -200;
 		}else if(side == 3){			
 			Player.X = 1240;
 			Player.Y = 150;
