@@ -172,7 +172,8 @@ function Scene(name, map){
             case "Level 1":
 		loadLevel1(sideOfScreen);		
                 break;
-	    case "Level 2":			
+	    case "Level 2":
+		saveGame();
 		loadLevel2(sideOfScreen);		
 		break;
 	case "Castle":			
