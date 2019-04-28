@@ -75,11 +75,11 @@ function mainMenuHandler(){
                     if ( Enemies[i].death == false )
                       Enemies[i].whichAction = "alive";
                 }
-            }else if(currentOption == 1){
+            }else if(currentOption == 2){
                 subMenu = 1;
                 document.onkeydown = null;
                 document.onkeydown = mapMenuHandler;
-            }else if(currentOption == 2){
+            }else if(currentOption == 3){
                 saveGame();
                 alert("Game succesfully saved.");
             }else if(currentOption == (options.length-1)){
