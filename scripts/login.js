@@ -57,6 +57,8 @@ function createUser(){
                 minutes: 0,
                 seconds: 0,
                 gold: 0,
+                shortSwords: 1,
+                spears: 0,
                 entries: ["Level 1"]
             });
         });
