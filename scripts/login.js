@@ -9,51 +9,12 @@ function checkLogin(){
             document.getElementById("error-message").innerHTML = "";
             showStartMenu();
             
-            db.collection('SaveFile').doc(user.uid + "1").get().then(doc=> {          
-                saveFiles.push(new SaveFile(doc.data));
-                console.log("Here: " + user.uid + " name: " + doc.data.name + " doc: " + doc.data);
-                //saveFile = new SaveFile(doc.data());
+            db.collection('SaveFile').doc(user.uid).get().then(doc=> {
+                //alert("Here: " + doc.data().name);
+                saveFiles.push(new SaveFile(doc.data()));
             }).catch(function(error) {
                 alert(error.message);
             });
-            
-            db.collection('SaveFile').doc(user.uid + "2").get().then(doc=> {          
-                saveFiles.push(new SaveFile(doc.data));
-                console.log("Here: " + user.uid + " name: " + doc.data.name + " doc: " + doc.data);
-                //saveFile = new SaveFile(doc.data());
-            }).catch(function(error) {
-                alert(error.message);
-            });
-            
-            db.collection('SaveFile').doc(user.uid + "3").get().then(doc=> {          
-                saveFiles.push(new SaveFile(doc.data));
-                console.log("Here: " + user.uid + " name: " + doc.data.name + " doc: " + doc.data);
-                //saveFile = new SaveFile(doc.data());
-            }).catch(function(error) {
-                alert(error.message);
-            });
-            
-            /*db.collection('SaveFile1').doc(user.uid).get().then(doc=> {          
-                saveFiles.push(new SaveFile(doc.data));
-                console.log("Here: " + user.uid + " name: " + doc.data.name + " doc: " + doc.data);
-                //saveFile = new SaveFile(doc.data());
-            }).catch(function(error) {
-                alert(error.message);
-            });
-            
-            db.collection('SaveFile2').doc(user.uid).get().then(doc=> {          
-                saveFiles.push(new SaveFile(doc.data));
-                //saveFile = new SaveFile(doc.data());
-            }).catch(function(error) {
-                alert(error.message);
-            });
-            
-            db.collection('SaveFile3').doc(user.uid).get().then(doc=> {          
-                saveFiles.push(new SaveFile(doc.data));
-                //saveFile = new SaveFile(doc.data());
-            }).catch(function(error) {
-                alert(error.message);
-            });*/
         }
       });
 }
@@ -88,42 +49,11 @@ function createUser(){
             
             waiting.innerHTML = "";
         }).then( cred => {
-            db.collection('SaveFile1').doc(cred.user.uid + "1").set({
-                newGame: "no",
+            db.collection('SaveFile').doc(cred.user.uid).set({
                 location: "start",
                 name: displayName,
                 time: 0
             });
-            db.collection('SaveFile2').doc(cred.user.uid + "2").set({
-                newGame: "yes",
-                location: "start",
-                name: displayName,
-                time: 0
-            });
-            db.collection('SaveFile3').doc(cred.user.uid + "3").set({
-                newGame: "yes",
-                location: "start",
-                name: displayName,
-                time: 0
-            });
-            /*db.collection('SaveFile1').doc(cred.user.uid).set({
-                newGame: "no",
-                location: "start",
-                name: displayName,
-                time: 0
-            });
-            db.collection('SaveFile2').doc(cred.user.uid).set({
-                newGame: "yes",
-                location: "start",
-                name: displayName,
-                time: 0
-            });
-            db.collection('SaveFile3').doc(cred.user.uid).set({
-                newGame: "yes",
-                location: "start",
-                name: displayName,
-                time: 0
-            });*/
         });
     }
 
