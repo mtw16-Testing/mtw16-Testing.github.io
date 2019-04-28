@@ -17,6 +17,9 @@ function showMainMenu(){
         case 0:
             showTopLevelMenu();
             break;
+        case: 1
+            showMapMenu();
+            break;
         default:
             break;
     }
