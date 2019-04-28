@@ -24,7 +24,8 @@ function loadLevel1(side){
 			dy = 0;		
 		}
 
-		sceneHandler.scene.nextMaps[0] = "Village";
+		sceneHandler.scene.nextMaps[0] = "Village";	
+		sceneHandler.scene.nextMaps[2] = "Beach";
 			
 		Villagers.push(new initVillager({
 				X: 2000,
@@ -180,10 +181,11 @@ function loadCastle(side){
 
 	    bounds.push(Villagers[0]);
 	    bounds.push(Villagers[1]);
+	    bounds.push(Villagers[2]);
 
 }
 
-function loadLevel3(side){
+function loadBeach(side){
 	
 	document.onkeydown = levelHandler;
         document.onkeyup = levelHandler2;
@@ -202,26 +204,12 @@ function loadLevel3(side){
 	dx = 0;
 	dy = -125;
 	
-	//sceneHandler.scene.nextMaps[2] = "Village";
+	sceneHandler.scene.nextMaps[0] = "Level 1";
 	
 	Villagers.push(new initVillager({
 			X: 1100,
 			Y: 1500,
 			sentence: "Long have we awaited your return!",
-			type: "interact"
-			}));
-
-	Villagers.push(new initVillager({
-			X: 800,
-			Y: 800,
-			sentence: "Wait, who are you?",
-			type: "interact"
-			}));
-	
-	Villagers.push(new initVillager({ // King
-			X: 1000,
-			Y: 250,
-			sentence: "I am the king. Long have I awaited you.",
 			type: "interact"
 			}));
 
