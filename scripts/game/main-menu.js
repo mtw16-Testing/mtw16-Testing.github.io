@@ -1,3 +1,5 @@
+mapEntries = ["Level 1", "Level 2", "Level 3"];
+
 function showMainMenu(){
     ctx.globalAlpha = 0.3;
     ctx.fillStyle = "black";
@@ -73,4 +75,3 @@ function showMapEntries(){
             console.log("Map entry: " + mapEntries[i]);
     }
 }
-
