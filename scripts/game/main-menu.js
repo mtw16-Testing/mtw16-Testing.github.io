@@ -111,10 +111,10 @@ function mapMenuHandler(){
         case 13:
             //here
             break;      
-        case 27:
-            mainMenuOn = false;
+        case 27:            
+            subMenu = 0;
             document.onkeydown = null;
-            document.onkeydown = levelHandler;
+            document.onkeydown = mainMenuHandler;
             break;
         case 38:
             if(currentMapOption > 0){
