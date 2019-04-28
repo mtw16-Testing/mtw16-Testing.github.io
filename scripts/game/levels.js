@@ -44,6 +44,25 @@ function loadLevel1(){
 
 function loadLevel2(){
 	
+	//sets keyboard input handlers for player movement and map logic
+	document.onkeydown = levelHandler;
+        document.onkeyup = levelHandler2;
+		
+	//loads in map files
+        image1.src = "maps/Level2Background.png";
+        image2.src = "maps/Level2Foreground.png";
+                
+	//loads in the spritesheet that will be used
+	sceneHandler.scene.map.getMap("images/spritesheets/level2.png");
+			
+	Player.X = 1024;
+	Player.Y = 512;
+			
+	dx = 0;
+	dy = -50;
+			
+	sceneHandler.scene.nextMaps[0] = "Castle";
+	
 	Villagers.push(new initVillager({
 			X: 1100,
 			Y: 1700,
@@ -63,6 +82,24 @@ function loadLevel2(){
 }
 
 function loadCastle(){
+	
+	document.onkeydown = levelHandler;
+        document.onkeyup = levelHandler2;
+		
+	//loads in map files
+        image1.src = "maps/CastleBackground.png";
+        image2.src = "maps/CastleForeground.png";
+                
+	//loads in the spritesheet that will be used
+	sceneHandler.scene.map.getMap("images/spritesheets/Castle_sheet.png");
+			
+	Player.X = 1024;
+	Player.Y = 512;
+			
+	dx = 0;
+	dy = -100;
+	
+	//sceneHandler.scene.map.nextMaps[0] = "Castle";
 	
 	Villagers.push(new initVillager({
 			X: 1100,
