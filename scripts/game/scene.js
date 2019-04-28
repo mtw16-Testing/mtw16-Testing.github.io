@@ -13,10 +13,9 @@ function SceneHandler(scene){
 	}
     },
     this.loadScene = function(){
-   	if(isSpreadsheetLoaded && isImage1Loaded && isImage2Loaded && isImage3Loaded){
+   	if(isSpreadsheetLoaded && isImage1Loaded && isImage2Loaded){
 	   isImage1Loaded = false;
 	   isImage2Loaded = false;
-	   isImage3Loaded = false;
 	   isSpreadsheetLoaded = false;
 	   
 	   var tiles1 = [];
@@ -61,10 +60,10 @@ function SceneHandler(scene){
                for(var j = 0; j < image2.width*4; j += 4){
 		       
 		   var tile = new Tile(pixelData[row+j+1],pixelData[row+j+2], true);
-		   tile.startX = ((j/4)*64)-10;
-		   tile.startY = (i*64)-10;
-		   tile.endX = (((j/4)+1)*64+10);
-		   tile.endY = ((i+1)*64)+10;
+		   tile.startX = ((j/4)*64)-5;
+		   tile.startY = (i*64)-5;
+		   tile.endX = (((j/4)+1)*64+5);
+		   tile.endY = ((i+1)*64)+5;
 		   foreTiles.push(tile);
 		    
 		   if(pixelData[row+j+1] == 0 && pixelData[row+j+2] == 0){
@@ -90,43 +89,6 @@ function SceneHandler(scene){
            }
      
            scene.map.foregroundTiles = tiles2;
-		
-		
-	   //boundary tiles
-	   canvas.getContext('2d').clearRect(0,0,image1.width,image1.height);
-	   canvas.getContext('2d').drawImage(image3,0,0,image3.width,image3.height);
-           pixelData = canvas.getContext('2d').getImageData(0,0,image3.width,image3.height).data;
-           for(var i = 0; i < image3.height; i++){
-               var row = i * image3.width * 4;
-               var foreTiles = [];
-               for(var j = 0; j < image3.width*4; j += 4){
-		       
-		   var tile = new Tile(pixelData[row+j+1],pixelData[row+j+2], true);
-		   tile.startX = ((j/4)*64)+5;
-		   tile.startY = (i*64)+5;
-		   tile.endX = (((j/4)+1)*64)-5;
-		   tile.endY = ((i+1)*64)-5;
-		   tile.solid = true;
-		       
-		   if((pixelData[row+j+1] == 127 && pixelData[row+j+2] == 136)){
-			//bounds.push(tile);
-			bounds.push(new initVillager({
-				X: tile.startX,
-				Y: tile.startY,
-				sentence: "Walls have ears"
-				}));
-				    Villagers.push(new initVillager({
-				X: tile.startX,
-				Y: tile.startY,
-				sentence: "Walls have ears"
-				}));
-			   console.log("Start X: " + tile.startX + " Start Y: " + tile.startY);
-		   }
-               }
-               tiles2.push(foreTiles);
-           }
-		
-	   //----------------------------------------
 	  
 	   cancelAnimationFrame(drawing);
 			
@@ -152,7 +114,6 @@ function Scene(name, map){
         var isLevel = true;
         image1 = new Image();
         image2 = new Image();
-        image3 = new Image();
 	    
 	bounds = [];
 	Enemies = [];
@@ -204,10 +165,6 @@ function Scene(name, map){
 	    	isImage2Loaded = true;
 	    }
             
-	    image3.onload = function(){
-	    	isImage3Loaded = true;
-	    }
-		
             //sets default values for the level
             mainMenuOn = false;
             left = false;
@@ -233,7 +190,6 @@ function Map(name){
     this.name = name,
     this.foregroundTiles = [],
     this.backgroundTiles = [],
-    this.boundaryTiles = [],
     this.rowSize = 0,
     this.colSize = 0,
     this.image = new Image(),
@@ -373,8 +329,8 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
             	ctx.drawImage(map.image,xPos*64,yPos*64,64,64,(j+(dx/8))*64,(i+(dy/8))*64,64,64);
 	    }
 	    
-	    foregroundTiles[i][j].endX = foregroundTiles[i][j].startX + (dx/8)*64 + 60;
-    	    foregroundTiles[i][j].endY = foregroundTiles[i][j].startY + (dy/8)*64 + 96;
+	    foregroundTiles[i][j].endX = foregroundTiles[i][j].startX + (dx/8)*64 + 64;
+    	    foregroundTiles[i][j].endY = foregroundTiles[i][j].startY + (dy/8)*64 + 64;
         }
     }
     

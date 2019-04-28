@@ -6,8 +6,7 @@ function SaveFile(data){
 	this.location = data.location,
 	this.hours = data.hours,
 	this.minutes = data.minutes,
-	this.seconds = data.seconds,
-	this.gold = data.gold
+	this.seconds = data.seconds
 }
 
 var saveFiles = new Array();
