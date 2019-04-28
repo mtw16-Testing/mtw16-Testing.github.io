@@ -22,6 +22,8 @@ function saveGame(){
 	
 	var user = firebase.auth().currentUser;
 	
+	console.log("User: " + user);
+	
 	db.collection('SaveFile').doc(user.uid).get().then(doc=> {
 		oldTime = doc.data().time;
             }).catch(function(error) {
@@ -32,5 +34,7 @@ function saveGame(){
                 minutes: timeMinutes,
 		seconds: timeSeconds,
 		location: sceneHandler.scene.name
+        }).catch(function(error) {
+                alert("Unknown error, unable to save.");
         });
 }
