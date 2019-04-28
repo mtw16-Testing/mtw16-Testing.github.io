@@ -206,6 +206,8 @@ function Scene(name, map){
 		dy = -50;
 			
 		this.nextMaps[0] = "Level 1";
+			
+		loadLevel2();
 		
 		break;	
             case "Options":
