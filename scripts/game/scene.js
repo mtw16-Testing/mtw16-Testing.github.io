@@ -183,7 +183,7 @@ function Scene(name, map){
 		//loads in the spritesheet that will be used
 		map.getMap("images/spritesheets/level1.png");
 			
-		this.nextMaps[0] = "Level 1";
+		this.nextMaps[0] = "Level 2";
 			
 		loadLevel1();
 		
