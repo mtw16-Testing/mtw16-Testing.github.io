@@ -6,7 +6,10 @@ function SaveFile(data){
 	this.location = data.location,
 	this.hours = data.hours,
 	this.minutes = data.minutes,
-	this.seconds = data.seconds
+	this.seconds = data.seconds,
+	this.gold = data.gold,
+	this.shortSwords = data.shortSwords,
+	this.spears = data.spears
 }
 
 var saveFiles = new Array();
