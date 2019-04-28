@@ -68,13 +68,13 @@ function loadLevel2(side){
 		Player.X = 1024;
 		Player.Y = 50;
 
-		dx = -55;
+		dx = -60;
 		dy = 0;
 	}else if(side == 1){
 		Player.X = 1024;
 		Player.Y = 800;
 
-		dx = -55;
+		dx = -60;
 		dy = -200;
 	}else{	
 		Player.X = 1024;
