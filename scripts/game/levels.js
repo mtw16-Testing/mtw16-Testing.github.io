@@ -1,4 +1,4 @@
-function loadLevel1(){ 	
+function loadLevel1(side){ 	
       		//sets keyboard input handlers for player movement and map logic
 		document.onkeydown = levelHandler;
                 document.onkeyup = levelHandler2;
@@ -49,7 +49,7 @@ function loadLevel1(){
 }
 
 
-function loadLevel2(){
+function loadLevel2(side){
 	
 	//sets keyboard input handlers for player movement and map logic
 	document.onkeydown = levelHandler;
@@ -88,7 +88,7 @@ function loadLevel2(){
 
 }
 
-function loadCastle(){
+function loadCastle(side){
 	
 	document.onkeydown = levelHandler;
         document.onkeyup = levelHandler2;
