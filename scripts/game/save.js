@@ -40,6 +40,8 @@ function saveGame(){
 	timeMinutes = oldMinutes + timeMinutes;	
 	timeSeconds = oldSeconds + timeSeconds;
 	
+	Number(timeHours);
+	
 	console.log("hours after: " + timeHours);
 	
 	if(timeSeconds > 59){
