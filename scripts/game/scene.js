@@ -363,8 +363,8 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
             	ctx.drawImage(map.image,xPos*64,yPos*64,64,64,(j+(dx/8))*64,(i+(dy/8))*64,64,64);
 	    }
 	    
-	    foregroundTiles[i][j].endX = foregroundTiles[i][j].startX + (dx/8)*64 + 80;
-    	    foregroundTiles[i][j].endY = foregroundTiles[i][j].startY + (dy/8)*64 + 80;
+	    foregroundTiles[i][j].endX = foregroundTiles[i][j].startX + (dx/8)*64 + 74;
+    	    foregroundTiles[i][j].endY = foregroundTiles[i][j].startY + (dy/8)*64 + 74;
         }
     }
     
