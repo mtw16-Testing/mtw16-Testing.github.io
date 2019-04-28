@@ -579,7 +579,7 @@ function saveFileHandler(){
                 cancelAnimationFrame(drawing);    
                 showStartMenu();
             }else{
-                alert("Save file " + (currentOption + 1) + " selected.");
+                //alert("Save file " + (currentOption + 1) + " selected.");
             }
             break;
         case 38:
