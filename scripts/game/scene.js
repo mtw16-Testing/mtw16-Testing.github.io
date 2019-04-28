@@ -172,51 +172,13 @@ function Scene(name, map){
         
         switch(this.name){
             case "Level 1":
-		loadLevel1();
-		
+		loadLevel1();		
                 break;
-	    case "Level 2":
-		//sets keyboard input handlers for player movement and map logic
-		document.onkeydown = levelHandler;
-                document.onkeyup = levelHandler2;
-		
-		//loads in map files
-                image1.src = "maps/Level2Background.png";
-                image2.src = "maps/Level2Foreground.png";
-                
-		//loads in the spritesheet that will be used
-		map.getMap("images/spritesheets/level2.png");
-			
-		Player.X = 1024;
-		Player.Y = 512;
-			
-		dx = 0;
-		dy = -50;
-			
-		this.nextMaps[0] = "Castle";
-			
-		loadLevel2();
-		
+	    case "Level 2":			
+		loadLevel2();		
 		break;
-	case "Castle":
-		document.onkeydown = levelHandler;
-                document.onkeyup = levelHandler2;
-		
-		//loads in map files
-                image1.src = "maps/CastleBackground.png";
-                image2.src = "maps/CastleForeground.png";
-                
-		//loads in the spritesheet that will be used
-		map.getMap("images/spritesheets/Castle_sheet.png");
-			
-		Player.X = 1024;
-		Player.Y = 512;
-			
-		dx = 0;
-		dy = -200;
-			
-		loadCastle();
-		
+	case "Castle":			
+		loadCastle();		
 		break;
             case "Options":
                 initOptions();
