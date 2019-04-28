@@ -114,7 +114,8 @@ function loadLevel2(side){
 	}
 			
 	sceneHandler.scene.nextMaps[0] = "Castle";	
-	sceneHandler.scene.nextMaps[2] = "Level 1";
+	sceneHandler.scene.nextMaps[2] = "Level 1";	
+	sceneHandler.scene.nextMaps[3] = "Level 3";
 	
 	Villagers.push(new initVillager({
 			X: 1100,
