@@ -19,13 +19,15 @@ function saveGame(){
 	var timeMinutes = Math.floor(timeElapsed / 60);
 	var timeSeconds = timeElapsed % 60;
 	
+	var user = firebase.auth().currentUser;
+	
 	db.collection('SaveFile').doc(user.uid).get().then(doc=> {
 		oldTime = doc.data().time;
             }).catch(function(error) {
                 alert("Unknown error, unable to save.");
             });
 	
-	db.collection('SaveFile').doc(firebase.auth().currentUser.uid).set({
+	db.collection('SaveFile').doc(user.uid).set({
                 minutes: timeMinutes,
 		seconds: timeSeconds,
 		location: sceneHandler.scene.name
