@@ -55,7 +55,7 @@ function createUser(){
                 hours: 0,
                 minutes: 0,
                 seconds: "00",
-                mapEntries: ["Level 1"]
+                entries: ["Level 1"]
             });
         });
     }
