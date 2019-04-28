@@ -656,7 +656,7 @@ function generalCollision() {
 		if(isEmpty > 1 && bounds[i].solid){
 			isBlocked = true;
 			return hit;
-		}else if(isEmpty > 1){
+		}else if(isEmpty > 1 || isEmpty < 0){
 			hit[0] = bounds[i].side+2;
 			sideOfScreen = hit[0]-2;
 			hit[1] = 0;			
