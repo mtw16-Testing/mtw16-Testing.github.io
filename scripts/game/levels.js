@@ -9,7 +9,14 @@ function loadLevel1(){
                 
 		//loads in the spritesheet that will be used
 		sceneHandler.scene.map.getMap("images/spritesheets/level1.png");
-			
+	
+	
+		Player.X = 1024;
+		Player.Y = 512
+
+		dx = 0;
+		dy = 0;
+
 		sceneHandler.scene.nextMaps[0] = "Level 2";
 			
 		Villagers.push(new initVillager({
@@ -94,7 +101,7 @@ function loadCastle(){
 	sceneHandler.scene.map.getMap("images/spritesheets/Castle_sheet.png");
 			
 	Player.X = 1024;
-	Player.Y = 850;
+	Player.Y = 800;
 			
 	dx = 0;
 	dy = -125;
