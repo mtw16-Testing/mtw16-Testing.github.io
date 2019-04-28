@@ -26,9 +26,9 @@ function saveGame(){
 	var user = firebase.auth().currentUser;
 	
 	db.collection('SaveFile').doc(user.uid).get().then(doc=> {
-		oldHours = doc.data().hours;
-		oldMinutes = doc.data().minutes;
-		oldSeconds = doc.data().seconds;
+		oldHours = Number(doc.data().hours);
+		oldMinutes = Number(doc.data().minutes);
+		oldSeconds = Number(doc.data().seconds);
             }).catch(function(error) {
                 alert("Unknown error, unable to get save data.");
             });
