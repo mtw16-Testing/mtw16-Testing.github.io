@@ -129,9 +129,11 @@ function Scene(name, map){
 		loadLevel1(sideOfScreen);		
                 break;
 	    case "Level 2":
+		addMapEntry("Level 2");
 		loadLevel2(sideOfScreen);		
 		break;
-	case "Castle":			
+	case "Castle":
+		addMapEntry("Castle");
 		loadCastle(sideOfScreen);		
 		break;
             case "Options":
@@ -631,4 +633,21 @@ function generalCollision() {
 	}
 	
 	return hit;
+}
+
+function addMapEntry(entry){
+	var found = false;
+	for(var i = 0; i < mapEntries.length; i++){
+		if(entry === mapEntries[i]){
+			found = true;
+		}
+	}
+	
+	if(!found){
+		mapEntries.push(entry);
+		
+		db.collection('SaveFile').doc(cred.user.uid).update({
+                	entries: mapEntries
+            	});
+	}
 }
