@@ -94,7 +94,7 @@ function mainMenuHandler(){
                 setTimeout(function(){
                     subMenu = 0;
                     document.onkeydown = mainMenuHandler;
-                }, 2000);
+                }, 1500);
                 
                 //alert("Game succesfully saved.");
             }else if(currentOption == (options.length-1)){
