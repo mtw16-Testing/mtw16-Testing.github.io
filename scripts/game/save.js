@@ -27,7 +27,7 @@ function saveGame(){
 	db.collection('SaveFile').doc(user.uid).get().then(doc=> {
 		oldTime = doc.data().time;
             }).catch(function(error) {
-                alert("Unknown error, unable to save.");
+                alert("Unknown error, unable to get save data.");
             });
 	
 	db.collection('SaveFile').doc(user.uid).set({
