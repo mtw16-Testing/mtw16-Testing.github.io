@@ -94,7 +94,7 @@ function loadCastle(){
 	sceneHandler.scene.map.getMap("images/spritesheets/Castle_sheet.png");
 			
 	Player.X = 1024;
-	Player.Y = 900;
+	Player.Y = 850;
 			
 	dx = 0;
 	dy = -120;
