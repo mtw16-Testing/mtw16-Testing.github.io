@@ -19,7 +19,7 @@ function showMainMenu(){
             ctx.fillStyle = "white";
         }
 
-        ctx.fillText(options[i], width / 2  - 150, (height / 2) - 200 + 150 * i);        
+        ctx.fillText(options[i], width / 2  - 150, (height / 2) - 100 + 150 * i);        
     }
 }
 
