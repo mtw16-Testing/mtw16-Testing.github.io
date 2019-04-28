@@ -52,6 +52,6 @@ var pLeft = false, pRight = false, pDown = false, pUp = false;
 var isBlocked = false;
 var sideOfScreen = -1;
 
-var interactionMenuImage;
+var interactionMenuImage = new Image();
 
 mapEntries = ["Level 1"];
