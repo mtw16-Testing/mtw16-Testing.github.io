@@ -37,7 +37,7 @@ var image2;
 
 //Save File information
 function SaveFile(data){
-	this.new = data.new,
+	this.newGame = data.newGame,
 	this.name = data.name,
 	this.location = data.location,
 	this.time = data.time
@@ -571,7 +571,7 @@ function optionsHandler(event){
 function initSaveFile(){
     options = [];
     for(var i = 0; i < 3; i++){
-	    if(saveFiles[i].new == "no"){
+	    if(saveFiles[i].newGame == "no"){
 		options.push("New game");	    
 	    }else{
 	    	options.push("1. " + saveFiles[i].name + " - Location: " + saveFiles[i].location + " " + saveFiles[i].time + ":00");
