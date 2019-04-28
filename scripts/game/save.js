@@ -25,12 +25,10 @@ function saveGame(){
 	
 	var user = firebase.auth().currentUser;
 	
-	console.log("User: " + user);
-	
 	db.collection('SaveFile').doc(user.uid).get().then(doc=> {
 		oldTime = doc.data().time;
             }).catch(function(error) {
-                alert("Unknown error, unable to get save data 1.");
+                alert("Unknown error, unable to get save data.");
             });
 	
 	db.collection('SaveFile').doc(user.uid).update({
