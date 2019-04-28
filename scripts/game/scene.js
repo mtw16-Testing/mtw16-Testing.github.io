@@ -60,10 +60,10 @@ function SceneHandler(scene){
                for(var j = 0; j < image2.width*4; j += 4){
 		       
 		   var tile = new Tile(pixelData[row+j+1],pixelData[row+j+2], true);
-		   tile.startX = ((j/4)*64)-5;
-		   tile.startY = (i*64)-5;
-		   tile.endX = (((j/4)+1)*64+5);
-		   tile.endY = ((i+1)*64)+5;
+		   tile.startX = ((j/4)*64)-10;
+		   tile.startY = (i*64)-10;
+		   tile.endX = (((j/4)+1)*64+10);
+		   tile.endY = ((i+1)*64)+10;
 		   foreTiles.push(tile);
 		    
 		   if(pixelData[row+j+1] == 0 && pixelData[row+j+2] == 0){
