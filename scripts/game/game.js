@@ -14,7 +14,7 @@ function init(){
     interactionMenuImage = new Image();
     background.src= "images/backgrounds/MenuBackground.png";
     menuImage.src = "images/menus/main_menu.png";    
-    interactionMenuImage.src = "images/menus/villager_menu_box.png";    
+    interactionMenuImage.src = "images/menus/villager_menu_box.png";
 }
 
 //starts game at start menu
@@ -23,12 +23,7 @@ function showStartMenu(){
     document.onkeydown = checkMenuInput;
     
     currentOption = 0;
-    
-    //Player.gold = saveFiles[0].gold;
-    //Player.inventory[1] = saveFiles[0].shortSwords;
-    //Player.inventory[3] = saveFiles[0].spears;
-    
-    //console.log("Player gold: " + Player.gold);    
+    background.src= "images/backgrounds/MenuBackground.png";
     
     drawing = requestAnimationFrame(drawStartMenu);
 }

@@ -78,6 +78,8 @@ function mainMenuHandler(){
                 mainMenuOn = false;
                 document.onkeydown = null;
                 document.onkeydown = levelHandler;
+		document.onkeyup = null;
+		document.onkeyup = levelHandler2;
                 for ( i = 0; i < Enemies.length; i++ ) {
                     if ( Enemies[i].death == false )
                       Enemies[i].whichAction = "alive";
@@ -85,6 +87,11 @@ function mainMenuHandler(){
             }
             else if ( currentOption == 1 ) {
                 mainMenuOn = false;
+                options = [];
+                for ( i = 0; i < Player.inventory.length; i++) {
+			      options.push(Player.inventory[i]);	
+		}
+		options.push("Exit");
                 Player.initInventory();
             }
             else if(currentOption == 2){
@@ -113,6 +120,12 @@ function mainMenuHandler(){
             mainMenuOn = false;
             document.onkeydown = null;
             document.onkeydown = levelHandler;
+	    document.onkeyup = null;
+	    document.onkeyup = levelHandler2;
+	    for ( i = 0; i < Enemies.length; i++ ) {
+              if ( Enemies[i].death == false )
+                Enemies[i].whichAction = "alive";
+            }
             break;
         case 38:
             if(currentOption > 0){

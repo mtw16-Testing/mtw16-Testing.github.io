@@ -9,27 +9,39 @@ function initIMenu(i) {
 		Enemies[j].whichAction = "listen";
 	}
 	Player.whichAction = "listen";
-  options = ["Interact","Shop","Exit"];
+  if ( Villagers[i].type == "shop" )
+	  options = ["Interact","Shop","Exit"];
+  else
+	  options = ["Interact","Exit"];
   currentOption = 0;
 }
 
 function drawIMenu() {
   if ( Player.drawInv == true || drawShop == true ) {
     ctx.fillStyle = "#FFFFFF";
-    ctx.drawImage(interactionMenuImage, width*.10, height*(.90-.075*(Math.ceil(options.length/2)+4)), width*.80, height*(.075*(Math.ceil(options.length/2)+4)));
-    //ctx.fillRect(width*.10,height*(.90-.075*(Math.ceil(options.length/2)+4)),width*.50,height*(.075*(Math.ceil(options.length/2)+4)));
+	if ( drawShop == true )
+  	  ctx.drawImage(interactionMenuImage, width*.10, height*(.90-.075*(Math.ceil(options.length/2)+4)), width*.80, height*(.075*(Math.ceil(options.length/2)+4)));
+    	else 
+	  ctx.drawImage(interactionMenuImage, width*.10, height*(.90-.075*(Math.ceil(options.length/2)+7)), width*.80, height*(.075*(Math.ceil(options.length/2)+7)));
+    	
+	  //ctx.fillRect(width*.10,height*(.90-.075*(Math.ceil(options.length/2)+4)),width*.50,height*(.075*(Math.ceil(options.length/2)+4)));
     ctx.font = "45px Sniglet";
-  
     var j = 0;
     for(i = 0; i < options.length; i+=2 ){
 	ctx.fillStyle = "black";
 	if ( i == 0 ) {
-  	   ctx.fillText("Weapons:",width*.13,height*((.90-.075*options.length+0.06)+0.06*(i/2 + j)));	    
-    	   j++;
+		if ( drawShop == true )
+	  	   ctx.fillText("Weapons:",width*.13,height*((.90-.075*options.length)+0.06*(i/2 + j)));	    
+    		else 
+		   ctx.fillText("Weapons:",width*.13,height*((.90-.075*options.length-0.18)+0.06*(i/2 + j)));	    
+	  j++;
     	}
 	else if ( options[i] == "potion" ) {
 	   j++;
-	   ctx.fillText("Consumables:",width*.13,height*((.90-.075*options.length+0.06)+0.06*(i/2 + j)));	
+		if ( drawShop == true ) 
+		   ctx.fillText("Consumables:",width*.13,height*((.90-.075*options.length)+0.06*(i/2 + j)));	
+		else 
+		   ctx.fillText("Consumables:",width*.13,height*((.90-.075*options.length-0.18)+0.06*(i/2 + j)));
 	   j++;
 	}
 	else if ( i+1 == options.length )
@@ -39,11 +51,25 @@ function drawIMenu() {
            ctx.fillStyle = "red";
        else 
            ctx.fillStyle = "black";
-      
-        ctx.fillText(options[i],width*.13,height*((.90-.075*options.length+0.06)+0.06*(i/2 + j)));
-	if ( drawShop == true && i+1 != options.length ) {
+      	
+	if ( drawShop == true ) 
+	   ctx.fillText(options[i],width*.13,height*((.90-.075*options.length)+0.06*(i/2 + j)));
+	else
+	   ctx.fillText(options[i],width*.13,height*((.90-.075*options.length-0.18)+0.06*(i/2 + j)));
+
+	if ( (drawShop == true || Player.drawInv == true) && i+1 != options.length ) {
 	  ctx.fillStyle = "black";
-	  ctx.fillText(options[i+1],width*.41,height*((.90-.075*options.length+0.06)+0.06*(i/2 + j)));
+		if ( drawShop == true )
+		  ctx.fillText(options[i+1],width*.41,height*((.90-.075*options.length)+0.06*(i/2 + j)));
+		else
+		  ctx.fillText(options[i+1],width*.41,height*((.90-.075*options.length-0.18)+0.06*(i/2 + j)));
+	}
+	    
+	if ( i+3 == options.length && Player.drawInv == true ) {
+	  j++;
+	  ctx.fillText("Gold:",width*.13,height*((.90-.075*options.length-0.12)+0.06*(i/2+j)));
+	  ctx.fillText(Player.gold,width*.41,height*((.90-.075*options.length-0.12)+0.06*(i/2+j)));
+	  j++;
 	}
     }
   }
@@ -93,6 +119,8 @@ function iMenuHandler(event) {
 	      mainMenuOn = true;
 	      document.onkeydown = null;
 	      document.onkeydown = mainMenuHandler;
+	      options = ["Resume","Items","Map","Save Game","Exit"];
+	      currentOption = 0;
 	    }
 	    else {
    	      for ( i = 0; i < Villagers.length; i++ )
@@ -111,8 +139,10 @@ function iMenuHandler(event) {
 		else if ( Player.gold-options[currentOption+1] >= 0 ) {
 			Player.gold = Player.gold - options[currentOption+1];
 			for ( i = 0; i < Player.inventory.length; i+=2 ) {
-			  if ( Player.inventory[i] == "shortSword" )
+			  if ( Player.inventory[i] == "shortSword" ){
+			    alert("Bought Short Sword");	  
 			    Player.inventory[i+1]++;
+			  }
 			}
 		}
 	}
@@ -126,25 +156,31 @@ function iMenuHandler(event) {
 	    else if ( Player.gold-options[currentOption+1] >= 0 ) {
 		Player.gold = Player.gold - options[currentOption+1];
 		for ( i = 0; i < Player.inventory.length; i+=2 ) {
-		  if ( Player.inventory[i] == "spear" )
+		  if ( Player.inventory[i] == "spear" ) {
 		    Player.inventory[i+1]++;
+		    alert("Bought Spear");	  
+		  }
 		}
     	    }
 	}
 	else if ( options[currentOption] == "potion" ) {
 	    if ( drawShop == false ) {
-		if ( Player.health < Player.totalHealth && Player.inventory[(currentOption-1)*2+1] > 0 ) {
+		if ( Player.health < Player.totalHealth && Player.inventory[currentOption+1] > 0 ) {
 			Player.health = Player.health + Player.totalHealth*.25;
 			if ( Player.health > Player.totalHealth )
 				Player.health = Player.totalHealth;
-			Player.inventory[(currentoption-1)*2+1]--;
+			Player.inventory[currentOption+1]--;
+			options[currentOption+1]--;
+			alert("Potion Used");
 		}
 	    }
 	    else if ( Player.gold-options[currentOption+1] >= 0 ) {
 		Player.gold = Player.gold - options[currentOption+1];
 		for ( i = 0; i < Player.inventory.length; i+=2 ) {
-		  if ( Player.inventory[i] == "potion" )
+		  if ( Player.inventory[i] == "potion" ) {
 		    Player.inventory[i+1]++;
+		    alert("Bought potion");	  
+		  }
 		}
 	    }
 	}
