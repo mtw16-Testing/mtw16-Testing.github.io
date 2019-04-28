@@ -337,8 +337,6 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
     //displays the pause menu if it is toggled
     if(mainMenuOn){
         showMainMenu();
-        document.onkeydown = null;
-        document.onkeydown = mainMenuHandler;
     }
 }
 
@@ -347,7 +345,9 @@ function levelHandler(){
     var keyCode = event.which || event.keyCode;
     switch(keyCode){        
         case 27: //escape key, toggles the pause menu
-                mainMenuOn = true;
+		mainMenuOn = true;
+		document.onkeydown = null;
+		document.onkeydown = mainMenuHandler;
 		for ( i = 0; i < Enemies.length; i++ ){
 			if ( Enemies[i].death == false)
  			  Enemies[i].whichAction = "listen";
