@@ -42,7 +42,7 @@ function SaveFile(data){
 	this.time = data.time
 }
 
-var saveFile1;
+var saveFile;
 
 var mainMenuOn = false;
 var dx = 0, dy = 0;
@@ -568,7 +568,8 @@ function optionsHandler(event){
 
 //--------------------------------Save Menu Option---------------------------------
 function initSaveFile(){
-    options = ["1. " + saveFile1.name + " - Location: " + saveFile1.location + " " + saveFile1.time + ":00", "Exit"];
+    options = ["1. " + saveFile.name + " - Location: " + saveFile.location + " " + saveFile.time + ":00", "Exit"];
+	
     currentOption = 0;
     
     background.src= "images/backgrounds/SaveMenuBackground.png";
