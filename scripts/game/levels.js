@@ -119,9 +119,14 @@ function loadCastle(){
 			Y: 800,
 			sentence: "Wait, who are you?"
 			}));
-			
+	
+	Villagers.push(new initVillager({
+			X: 1000,
+			Y: 100,
+			sentence: "I am the king. Long have I awaited you."
+			}));
 
-    bounds.push(Villagers[0]);
-    bounds.push(Villagers[1]);
+	    bounds.push(Villagers[0]);
+	    bounds.push(Villagers[1]);
 
 }
