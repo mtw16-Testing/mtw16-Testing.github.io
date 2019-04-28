@@ -55,7 +55,8 @@ function createUser(){
                 name: displayName,
                 hours: 0,
                 minutes: 0,
-                seconds: "00",
+                seconds: 0,
+                gold: 0,
                 entries: ["Level 1"]
             });
         });
