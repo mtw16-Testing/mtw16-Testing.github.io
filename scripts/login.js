@@ -11,7 +11,7 @@ function checkLogin(){
             
             db.collection('SaveFile1').doc(user.uid).get().then(doc=> {          
                 saveFiles.push(new SaveFile(doc.data));
-                console.log("Here: " + user.uid + " name: " + doc.data.name);
+                console.log("Here: " + user.uid + " name: " + doc.data.name + " doc: " + doc.data);
                 //saveFile = new SaveFile(doc.data());
             }).catch(function(error) {
                 alert(error.message);
