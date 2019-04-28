@@ -213,6 +213,5 @@ function loadBeach(side){
 			}));
 
 	 bounds.push(Villagers[0]);
-	 bounds.push(Villagers[1]);
 
 }
