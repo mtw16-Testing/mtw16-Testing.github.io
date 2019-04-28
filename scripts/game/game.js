@@ -15,6 +15,10 @@ function init(){
     background.src= "images/backgrounds/MenuBackground.png";
     menuImage.src = "images/menus/main_menu.png";    
     interactionMenuImage.src = "images/menus/villager_menu_box.png";
+    
+    Player.gold = saveFiles[0].gold;
+    Player.shortSwords = saveFiles[0].shortSwords;
+    Player.spears = saveFiles[0].spears;
 }
 
 //starts game at start menu
