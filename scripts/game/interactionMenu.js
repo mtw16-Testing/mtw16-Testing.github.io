@@ -46,7 +46,7 @@ function drawIMenu() {
   }
   else {
     ctx.fillStyle = "#FFFFFF";
-    ctx.drawImage(interactionMenuImage, width*.10, height*(.90-.10*options.length, width*.80, height*(.10*options.length));
+    ctx.drawImage(interactionMenuImage, width*.10, height*(.90-.10*options.length), width*.80, height*(.10*options.length));
     
     //ctx.fillRect(width*.10,height*(.90-.10*options.length),width*.80,height*(.10*options.length));
     ctx.font = "60px Sniglet";
