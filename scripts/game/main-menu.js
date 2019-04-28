@@ -34,7 +34,7 @@ function mainMenuHandler(){
                       Enemies[i].whichAction = "alive";
                 }
             }else if(currentOption == 1){
-                
+                showMapEntries();
             }else if(currentOption == 2){
                 saveGame();
                 alert("Game succesfully saved.");
@@ -67,3 +67,10 @@ function mainMenuHandler(){
             break;
     }
 }
+
+function showMapEntries(){
+    for(var i = 0; i < mapEntries.length; i++){
+            console.log("Map entry: " + mapEntries[i]);
+    }
+}
+
