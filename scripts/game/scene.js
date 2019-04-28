@@ -119,6 +119,7 @@ function SceneHandler(scene){
 		   if((pixelData[row+j+1] == 0 && pixelData[row+j+2] == 176) ||
 		     	(pixelData[row+j+1] == 16 && pixelData[row+j+2] == 176) ||
 		     	(pixelData[row+j+1] == 255 && pixelData[row+j+2] == 255) ){
+			   	console.log("Blue: " + pixelData[row+j+1] + " Green: " + pixelData[row+j+2]);
 			  	if(i < 5){
 					tile.side = 1;
 				}else if (j < 5){					
