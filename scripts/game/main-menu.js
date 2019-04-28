@@ -10,7 +10,7 @@ function showMainMenu(){
 
     ctx.fillStyle = "white";
     ctx.font = "100px Sniglet";
-    ctx.fillText("Main Menu", 820, 270);
+    ctx.fillText("Main Menu", 820, 260);
     
     ctx.font = "80px Sniglet";
     for(var i = 0; i < options.length; i++){
@@ -20,7 +20,7 @@ function showMainMenu(){
             ctx.fillStyle = "white";
         }
 
-        ctx.fillText(options[i], width / 2  - 150, (height / 2) - 100 + 150 * i);        
+        ctx.fillText(options[i], width / 2  - 150, (height / 2) - 90 + 150 * i);        
     }
 }
 
