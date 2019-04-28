@@ -24,7 +24,7 @@ function initPlayer(options) {
 	that.standDown = that.Y + 125;
 	that.totalHealth = 100;
 	that.health = 100;
-	that.weapon = "shortSword";
+	that.weapon = "spear";
 	that.isDamaged = false;
 	that.invincible = false;
 	that.death = false;
@@ -38,7 +38,6 @@ function initPlayer(options) {
 	
 	that.draw = function() {
 		ctx.drawImage(that.image,63*that.aFrame,63*(action+that.direction),63,63,that.X,that.Y,126,126);
-		ctx.fillRect(that.iBox[0],that.iBox[2],30,31);
 		drawHealth(that);
 	};
 	
@@ -111,17 +110,21 @@ function initPlayer(options) {
 	}
 	
 	that.attack = function() {
-		that.whichAction = "attack";
-		action = startSword;
-		that.aFrame = -1;
-		setTimeout(animateAttack,0,that)
+		if ( Player.weapon == "spear" )
+			Player.spearAttack();
+		else {
+		  that.whichAction = "attack";
+		  action = startSword;
+		  that.aFrame = -1;
+		  setTimeout(animateAttack,0,that)
+		}
 	};
 	
 	that.spearAttack = function() {
 		that.whichAction = "attack";
 		action = startSpear;
 		that.aFrame = -1;
-		setTimeout(animateAttack,0,that)
+		setTimeout(animateSpearAttack,0,that)
 	};
 	
 	that.canDamage = function() {
@@ -135,7 +138,7 @@ function initPlayer(options) {
 		//if ( that.standRight >= Enemy.X+((dx/8)*64) && that.standLeft <= Enemy.X+((dx/8)*64)+Enemy.lengthX && Enemy.death == false ) {
 			// Check Y collision
 		//	if ( that.standDown >= Enemy.Y+((dy/8)*64) && that.standUp <= Enemy.Y + ((dy/8)*64) + Enemy.lengthY) {
-		if ( collisionSquare(Player.standLeft,Player.standRight,Player.standUp,Player.standDown,Enemy.X+(dx/8)*64,Enemy.X+(dx/8)*64+Enemy.lengthX,Enemy.Y+(dy/8)*64,Enemy.Y+(dy/8)*64+Enemy.lengthY) == true )
+		if ( Enemy.death == false && collisionSquare(Player.standLeft,Player.standRight,Player.standUp,Player.standDown,Enemy.X+(dx/8)*64,Enemy.X+(dx/8)*64+Enemy.lengthX,Enemy.Y+(dy/8)*64,Enemy.Y+(dy/8)*64+Enemy.lengthY) == true )
 			Player.isDamaged = true;
 		
 		if ( Player.isDamaged == true && Player.invincible == false) {
@@ -164,15 +167,16 @@ function initPlayer(options) {
 		if (Player.weapon == "shortSword"){
 			if ( swordCollision(that,Enemy) == true && Enemy.death == false ) {
 				Enemy.health -= 20;
-				Enemy.checkDeath();
-				//alert(Enemy.health);
+				if ( Enemy.checkDeath() == true )
+					Player.gold+=100;    
 			}
 		}
 		else if (Player.weapon == "spear"){
 			if ( spearCollision(that,Enemy) == true && Enemy.death == false ) {
 				Enemy.health -= 20;
-				Enemy.checkDeath();
-				//alert(Enemy.health);
+				if ( Enemy.checkDeath() == true )
+					Player.gold+=100;
+				
 			}
 		}
 

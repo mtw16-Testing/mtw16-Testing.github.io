@@ -28,6 +28,7 @@ function initEnemy(options) {
 	that.type = "Enemy";
 	that.iBox = [that.X+(dx/8)*64,that.X+(dx/8)*64,that.Y+(dy/8)*64,that.Y+(dy/8)*64]; //x1,x2,y1,y2
 	that.attackSpeed = 1000/10;
+	that.moveSpeed = options.moveSpeed;
 	
 	//Call the draw function to create basic enemy rectangle
 	that.draw = function() {
@@ -44,16 +45,17 @@ function initEnemy(options) {
 		}
 		if ( that.whichAction != "dead" ) {
 			ctx.drawImage(enemyImage,64*Math.floor(that.aFrame),64*(that.direction+that.action),64,64,that.X+(dx/8)*64-that.xOff,that.Y+(dy/8)*64-that.yOff,128,128);
-			ctx.fillStyle = "#F0F0F0";
-			ctx.fillRect(that.iBox[0],that.iBox[2],(that.iBox[1]-that.iBox[0]),(that.iBox[3]-that.iBox[2]));
 			drawHealth(that);
 		}
 	};
 	
 	//if enemy's health is 0, just dead
 	that.checkDeath = function() {
-		if ( that.health <= 0  )
+		if ( that.health <= 0  ) {
 			that.death = true;
+			return true;
+		}
+		return false;
 	};
 	
 	that.attack = function() { 
@@ -74,19 +76,19 @@ function basicEnemyAI(Enemy) {
 			Enemy.time = Date.now();
 		}
 		if ( Player.standUp > Enemy.Y + (dy/8)*64) {
-			Enemy.Y+=2;
+			Enemy.Y+=Enemy.moveSpeed;
 			Enemy.direction = 2;
 		}
 		if ( Player.standDown < Enemy.Y + (dy/8)*64+Enemy.lengthY) {
-			Enemy.Y-=2;
+			Enemy.Y-=Enemy.moveSpeed;
 			Enemy.direction = 0;
 		}
 		if ( Player.standRight < Enemy.X +(dx/8)*64+Enemy.lengthX) {
-			Enemy.X-=2;
+			Enemy.X-=Enemy.moveSpeed;
 			Enemy.direction = 1;
 		}
 		if ( Player.standLeft > Enemy.X + (dx/8)*64) {
-			Enemy.X+=2;
+			Enemy.X+=Enemy.moveSpeed;
 			Enemy.direction = 3;
 		}
 
