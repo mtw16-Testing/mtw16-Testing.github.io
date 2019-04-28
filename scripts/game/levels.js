@@ -1,4 +1,16 @@
 function loadLevel1(){ 	
+      		//sets keyboard input handlers for player movement and map logic
+		document.onkeydown = levelHandler;
+                document.onkeyup = levelHandler2;
+		
+		//loads in map files
+                image1.src = "maps/Level1Background.png";
+                image2.src = "maps/Level1Foreground.png";
+                
+		//loads in the spritesheet that will be used
+		sceneHandler.scene.map.getMap("images/spritesheets/level1.png");
+			
+		sceneHandler.scene.nextMaps[0] = "Level 2";
 			
 		Villagers.push(new initVillager({
 				X: 2000,
