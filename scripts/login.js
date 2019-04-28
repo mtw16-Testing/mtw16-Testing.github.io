@@ -52,8 +52,9 @@ function createUser(){
             db.collection('SaveFile').doc(cred.user.uid).set({
                 location: "Level 1",
                 name: displayName,
+                hours: 0,
                 minutes: 0,
-                seconds: 0
+                seconds: "00"
             });
         });
     }
