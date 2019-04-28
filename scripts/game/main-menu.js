@@ -53,6 +53,7 @@ function showMapMenu(){
 
 function mainMenuHandler(){
     var keyCode = event.which || event.keyCode;
+    console.log("In handler");
     switch(keyCode){
         case 13:
             if(currentOption == 0){
