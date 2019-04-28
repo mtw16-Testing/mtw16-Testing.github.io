@@ -40,6 +40,7 @@ var endTiles = new Array();
 //detects if all images have been loaded in before starting the level
 var isImage1Loaded = false;
 var isImage2Loaded = false;
+var isImage3Loaded = false;
 var isSpreadsheetLoaded = false;
 
 var image1;
