@@ -9,9 +9,9 @@ function checkLogin(){
             document.getElementById("error-message").innerHTML = "";
             showStartMenu();
             
-            db.collection('SaveFile').doc(user.uid).get().then(doc=> {
+            db.collection('SaveFile1').doc(user.uid).get().then(doc=> {
                 //alert("Here: " + doc.data().name);
-                saveFile1 = new SaveFile(doc.data());
+                saveFile = new SaveFile(doc.data());
             }).catch(function(error) {
                 alert(error.message);
             });
@@ -49,7 +49,20 @@ function createUser(){
             
             waiting.innerHTML = "";
         }).then( cred => {
-            db.collection('SaveFile').doc(cred.user.uid).set({
+            db.collection('SaveFile1').doc(cred.user.uid).set({
+                new: "no",
+                location: "start",
+                name: displayName,
+                time: 0
+            });
+            db.collection('SaveFile2').doc(cred.user.uid).set({
+                new: "yes",
+                location: "start",
+                name: displayName,
+                time: 0
+            });
+            db.collection('SaveFile3').doc(cred.user.uid).set({
+                new: "yes",
                 location: "start",
                 name: displayName,
                 time: 0
