@@ -16,8 +16,7 @@ function saveGame(){
 	var endTime = new Date();
 	var timeElapsed = (endTime.getTime() - startTime.getTime())/1000;
 	
-	startTime = endTime;
-	
+	startTime = endTime;	
 	
 	var timeHours = Math.floor(timeElapsed / 3600);
 	var timeMinutes = Math.floor(timeElapsed / 60);
@@ -29,46 +28,47 @@ function saveGame(){
 		console.log("In " + doc.data().hours);
 		oldHours = Number(doc.data().hours);
 		oldMinutes = Number(doc.data().minutes);
-		oldSeconds = Number(doc.data().seconds);
+		oldSeconds = Number(doc.data().seconds);		
+		
+		console.log("hours before: " + timeHours);
+		console.log("Hours from database: " + oldHours);
+
+		timeHours = oldHours + timeHours;
+		timeMinutes = oldMinutes + timeMinutes;	
+		timeSeconds = oldSeconds + timeSeconds;
+
+		Number(timeHours);
+
+		console.log("hours after: " + timeHours);
+
+		if(timeSeconds > 59){
+			timeSeconds = timeSeconds % 60;
+			timeMinutes++;
+		}
+
+		if(timeMinutes > 59){
+			timeMinutes = timeMinutes % 60;
+			timeHours++;
+		}
+
+
+		db.collection('SaveFile').doc(user.uid).update({
+			hours: timeHours,
+			minutes: timeMinutes,
+			seconds: timeSeconds,
+			location: sceneHandler.scene.name
+		}).then(doc => {
+
+			saveFiles[0].hours = timeHours;
+			saveFiles[0].minutes = timeMinutes;
+			saveFiles[0].seconds = timeSeconds;
+			saveFiles[0].location = sceneHandler.scene.name;
+            
+		}).catch(function(error) {
+			alert("Unknown error, unable to save.");
+		});
             }).catch(function(error) {
                 alert("Unknown error, unable to get save data.");
             });
 	
-		
-	console.log("hours before: " + timeHours);
-	console.log("Hours from database: " + oldHours);
-	
-	timeHours = oldHours + timeHours;
-	timeMinutes = oldMinutes + timeMinutes;	
-	timeSeconds = oldSeconds + timeSeconds;
-	
-	Number(timeHours);
-	
-	console.log("hours after: " + timeHours);
-	
-	if(timeSeconds > 59){
-		timeSeconds = timeSeconds % 60;
-		timeMinutes++;
-	}
-	
-	if(timeMinutes > 59){
-		timeMinutes = timeMinutes % 60;
-		timeHours++;
-	}
-	
-	
-	db.collection('SaveFile').doc(user.uid).update({
-		hours: timeHours,
-                minutes: timeMinutes,
-		seconds: timeSeconds,
-		location: sceneHandler.scene.name
-        }).catch(function(error) {
-                alert("Unknown error, unable to save.");
-        });
-	
-	saveFiles[0].hours = timeHours;
-        saveFiles[0].minutes = timeMinutes;
-	saveFiles[0].seconds = timeSeconds;
-	saveFiles[0].location = sceneHandler.scene.name;
-            
 }
