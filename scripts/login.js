@@ -12,6 +12,7 @@ function checkLogin(){
             db.collection('SaveFile').doc(user.uid).get().then(doc=> {
                 //alert("Here: " + doc.data().name);
                 saveFiles.push(new SaveFile(doc.data()));
+                mapEntries = doc.data().entries;
             }).catch(function(error) {
                 alert(error.message);
             });
