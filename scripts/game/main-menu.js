@@ -51,7 +51,7 @@ function showMapMenu(){
     }
     
     ctx.textAlign = "center"; 
-    ctx.fillText("Press Esc to Go Back", width/2, height/2 + 400));   
+    ctx.fillText("Press Esc to Go Back", width/2, height/2 + 400);   
     ctx.textAlign = "start"; 
 }
 
