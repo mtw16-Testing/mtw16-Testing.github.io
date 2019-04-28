@@ -10,12 +10,14 @@ function loadLevel1(side){
 		//loads in the spritesheet that will be used
 		sceneHandler.scene.map.getMap("images/spritesheets/level1.png");
 	
-	
-		Player.X = 1024;
-		Player.Y = 512
+		if(side == 3){
+		}else{
+			Player.X = 1024;
+			Player.Y = 512
 
-		dx = 0;
-		dy = 0;
+			dx = 0;
+			dy = 0;		
+		}
 
 		sceneHandler.scene.nextMaps[0] = "Level 2";
 			
@@ -61,12 +63,20 @@ function loadLevel2(side){
                 
 	//loads in the spritesheet that will be used
 	sceneHandler.scene.map.getMap("images/spritesheets/level2.png");
-			
-	Player.X = 1024;
-	Player.Y = 512;
-			
-	dx = 0;
-	dy = -50;
+	
+	if(side == 3){
+		Player.X = 1024;
+		Player.Y = 50;
+
+		dx = 200;
+		dy = -50;
+	}else{	
+		Player.X = 1024;
+		Player.Y = 512;
+
+		dx = 0;
+		dy = -50;
+	}
 			
 	sceneHandler.scene.nextMaps[0] = "Castle";
 	
