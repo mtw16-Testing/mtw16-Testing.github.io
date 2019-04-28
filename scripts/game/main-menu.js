@@ -81,7 +81,19 @@ function mainMenuHandler(){
                 document.onkeydown = mapMenuHandler;
             }else if(currentOption == 3){
                 saveGame();
-                alert("Game succesfully saved.");
+                subMenu = 2;
+                ctx.fillStyle = "white";
+                ctx.textAlign = "center"; 
+                ctx.fillText("File saved successfully", width/2, height/2 + 350);   
+                ctx.textAlign = "start";
+                document.onkeydown = null;
+                
+                setTimeout(function(){
+                    subMenu = 0;
+                    document.onkeydown = mainMenuHandler;
+                }, 2000);
+                
+                //alert("Game succesfully saved.");
             }else if(currentOption == (options.length-1)){
                 mainMenuOn = false;
                 document.onkeydown = null;
