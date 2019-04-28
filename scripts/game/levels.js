@@ -28,3 +28,24 @@ function loadLevel1(){
     bounds.push(Villagers[1]);
 
 }
+
+
+function loadLevel2(){
+	
+	Villagers.push(new initVillager({
+			X: 2000,
+			Y: 1000,
+			sentence: "You are here at last! Thank the gods!"
+			}));
+
+	Villagers.push(new initVillager({
+			X: 500,
+			Y: 800,
+			sentence: "It is you! The legendary hero " + saveFile1.name
+			}));
+			
+
+    bounds.push(Villagers[0]);
+    bounds.push(Villagers[1]);
+
+}
