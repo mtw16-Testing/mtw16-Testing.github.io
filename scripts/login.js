@@ -55,7 +55,10 @@ function createUser(){
                 name: displayName,
                 hours: 0,
                 minutes: 0,
-                seconds: "00",
+                seconds: 0,
+                gold: 500,
+                shortSwords: 1,
+                spears: 0,
                 entries: ["Level 1"]
             });
         });
