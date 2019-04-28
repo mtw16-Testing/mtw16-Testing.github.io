@@ -49,3 +49,23 @@ function loadLevel2(){
     bounds.push(Villagers[1]);
 
 }
+
+function loadCastle(){
+	
+	Villagers.push(new initVillager({
+			X: 1100,
+			Y: 1700,
+			sentence: "Long have we awaited your return!"
+			}));
+
+	Villagers.push(new initVillager({
+			X: 800,
+			Y: 800,
+			sentence: "Wait, who are you?"
+			}));
+			
+
+    bounds.push(Villagers[0]);
+    bounds.push(Villagers[1]);
+
+}
