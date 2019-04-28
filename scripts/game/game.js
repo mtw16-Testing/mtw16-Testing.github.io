@@ -28,6 +28,8 @@ function showStartMenu(){
     Player.shortSwords = saveFiles[0].shortSwords;
     Player.spears = saveFiles[0].spears;
     
+    console.log("Player gold: " + Player.gold);
+    
     drawing = requestAnimationFrame(drawStartMenu);
 }
 
