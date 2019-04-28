@@ -12,7 +12,7 @@ function SaveFile(data){
 var saveFiles = new Array();
 
 function saveGame(){
-	var oldTime;
+	var oldHours, oldMinutes, oldSeconds;
 	var endTime = new Date();
 	var timeElapsed = (endTime.getTime() - startTime.getTime())/1000;
 	
@@ -26,10 +26,27 @@ function saveGame(){
 	var user = firebase.auth().currentUser;
 	
 	db.collection('SaveFile').doc(user.uid).get().then(doc=> {
-		oldTime = doc.data().time;
+		oldHours = doc.data().hours;
+		oldMinutes = doc.data().minutes;
+		oldSeconds = doc.data().seconds;
             }).catch(function(error) {
                 alert("Unknown error, unable to get save data.");
             });
+	
+	timeHours = oldHours + timeHours;
+	timeMinutes = oldMinutes + timeMinutes;	
+	timeSeconds = oldSeconds + timeSeconds;
+	
+	if(timeSeconds > 59){
+		timeSeconds = timeSeconds % 60;
+		timeMinutes++;
+	}
+	
+	if(timeMinutes > 59){
+		timeMinutes = timeMinutes % 60;
+		timeHours++;
+	}
+	
 	
 	db.collection('SaveFile').doc(user.uid).update({
 		hours: timeHours,
