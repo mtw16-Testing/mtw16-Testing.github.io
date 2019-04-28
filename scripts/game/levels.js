@@ -80,7 +80,7 @@ function loadLevel2(side){
 		Player.Y = 800;
 
 		dx = -60;
-		dy = -250;
+		dy = -270;
 	}else{	
 		Player.X = 1024;
 		Player.Y = 512;
