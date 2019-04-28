@@ -58,7 +58,7 @@ function showMapMenu(){
 
 function mainMenuHandler(){
     var keyCode = event.which || event.keyCode;
-    console.log("In handler");
+    
     switch(keyCode){
         case 13:
             if(currentOption == 0){
@@ -110,7 +110,6 @@ function mainMenuHandler(){
 
 
 function mapMenuHandler(){
-    console.log("In map handler");
     var keyCode = event.which || event.keyCode;
     switch(keyCode){
         case 13:
