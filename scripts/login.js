@@ -17,7 +17,7 @@ function checkLogin(){
                 alert(error.message);
             });
             
-            db.collection('SaveFile2').doc(user.uid).get().then(doc=> {          
+            /*db.collection('SaveFile2').doc(user.uid).get().then(doc=> {          
                 saveFiles.push(new SaveFile(doc.data));
                 //saveFile = new SaveFile(doc.data());
             }).catch(function(error) {
@@ -29,7 +29,7 @@ function checkLogin(){
                 //saveFile = new SaveFile(doc.data());
             }).catch(function(error) {
                 alert(error.message);
-            });
+            });*/
         }
       });
 }
