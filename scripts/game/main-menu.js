@@ -40,7 +40,7 @@ function showTopLevelMenu(){
 
 function showMapMenu(){
     ctx.fillStyle = "white";
-    ctx.font = "100px Sniglet";
+    ctx.font = "90px Sniglet";
     ctx.textAlign = "center"; 
     ctx.fillText("Choose Destination To Travel To", width/2, 260);
     ctx.textAlign = "start"; 
