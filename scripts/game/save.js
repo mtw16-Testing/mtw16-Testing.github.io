@@ -26,6 +26,7 @@ function saveGame(){
 	var user = firebase.auth().currentUser;
 	
 	db.collection('SaveFile').doc(user.uid).get().then(doc=> {
+		console.log("In " + doc.data().hours);
 		oldHours = Number(doc.data().hours);
 		oldMinutes = Number(doc.data().minutes);
 		oldSeconds = Number(doc.data().seconds);
