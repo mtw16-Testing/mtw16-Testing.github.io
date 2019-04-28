@@ -24,11 +24,11 @@ function showStartMenu(){
     
     currentOption = 0;
     
-    Player.gold = saveFiles[0].gold;
+    //Player.gold = saveFiles[0].gold;
     //Player.inventory[1] = saveFiles[0].shortSwords;
     //Player.inventory[3] = saveFiles[0].spears;
     
-    console.log("Player gold: " + Player.gold);    
+    //console.log("Player gold: " + Player.gold);    
     
     drawing = requestAnimationFrame(drawStartMenu);
 }
