@@ -64,19 +64,19 @@ function createUser(){
             waiting.innerHTML = "";
         }).then( cred => {
             db.collection('SaveFile1').doc(cred.user.uid).set({
-                new: "no",
+                newGame: "no",
                 location: "start",
                 name: displayName,
                 time: 0
             });
             db.collection('SaveFile2').doc(cred.user.uid).set({
-                new: "yes",
+                newGame: "yes",
                 location: "start",
                 name: displayName,
                 time: 0
             });
             db.collection('SaveFile3').doc(cred.user.uid).set({
-                new: "yes",
+                newGame: "yes",
                 location: "start",
                 name: displayName,
                 time: 0
