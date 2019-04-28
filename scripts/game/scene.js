@@ -42,7 +42,7 @@ function SaveFile(data){
 	this.time = data.time
 }
 
-var saveFile;
+var saveFiles = new Array();
 
 var mainMenuOn = false;
 var dx = 0, dy = 0;
@@ -568,8 +568,16 @@ function optionsHandler(event){
 
 //--------------------------------Save Menu Option---------------------------------
 function initSaveFile(){
-    options = ["1. " + saveFile.name + " - Location: " + saveFile.location + " " + saveFile.time + ":00", "Exit"];
+    options = [];
+    for(var i = 0; i < 3; i++){
+	    if(saveFiles[i].new == "no"){
+		options.push("New game"]);	    
+	    }else{
+	    	options.push("1. " + saveFiles[i].name + " - Location: " + saveFiles[i].location + " " + saveFiles[i].time + ":00");
+	    }
+    }
 	
+    options.push("Exit");
     currentOption = 0;
     
     background.src= "images/backgrounds/SaveMenuBackground.png";
