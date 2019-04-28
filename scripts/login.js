@@ -9,7 +9,7 @@ function checkLogin(){
             document.getElementById("error-message").innerHTML = "";
             showStartMenu();
             
-            db.collection('SaveFile1').doc(user.uid).get().then(doc=> {          
+            db.collection('SaveFile').doc(user.uid + "1").get().then(doc=> {          
                 saveFiles.push(new SaveFile(doc.data));
                 console.log("Here: " + user.uid + " name: " + doc.data.name + " doc: " + doc.data);
                 //saveFile = new SaveFile(doc.data());
@@ -17,7 +17,31 @@ function checkLogin(){
                 alert(error.message);
             });
             
-            /*db.collection('SaveFile2').doc(user.uid).get().then(doc=> {          
+            db.collection('SaveFile').doc(user.uid + "2").get().then(doc=> {          
+                saveFiles.push(new SaveFile(doc.data));
+                console.log("Here: " + user.uid + " name: " + doc.data.name + " doc: " + doc.data);
+                //saveFile = new SaveFile(doc.data());
+            }).catch(function(error) {
+                alert(error.message);
+            });
+            
+            db.collection('SaveFile').doc(user.uid + "3").get().then(doc=> {          
+                saveFiles.push(new SaveFile(doc.data));
+                console.log("Here: " + user.uid + " name: " + doc.data.name + " doc: " + doc.data);
+                //saveFile = new SaveFile(doc.data());
+            }).catch(function(error) {
+                alert(error.message);
+            });
+            
+            /*db.collection('SaveFile1').doc(user.uid).get().then(doc=> {          
+                saveFiles.push(new SaveFile(doc.data));
+                console.log("Here: " + user.uid + " name: " + doc.data.name + " doc: " + doc.data);
+                //saveFile = new SaveFile(doc.data());
+            }).catch(function(error) {
+                alert(error.message);
+            });
+            
+            db.collection('SaveFile2').doc(user.uid).get().then(doc=> {          
                 saveFiles.push(new SaveFile(doc.data));
                 //saveFile = new SaveFile(doc.data());
             }).catch(function(error) {
@@ -64,7 +88,25 @@ function createUser(){
             
             waiting.innerHTML = "";
         }).then( cred => {
-            db.collection('SaveFile1').doc(cred.user.uid).set({
+            db.collection('SaveFile1').doc(cred.user.uid + "1").set({
+                newGame: "no",
+                location: "start",
+                name: displayName,
+                time: 0
+            });
+            db.collection('SaveFile2').doc(cred.user.uid + "2").set({
+                newGame: "yes",
+                location: "start",
+                name: displayName,
+                time: 0
+            });
+            db.collection('SaveFile3').doc(cred.user.uid + "3").set({
+                newGame: "yes",
+                location: "start",
+                name: displayName,
+                time: 0
+            });
+            /*db.collection('SaveFile1').doc(cred.user.uid).set({
                 newGame: "no",
                 location: "start",
                 name: displayName,
@@ -81,7 +123,7 @@ function createUser(){
                 location: "start",
                 name: displayName,
                 time: 0
-            });
+            });*/
         });
     }
 
