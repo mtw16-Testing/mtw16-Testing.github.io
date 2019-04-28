@@ -12,7 +12,8 @@ function init(){
     background = new Image();
     menuImage = new Image();
     background.src= "images/backgrounds/MenuBackground.png";
-    menuImage.src = "images/menus/main_menu.png";
+    menuImage.src = "images/menus/main_menu.png";    
+    interactionMenuImage.src = "images/menus/green_panel.js";
 }
 
 //starts game at start menu
