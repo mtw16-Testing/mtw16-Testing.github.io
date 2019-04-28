@@ -182,3 +182,50 @@ function loadCastle(side){
 	    bounds.push(Villagers[1]);
 
 }
+
+function loadLevel3(side){
+	
+	document.onkeydown = levelHandler;
+        document.onkeyup = levelHandler2;
+		
+	//loads in map files
+        image1.src = "maps/Level3Background.png";
+        image2.src = "maps/Level3Foreground.png";
+                
+	//loads in the spritesheet that will be used
+	sceneHandler.scene.map.getMap("images/spritesheets/level3.png");
+	
+			
+	Player.X = 1024;
+	Player.Y = 800;
+			
+	dx = 0;
+	dy = -125;
+	
+	//sceneHandler.scene.nextMaps[2] = "Village";
+	
+	Villagers.push(new initVillager({
+			X: 1100,
+			Y: 1500,
+			sentence: "Long have we awaited your return!",
+			type: "interact"
+			}));
+
+	Villagers.push(new initVillager({
+			X: 800,
+			Y: 800,
+			sentence: "Wait, who are you?",
+			type: "interact"
+			}));
+	
+	Villagers.push(new initVillager({ // King
+			X: 1000,
+			Y: 250,
+			sentence: "I am the king. Long have I awaited you.",
+			type: "interact"
+			}));
+
+	 bounds.push(Villagers[0]);
+	 bounds.push(Villagers[1]);
+
+}
