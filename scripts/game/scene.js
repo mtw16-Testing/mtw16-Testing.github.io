@@ -456,7 +456,7 @@ function drawTextBox(sentence,position) {
 	   ctx.fillStyle = "#000000";
 	   ctx.fillText(sentence.substring(position*60,position*60+60),width*.12,height*.78);
 	if ( sentence.length > position*60+60 )
-	   ctx.fillText(sentence.substring(position*60+60,position*60+120),width*.13,height*(.86));
+	   ctx.fillText(sentence.substring(position*60+60,position*60+120),width*.12,height*(.86));
 	}
 }
 
