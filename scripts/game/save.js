@@ -42,9 +42,9 @@ function saveGame(){
                 alert("Unknown error, unable to save.");
         });
 	
-	db.collection('SaveFile').doc(user.uid).get().then(doc=> {	
-		saveFiles[0] = new SaveFile();
-            }).catch(function(error) {
-                alert("Unknown error, unable to get save data 2.");
-            });
+	saveFiles[0].hours = timeHours;
+        saveFiles[0].minutes = timeMinutes;
+	saveFiles[0].seconds = timeSeconds;
+	saveFiles[0].location = sceneHandler.scene.name;
+            
 }
