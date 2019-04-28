@@ -189,11 +189,11 @@ function loadLevel3(side){
         document.onkeyup = levelHandler2;
 		
 	//loads in map files
-        image1.src = "maps/Level3Background.png";
-        image2.src = "maps/Level3Foreground.png";
+        image1.src = "maps/BeachBackground.png";
+        image2.src = "maps/BeachForeground.png";
                 
 	//loads in the spritesheet that will be used
-	sceneHandler.scene.map.getMap("images/spritesheets/level3.png");
+	sceneHandler.scene.map.getMap("images/spritesheets/beach_sheet.png");
 	
 			
 	Player.X = 1024;
