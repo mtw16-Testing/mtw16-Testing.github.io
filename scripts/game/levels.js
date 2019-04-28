@@ -197,7 +197,7 @@ function loadBeach(side){
 	sceneHandler.scene.map.getMap("images/spritesheets/beach_sheet.png");
 	
 			
-	Player.X = 200;
+	Player.X = 250;
 	Player.Y = 50;
 			
 	dx = 0;
@@ -206,8 +206,8 @@ function loadBeach(side){
 	sceneHandler.scene.nextMaps[0] = "Level 1";
 	
 	Villagers.push(new initVillager({
-			X: 1100,
-			Y: 1500,
+			X: 1400,
+			Y: 1300,
 			sentence: "Long have we awaited your return!",
 			type: "interact"
 			}));
