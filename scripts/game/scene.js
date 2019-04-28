@@ -108,7 +108,7 @@ function SceneHandler(scene){
 		   tile.endY = ((i+1)*64)+10;
 		   tile.solid = true;
 		       
-		   if((pixelData[row+j+1] == 0 && pixelData[row+j+2] == 0)){
+		   if((pixelData[row+j+1] == 127 && pixelData[row+j+2] == 136)){
 			bounds.push(tile);	
 		   }
                }
