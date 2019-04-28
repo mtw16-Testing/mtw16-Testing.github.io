@@ -97,7 +97,7 @@ function loadCastle(){
 	Player.Y = 850;
 			
 	dx = 0;
-	dy = -120;
+	dy = -125;
 	
 	//sceneHandler.scene.map.nextMaps[0] = "Castle";
 	
