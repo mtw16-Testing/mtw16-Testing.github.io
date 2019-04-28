@@ -114,6 +114,8 @@ function mapMenuHandler(){
     switch(keyCode){
         case 13:
             if(sceneHandler.scene.name != mapEntries[currentMapOption]){
+                subMenu = 0;
+                document.onkeydown = null;
                 sceneHandler.scene.getScene(mapEntries[currentMapOption]);
             }
             break;      
