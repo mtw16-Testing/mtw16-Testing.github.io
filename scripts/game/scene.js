@@ -110,11 +110,11 @@ function SceneHandler(scene){
 		       
 		   if((pixelData[row+j+1] == 127 && pixelData[row+j+2] == 136)){
 			//bounds.push(tile);
-			/*bounds.push(new initVillager({
+			bounds.push(new initVillager({
 				X: tile.startX,
 				Y: tile.startY,
 				sentence: "Walls have ears"
-				}));*/
+				}));
 				    Villagers.push(new initVillager({
 				X: tile.startX,
 				Y: tile.startY,
