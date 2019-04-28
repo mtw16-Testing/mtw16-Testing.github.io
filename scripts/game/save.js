@@ -50,7 +50,10 @@ function saveGame(){
 			hours: timeHours,
 			minutes: timeMinutes,
 			seconds: timeSeconds,
-			location: sceneHandler.scene.name
+			location: sceneHandler.scene.name,
+			gold: Player.gold,
+			shortSwords: Player.inventory[1],
+			spears: Player.inventory[3]
 		}).then(doc => {
 
 			saveFiles[0].hours = timeHours;
