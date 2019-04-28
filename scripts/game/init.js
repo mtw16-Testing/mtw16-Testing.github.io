@@ -1,5 +1,13 @@
 //This file initializes all the global variables that will be used in the game
 
+var width, height;
+var canvas, ctx;
+var background;
+var isFullScreen = false;
+var sceneHandler = new SceneHandler(new Scene("", new Map("")));
+var menuImage;
+var currentOption = 0, size;
+
 var Villagers = new Array();
 var Enemies = new Array();
 
