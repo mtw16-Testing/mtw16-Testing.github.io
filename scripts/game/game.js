@@ -25,7 +25,8 @@ function showStartMenu(){
     currentOption = 0;
     background.src= "images/backgrounds/MenuBackground.png";
     
-    Player.gold = saveFiles[0].gold;
+    console.log("Player gold: " + Player.gold);
+    //Player.gold = saveFiles[0].gold;
     
     drawing = requestAnimationFrame(drawStartMenu);
 }
