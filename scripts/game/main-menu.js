@@ -17,7 +17,7 @@ function showMainMenu(){
             ctx.fillStyle = "white";
         }
 
-        ctx.fillText(options[i], width / 2  - 150, height / 2 + 150 * i);        
+        ctx.fillText(options[i], width / 2  - 150, height / 2 + 125 * i);        
     }
 }
 
@@ -34,6 +34,11 @@ function mainMenuHandler(){
                       Enemies[i].whichAction = "alive";
                 }
             }else if(currentOption == 1){
+                
+            }else if(currentOption == 2){
+                saveGame();
+                alert("Game succesfully saved.");
+            }else if(currentOption == (options.length-1)){
                 mainMenuOn = false;
                 document.onkeydown = null;
                 cancelAnimationFrame(drawing);
