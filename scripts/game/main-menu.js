@@ -1,4 +1,5 @@
 var subMenu = 0;
+var currentMapOption = 0, mapColumnNumber = 0;
 
 function showMainMenu(){
     ctx.globalAlpha = 0.3;
@@ -34,6 +35,48 @@ function showTopLevelMenu(){
     }
 }
 
+function showMapMenu(){
+    ctx.font = "24px Sniglet";
+    for(var i = 0; i < mapEntries.length; i++){
+        if(i == currentMapOption){
+            ctx.fillStyle = "yellow";
+        }else{
+            ctx.fillStyle = "white";
+        }
+
+        ctx.fillText(mapEntries[i], 100 + (mapColumnNumber*100), 50 + (i*50));        
+    }
+}
+
+function mapMenuHandler(){
+    var keyCode = event.which || event.keyCode;
+    switch(keyCode){
+        case 13:
+            //here
+            break;      
+        case 27:
+            mainMenuOn = false;
+            document.onkeydown = null;
+            document.onkeydown = levelHandler;
+            break;
+        case 38:
+            if(currentMapOption > 0){
+                currentMapOption--;
+            }
+            break;
+        case 40:
+            if(currentMapOption < mapEntries.length-1){
+                currentMapOption++;
+            }
+            break;
+        case 70:
+            toggleFullScreen();
+            break;
+        default:
+            break;
+    }
+}
+
 function mainMenuHandler(){
     var keyCode = event.which || event.keyCode;
     switch(keyCode){
@@ -47,6 +90,9 @@ function mainMenuHandler(){
                       Enemies[i].whichAction = "alive";
                 }
             }else if(currentOption == 1){
+                subMenu = 1;
+                document.onkeydown = null;
+                document.onkeydown = mapMenuHandler;
                 showMapEntries();
             }else if(currentOption == 2){
                 saveGame();
