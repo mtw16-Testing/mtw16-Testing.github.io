@@ -27,10 +27,11 @@ function initEnemy(options) {
 	that.death = false;
 	that.type = "Enemy";
 	that.iBox = [that.X+(dx/8)*64,that.X+(dx/8)*64,that.Y+(dy/8)*64,that.Y+(dy/8)*64]; //x1,x2,y1,y2
+	that.attackSpeed = 1000/10;
 	
 	//Call the draw function to create basic enemy rectangle
 	that.draw = function() {
-		if ( that.whichAction == "alive" ) {
+		if ( that.whichAction == "alive" || that.whichAction == "attack" ) {
 			if ( that.health > 0 )
 			basicEnemyAI(that);
 			else if ( that.health <= 0 && that.action != 12 ) {
@@ -44,7 +45,7 @@ function initEnemy(options) {
 		if ( that.whichAction != "dead" ) {
 			ctx.drawImage(enemyImage,64*Math.floor(that.aFrame),64*(that.direction+that.action),64,64,that.X+(dx/8)*64-that.xOff,that.Y+(dy/8)*64-that.yOff,128,128);
 			ctx.fillStyle = "#F0F0F0";
-			ctx.fillRect(that.iBox[0],that.iBox[2],(that.iBox[1]-that.iBox[0]),(that.iBox[2]-that.iBox[3]));
+			ctx.fillRect(that.iBox[0],that.iBox[2],(that.iBox[1]-that.iBox[0]),(that.iBox[3]-that.iBox[2]));
 			drawHealth(that);
 		}
 	};
@@ -89,8 +90,7 @@ function basicEnemyAI(Enemy) {
 			Enemy.direction = 3;
 		}
 
-
-	}	
+	}
 	if ( Enemy.direction == 0 ) {
 		Enemy.iBox[0] = Enemy.X + (dx/8)*64;
 		Enemy.iBox[1] = Enemy.X + (dx/8)*64;
@@ -98,7 +98,7 @@ function basicEnemyAI(Enemy) {
 		Enemy.iBox[3] = Enemy.Y + (dy/8)*64;
 	  }
 	else if ( Enemy.direction == 1 ) {
-		Enemy.iBox[0] = Enemy.X + (dx/8)*64 - 22;
+		Enemy.iBox[0] = Enemy.X + (dx/8)*64 - 10;
 		Enemy.iBox[1] = Enemy.X + (dx/8)*64;
 		Enemy.iBox[2] = Enemy.Y + (dy/8)*64 + 44;
 		Enemy.iBox[3] = Enemy.Y + (dy/8)*64 + 66;
@@ -111,7 +111,7 @@ function basicEnemyAI(Enemy) {
 	  }
 	else {
 		Enemy.iBox[0] = Enemy.X + (dx/8)*64 + Enemy.lengthX;
-		Enemy.iBox[1] = Enemy.X + (dx/8)*64 + Enemy.lengthX + 22;
+		Enemy.iBox[1] = Enemy.X + (dx/8)*64 + Enemy.lengthX + 11;
 		Enemy.iBox[2] = Enemy.Y + (dy/8)*64 + 44;
 		Enemy.iBox[3] = Enemy.Y + (dy/8)*64 + 66;	
           }
@@ -124,6 +124,38 @@ function basicEnemyAI(Enemy) {
 		Enemy.attack();
 	
    }
+   else if ( Enemy.whichAction == "attack" ) {
+	if ( Enemy.aFrame == 3 ) {
+		if ( Enemy.direction == 1 ) {
+		   if ( collisionSquare(Enemy.X+(dx/8)*64-22,Enemy.X+(dx/8)*64,Enemy.Y+(dy/8)*64+40,Enemy.Y+(dy/8)*64+68,Player.standLeft,Player.standRight,Player.standUp,Player.standDown) == true )  
+			Player.isDamaged = true;
+		}
+		else if ( Enemy.direction == 3 ) {
+		   if  ( collisionSquare(Enemy.X+Enemy.lengthX+(dx/8)*64,Enemy.X+Enemy.lengthX+(dx/8)*64+22,Enemy.Y+(dy/8)*64+40,Enemy.Y+(dy/8)*64+68,Player.standLeft,Player.standRight,Player.standUp,Player.standDown) == true ) 
+			Player.isDamaged = true;
+		}
+	}
+	else if ( Enemy.aFrame == 4 ) {
+		if ( Enemy.direction == 1 ) {
+		   if ( collisionSquare(Enemy.X+(dx/8)*64-26,Enemy.X+(dx/8)*64,Enemy.Y+(dy/8)*64+30,Enemy.Y+(dy/8)*64+48,Player.standLeft,Player.standRight,Player.standUp,Player.standDown) == true )
+			   Player.isDamaged = true;
+		}
+		else if ( Enemy.direction == 3 ) {
+		   if  ( collisionSquare(Enemy.X+Enemy.lengthX+(dx/8)*64,Enemy.X+Enemy.lengthX+(dx/8)*64+26,Enemy.Y+(dy/8)*64+30,Enemy.Y+(dy/8)*64+48,Player.standLeft,Player.standRight,Player.standUp,Player.standDown) == true )
+			   Player.isDamaged = true;
+		}	
+	}
+	else if ( Enemy.aFrame == 5 ) {
+		if ( Enemy.direction == 1 ) {
+		   if ( collisionSquare(Enemy.X+(dx/8)*64-20,Enemy.X+(dx/8)*64,Enemy.Y+(dy/8)*64+28,Enemy.Y+(dy/8)*64+48,Player.standLeft,Player.standRight,Player.standUp,Player.standDown) == true )
+			   Player.isDamaged = true;
+		}
+		else if ( Enemy.direction == 3 ) {
+		   if  ( collisionSquare(Enemy.X+Enemy.lengthX+(dx/8)*64,Enemy.X+Enemy.lengthX+(dx/8)*64+20,Enemy.Y+(dy/8)*64+28,Enemy.Y+(dy/8)*64+48,Player.standLeft,Player.standRight,Player.standUp,Player.standDown) == true )
+			   Player.isDamaged = true;
+		}	
+	}
+ }
 }
 
 function enemyDeath(Enemy) {
