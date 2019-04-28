@@ -44,6 +44,13 @@ function SaveFile(data){
 
 var saveFile1;
 
+var mainMenuOn = false;
+var dx = 0, dy = 0;
+var left = false, up = false, right = false, down = false;
+var pLeft = false, pRight = false, pDown = false, pUp = false;
+var isBlocked = false;
+var sideOfScreen = -1;
+
 //handles switching between different scenes and drawing from the scene that is loaded in
 function SceneHandler(scene){
     this.scene = scene,
@@ -172,13 +179,13 @@ function Scene(name, map){
         
         switch(this.name){
             case "Level 1":
-		loadLevel1();		
+		loadLevel1(sideOfScreen);		
                 break;
 	    case "Level 2":			
-		loadLevel2();		
+		loadLevel2(sideOfScreen);		
 		break;
 	case "Castle":			
-		loadCastle();		
+		loadCastle(sideOfScreen);		
 		break;
             case "Options":
                 initOptions();
@@ -196,6 +203,8 @@ function Scene(name, map){
                 break;
         }
 
+	sideOfScreen = -1;
+	    
         if(isLevel){
             
 	    image1.onload = function(){		    
@@ -295,11 +304,6 @@ function Map(name){
     }
 }
 
-var mainMenuOn = false;
-var dx = 0, dy = 0;
-var left = false, up = false, right = false, down = false;
-var pLeft = false, pRight = false, pDown = false, pUp = false;
-var isBlocked = false;
 function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
     ctx.clearRect(0,0,width,height);
     drawLoadingScreen();
@@ -654,6 +658,7 @@ function generalCollision() {
 			return hit;
 		}else if(isEmpty > 1){
 			hit[0] = bounds[i].side+2;
+			sideOfScreen = hit[0]-2;
 			hit[1] = 0;			
 			hit[2] = 0;			
 			hit[3] = 0;
