@@ -125,7 +125,7 @@ function SceneHandler(scene){
 					tile.side = 2;
 				}else if(i > (image2.height - 5)){
 					tile.side = 3;
-				}else if(j > (image2.height - 5)){
+				}else if(j > (image2.width - 5)){
 					tile.side = 4;
 				}
 			bounds.push(tile);	
