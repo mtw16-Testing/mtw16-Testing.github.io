@@ -345,7 +345,7 @@ function drawLevel(map, backgroundTiles, foregroundTiles, rowSize, colSize){
     if(down){
 	dy--;
     }
-	
+	console.log("Player X: " + Player.X + " Player Y: " + Player.Y);
     var xPos = 0, yPos = 0; 
     for(var i = 0; i < rowSize; i++){
         for(var j = 0; j < colSize; j++){
