@@ -136,9 +136,9 @@ function Scene(name, map){
 		addMapEntry("Castle");
 		loadCastle(sideOfScreen);		
 		break;
-	    case "Level 3":
-		addMapEntry("Level 3");
-		loadLevel3(sideOfScreen);		
+	    case "Beach":
+		addMapEntry("Beach");
+		loadBeach(sideOfScreen);		
 		break;	
             case "Options":
                 initOptions();
@@ -202,7 +202,7 @@ function Map(name){
             case "Level 1":
 	    case "Village":
 	    case "Castle":
-	    case "Level 3":
+	    case "Beach":
                 drawLevel(this, this.backgroundTiles,this.foregroundTiles, this.rowSize, this.colSize);
 		
 		//only draws player and updates player logic if the pause menu is not toggled
