@@ -646,7 +646,7 @@ function addMapEntry(entry){
 	if(!found){
 		mapEntries.push(entry);
 		
-		db.collection('SaveFile').doc(cred.user.uid).update({
+		db.collection('SaveFile').doc(firebase.auth().currentUser.uid).update({
                 	entries: mapEntries
             	});
 	}
