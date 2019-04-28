@@ -1,3 +1,5 @@
+var subMenu = 0;
+
 function showMainMenu(){
     ctx.globalAlpha = 0.3;
     ctx.fillStyle = "black";
@@ -10,6 +12,16 @@ function showMainMenu(){
     ctx.font = "100px Sniglet";
     ctx.fillText("Main Menu", 820, 260);
     
+    switch(subMenu){
+        case 0:
+            showTopLevelMenu();
+            break;
+        default:
+            break;
+    }
+}
+
+function showTopLevelMenu(){
     ctx.font = "80px Sniglet";
     for(var i = 0; i < options.length; i++){
         if(i == currentOption){
