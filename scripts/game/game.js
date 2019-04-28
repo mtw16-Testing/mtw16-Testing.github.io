@@ -26,7 +26,8 @@ function showStartMenu(){
     background.src= "images/backgrounds/MenuBackground.png";
     
     Player.gold = saveFiles[0].gold;
-    console.log("Player gold: " + Player.gold);
+    Player.inventory[1] = saveFiles.shortSwords;
+    Player.inventory[3] = saveFiles.spears;
     
     drawing = requestAnimationFrame(drawStartMenu);
 }
