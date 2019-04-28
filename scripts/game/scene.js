@@ -183,7 +183,7 @@ function Scene(name, map){
 		//loads in the spritesheet that will be used
 		map.getMap("images/spritesheets/level1.png");
 			
-		this.nextMaps[0] = "Level 2";
+		this.nextMaps[0] = "Level 1";
 			
 		loadLevel1();
 		
@@ -206,11 +206,33 @@ function Scene(name, map){
 		dx = 0;
 		dy = -50;
 			
-		this.nextMaps[0] = "Level 1";
+		this.nextMaps[0] = "Castle";
 			
 		loadLevel2();
 		
-		break;	
+		break;
+	case "Castle":
+		document.onkeydown = levelHandler;
+                document.onkeyup = levelHandler2;
+		
+		//loads in map files
+                image1.src = "maps/CastleBackground.png";
+                image2.src = "maps/CastleForeground.png";
+                
+		//loads in the spritesheet that will be used
+		map.getMap("images/spritesheets/Castle_sheet.png");
+			
+		Player.X = 1024;
+		Player.Y = 512;
+			
+		dx = 0;
+		dy = -50;
+			
+		//this.nextMaps[0] = "Level 1";
+			
+		loadLevel2();
+		
+		break;
             case "Options":
                 initOptions();
                 document.onkeydown = optionsHandler;
@@ -270,6 +292,7 @@ function Map(name){
         switch(this.name){
             case "Level 1":
 	    case "Level 2":
+	    case "Castle":
                 drawLevel(this, this.backgroundTiles,this.foregroundTiles, this.rowSize, this.colSize);
 		
 		//only draws player and updates player logic if the pause menu is not toggled
@@ -302,9 +325,7 @@ function Map(name){
 				cancelAnimationFrame(drawing);
                 		sceneHandler.scene.getScene(sceneHandler.scene.nextMaps[3]);
 			}
-		}
-			
-		
+		}	
                 break;
             case "Options":
                 drawOptionsScreen();
