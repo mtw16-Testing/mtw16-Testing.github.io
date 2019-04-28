@@ -115,6 +115,11 @@ function SceneHandler(scene){
 				Y: tile.startY,
 				sentence: "Walls have ears"
 				});
+				    Villagers.push(new initVillager({
+				X: tile.startX,
+				Y: tile.startY,
+				sentence: "Walls have ears"
+				});
 			   console.log("Start X: " + tile.startX + " Start Y: " + tile.startY);
 		   }
                }
