@@ -216,7 +216,7 @@ function loadBeach(side){
 		Player.X = 1024;
 		Player.Y = 512;
 
-		dx = -150;
+		dx = -100;
 		dy = -100;
 	}
 
