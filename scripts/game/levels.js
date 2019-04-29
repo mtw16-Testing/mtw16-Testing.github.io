@@ -420,10 +420,10 @@ function loadSewer(side){
 	sceneHandler.scene.map.getMap("images/spritesheets/sewer_sheet.png");
 	
 	if(side == 3){
-		Player.X = 1024;
+		Player.X = 1800;
 		Player.Y = 120;
 
-		dx = -70;
+		dx = -100;
 		dy = 0;
 	}else{		
 		Player.X = 1024;
