@@ -328,10 +328,10 @@ function loadGraveyard(side){
 	sceneHandler.scene.map.getMap("images/spritesheets/graveyard_sheet.png");
 	
 	if(side == 3){
-		Player.X = 300;
-		Player.Y = 320;
+		Player.X = 1024;
+		Player.Y = 80;
 
-		dx = 0;
+		dx = -50;
 		dy = 0;
 	}else{		
 		Player.X = 1024;
