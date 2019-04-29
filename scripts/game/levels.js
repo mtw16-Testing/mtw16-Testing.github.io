@@ -204,8 +204,8 @@ function loadBeach(side){
 		Player.X = 300;
 		Player.Y = 800;	
 		
-		dx = -150;
-		dy = -300;
+		dx = -100;
+		dy = -350;
 	}else if(side == 3){	
 		Player.X = 300;
 		Player.Y = 120;
