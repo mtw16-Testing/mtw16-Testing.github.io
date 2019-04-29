@@ -286,7 +286,8 @@ function loadCave(side){
 	}
 			
 	
-	sceneHandler.scene.nextMaps[0] = "Beach";
+	sceneHandler.scene.nextMaps[0] = "Beach";	
+	sceneHandler.scene.nextMaps[0] = "Level 4";
 	
 	Enemies.push(new initEnemy({
 			X: 750,
