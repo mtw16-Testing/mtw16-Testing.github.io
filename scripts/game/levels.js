@@ -312,13 +312,4 @@ function loadCave(side){
 			enemyClass: "Wolf"
 			}));
 		
-	Villagers.push(new initVillager({
-			X: 2100,
-			Y: 1100,
-			sentence: "Sorry, all of my boats are rented out. I can't give you one right now, come back later.",
-			type: "interact"
-			}));
-
-	 bounds.push(Villagers[0]);
-
 }
