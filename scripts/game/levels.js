@@ -287,7 +287,7 @@ function loadCave(side){
 		Player.X = 1024;
 		Player.Y = 512;
 
-		dx = -100;
+		dx = 0;
 		dy = 0;
 	}
 			
