@@ -143,6 +143,10 @@ function Scene(name, map){
 	    case "Cave":
 		addMapEntry("Cave");
 		loadCave(sideOfScreen);		
+		break;	
+	    case "Level 4":
+		addMapEntry("Level 4");
+		loadLevel4(sideOfScreen);		
 		break;
             case "Options":
                 initOptions();
@@ -208,6 +212,7 @@ function Map(name){
 	    case "Castle":
 	    case "Beach":
 	    case "Cave":
+	    case "Level 4":
                 drawLevel(this, this.backgroundTiles,this.foregroundTiles, this.rowSize, this.colSize);
 		
 		//only draws player and updates player logic if the pause menu is not toggled
