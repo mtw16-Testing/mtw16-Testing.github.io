@@ -287,7 +287,7 @@ function loadCave(side){
 			
 	
 	sceneHandler.scene.nextMaps[0] = "Beach";	
-	sceneHandler.scene.nextMaps[2] = "Level 4";
+	sceneHandler.scene.nextMaps[2] = "Graveyard";
 	
 	Enemies.push(new initEnemy({
 			X: 750,
@@ -315,17 +315,17 @@ function loadCave(side){
 		
 }
 
-function loadLevel4(side){
+function loadGraveyard(side){
 	
 	document.onkeydown = levelHandler;
         document.onkeyup = levelHandler2;
 		
 	//loads in map files
-        image1.src = "maps/Level4Background.png";
-        image2.src = "maps/Leve4Foreground.png";
+        image1.src = "maps/graveyardBackground.png";
+        image2.src = "maps/graveyardForeground.png";
                 
 	//loads in the spritesheet that will be used
-	sceneHandler.scene.map.getMap("images/spritesheets/level1.png");
+	sceneHandler.scene.map.getMap("images/spritesheets/graveyard_sheet.png");
 	
 	if(side == 3){
 		Player.X = 300;
