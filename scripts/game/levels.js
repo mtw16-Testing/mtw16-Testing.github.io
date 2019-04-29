@@ -434,7 +434,7 @@ function loadSewer(side){
 	}
 			
 	
-	sceneHandler.scene.nextMaps[0] = "Sewer";	
+	sceneHandler.scene.nextMaps[0] = "Cave";	
 
 	Enemies.push(new initEnemy({
 				X: 750,
