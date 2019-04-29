@@ -373,5 +373,29 @@ function loadGraveyard(side){
 			moveSpeed: 3,
 			enemyClass: "Wolf"
 			}));
-		
+
+	Enemies.push(new initEnemy({
+				X: 750,
+				Y: 2000,
+				totalHealth: 300,
+				moveSpeed: 4,
+				enemyClass: "Skeleton"
+				}));
+	
+	Enemies.push(new initEnemy({
+				X: 1500,
+				Y: 600,
+				totalHealth: 150,
+				moveSpeed: 6,
+				enemyClass: "Skeleton"
+				}));
+	
+	Enemies.push(new initEnemy({
+				X: 1000,
+				Y: 450,
+				totalHealth: 250,
+				moveSpeed: 5,
+				enemyClass: "Skeleton"
+				}));
+	
 }
