@@ -325,7 +325,7 @@ function loadLevel4(side){
         image2.src = "maps/Leve4Foreground.png";
                 
 	//loads in the spritesheet that will be used
-	sceneHandler.scene.map.getMap("images/spritesheets/graveyard_sheet.png");
+	sceneHandler.scene.map.getMap("images/spritesheets/level3.png");
 	
 	if(side == 3){
 		Player.X = 300;
