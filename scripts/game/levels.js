@@ -407,7 +407,7 @@ function loadGraveyard(side){
 	
 }
 
-function loadGraveyard(side){
+function loadSewer(side){
 	
 	document.onkeydown = levelHandler;
         document.onkeyup = levelHandler2;
