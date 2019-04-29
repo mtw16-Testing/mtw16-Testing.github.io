@@ -213,6 +213,11 @@ function loadBeach(side){
 		dx = -150;
 		dy = -300;
 	}else{
+		Player.X = 1024;
+		Player.Y = 512;
+
+		dx = -150;
+		dy = -100;
 	}
 
 	
@@ -266,12 +271,20 @@ function loadCave(side){
 	//loads in the spritesheet that will be used
 	sceneHandler.scene.map.getMap("images/spritesheets/level3.png");
 	
+	if(side == 3){
+		Player.X = 300;
+		Player.Y = 120;
+
+		dx = 0;
+		dy = 0;
+	}else{		
+		Player.X = 1024;
+		Player.Y = 512;
+
+		dx = 0;
+		dy = 0;
+	}
 			
-	Player.X = 300;
-	Player.Y = 120;
-			
-	dx = 0;
-	dy = 0;
 	
 	sceneHandler.scene.nextMaps[0] = "Beach";
 	
