@@ -148,6 +148,10 @@ function Scene(name, map){
 		addMapEntry("Graveyard");
 		loadGraveyard(sideOfScreen);		
 		break;
+	    case "Sewer":
+		addMapEntry("Sewer");
+		loadSewer(sideOfScreen);		
+		break;
             case "Options":
                 initOptions();
                 document.onkeydown = optionsHandler;
@@ -213,6 +217,7 @@ function Map(name){
 	    case "Beach":
 	    case "Cave":
 	    case "Graveyard":
+	    case "Sewer":
                 drawLevel(this, this.backgroundTiles,this.foregroundTiles, this.rowSize, this.colSize);
 		
 		//only draws player and updates player logic if the pause menu is not toggled
