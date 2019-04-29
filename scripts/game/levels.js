@@ -339,6 +339,12 @@ function loadGraveyard(side){
 
 		dx = -70;
 		dy = 0;
+	}else if(side == 1){
+		Player.X = 1024;
+		Player.Y = 120;
+
+		dx = -70;
+		dy = -300;
 	}else{		
 		Player.X = 1024;
 		Player.Y = 512;
@@ -348,7 +354,8 @@ function loadGraveyard(side){
 	}
 			
 	
-	sceneHandler.scene.nextMaps[0] = "Cave";
+	sceneHandler.scene.nextMaps[0] = "Cave";	
+	sceneHandler.scene.nextMaps[2] = "Sewer";
 	
 	Enemies.push(new initEnemy({
 			X: 750,
@@ -373,6 +380,61 @@ function loadGraveyard(side){
 			moveSpeed: 3,
 			enemyClass: "Wolf"
 			}));
+
+	Enemies.push(new initEnemy({
+				X: 750,
+				Y: 2000,
+				totalHealth: 300,
+				moveSpeed: 4,
+				enemyClass: "Skeleton"
+				}));
+	
+	Enemies.push(new initEnemy({
+				X: 1500,
+				Y: 600,
+				totalHealth: 150,
+				moveSpeed: 6,
+				enemyClass: "Skeleton"
+				}));
+	
+	Enemies.push(new initEnemy({
+				X: 1000,
+				Y: 450,
+				totalHealth: 250,
+				moveSpeed: 5,
+				enemyClass: "Skeleton"
+				}));
+	
+}
+
+function loadGraveyard(side){
+	
+	document.onkeydown = levelHandler;
+        document.onkeyup = levelHandler2;
+		
+	//loads in map files
+        image1.src = "maps/sewerBackground.png";
+        image2.src = "maps/sewerForeground.png";
+                
+	//loads in the spritesheet that will be used
+	sceneHandler.scene.map.getMap("images/spritesheets/sewer_sheet.png");
+	
+	if(side == 3){
+		Player.X = 1024;
+		Player.Y = 120;
+
+		dx = -70;
+		dy = 0;
+	}else{		
+		Player.X = 1024;
+		Player.Y = 512;
+
+		dx = -100;
+		dy = 0;
+	}
+			
+	
+	sceneHandler.scene.nextMaps[0] = "Sewer";	
 
 	Enemies.push(new initEnemy({
 				X: 750,
