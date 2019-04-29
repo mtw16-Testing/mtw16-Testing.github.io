@@ -50,9 +50,9 @@ function loadLevel1(side){
 		Enemies.push(new initEnemy({ 
 					X: 500,
 					Y: 300,
-					totalHealth: 500,
+					totalHealth: 2000,
 					moveSpeed: 2,
-					enemyClass: "Skeleton"
+					enemyClass: "skeleKnight"
 				})); 	    
 		
 		Enemies.push(new initEnemy({
@@ -281,7 +281,7 @@ function loadCave(side){
 		Player.X = 1024;
 		Player.Y = 800;
 
-		dx = -80;
+		dx = -90;
 		dy = -230;
 	}else{		
 		Player.X = 1024;
@@ -341,10 +341,10 @@ function loadGraveyard(side){
 		dy = 0;
 	}else if(side == 1){
 		Player.X = 1024;
-		Player.Y = 120;
+		Player.Y = 800;
 
 		dx = -70;
-		dy = -300;
+		dy = -260;
 	}else{		
 		Player.X = 1024;
 		Player.Y = 512;
