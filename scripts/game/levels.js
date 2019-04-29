@@ -277,6 +277,12 @@ function loadCave(side){
 
 		dx = 0;
 		dy = 0;
+	}else if(side == 1){
+		Player.X = 1024;
+		Player.Y = 800;
+
+		dx = -150;
+		dy = -200;
 	}else{		
 		Player.X = 1024;
 		Player.Y = 512;
