@@ -54,14 +54,6 @@ function loadLevel1(side){
 					moveSpeed: 2,
 					enemyClass: "Skeleton"
 				})); 	    
-			
-		Enemies.push(new initEnemy({
-					X: 500,
-					Y: 600,
-					totalHealth: 500,
-					moveSpeed: 10,
-					enemyClass: "Wolf"
-					}));
 		
 		Enemies.push(new initEnemy({
 					X: 750,
@@ -75,7 +67,7 @@ function loadLevel1(side){
 					X: 1500,
 					Y: 600,
 					totalHealth: 150,
-					moveSpeed: 7,
+					moveSpeed: 6,
 					enemyClass: "Skeleton"
 					}));
 	
@@ -215,6 +207,7 @@ function loadBeach(side){
 	dy = 0;
 	
 	sceneHandler.scene.nextMaps[0] = "Level 1";
+	sceneHandler.scene.nextMaps[2] = "Cave";
 	
 	Enemies.push(new initEnemy({
 			X: 750,
@@ -238,6 +231,62 @@ function loadBeach(side){
 			totalHealth: 250,
 			moveSpeed: 3,
 			enemyClass: "Skeleton"
+			}));
+		
+	Villagers.push(new initVillager({
+			X: 2100,
+			Y: 1100,
+			sentence: "Sorry, all of my boats are rented out. I can't give you one right now, come back later.",
+			type: "interact"
+			}));
+
+	 bounds.push(Villagers[0]);
+
+}
+
+function loadCave(side){
+	
+	document.onkeydown = levelHandler;
+        document.onkeyup = levelHandler2;
+		
+	//loads in map files
+        image1.src = "maps/Level3Background.png";
+        image2.src = "maps/Level3Foreground.png";
+                
+	//loads in the spritesheet that will be used
+	sceneHandler.scene.map.getMap("images/spritesheets/level3.png");
+	
+			
+	Player.X = 300;
+	Player.Y = 120;
+			
+	dx = 0;
+	dy = 0;
+	
+	sceneHandler.scene.nextMaps[0] = "Beach";
+	
+	Enemies.push(new initEnemy({
+			X: 750,
+			Y: 2000,
+			totalHealth: 300,
+			moveSpeed: 2,
+			enemyClass: "Wolf"
+			}));
+	
+	Enemies.push(new initEnemy({
+			X: 1500,
+			Y: 600,
+			totalHealth: 150,
+			moveSpeed: 5,
+			enemyClass: "Wolf"
+			}));
+	
+	Enemies.push(new initEnemy({
+			X: 1000,
+			Y: 450,
+			totalHealth: 250,
+			moveSpeed: 3,
+			enemyClass: "Wolf"
 			}));
 		
 	Villagers.push(new initVillager({
