@@ -200,13 +200,13 @@ function loadBeach(side){
 	sceneHandler.scene.map.getMap("images/spritesheets/beach_sheet.png");
 	
 		
-	if(side == 1){
+	if(side == 3){
 		Player.X = 300;
 		Player.Y = 120;
 		
 		dx = 0;
 		dy = 0;
-	}else if(side == 3){			
+	}else if(side == 1){			
 		Player.X = 300;
 		Player.Y = 800;	
 		
