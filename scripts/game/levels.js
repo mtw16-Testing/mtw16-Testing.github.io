@@ -313,3 +313,58 @@ function loadCave(side){
 			}));
 		
 }
+
+function loadLevel4(side){
+	
+	document.onkeydown = levelHandler;
+        document.onkeyup = levelHandler2;
+		
+	//loads in map files
+        image1.src = "maps/Level4Background.png";
+        image2.src = "maps/Leve4Foreground.png";
+                
+	//loads in the spritesheet that will be used
+	sceneHandler.scene.map.getMap("images/spritesheets/sewer_sheet.png");
+	
+	if(side == 3){
+		Player.X = 300;
+		Player.Y = 320;
+
+		dx = 0;
+		dy = 0;
+	}else{		
+		Player.X = 1024;
+		Player.Y = 512;
+
+		dx = -100;
+		dy = 0;
+	}
+			
+	
+	sceneHandler.scene.nextMaps[0] = "Cave";
+	
+	Enemies.push(new initEnemy({
+			X: 750,
+			Y: 2000,
+			totalHealth: 300,
+			moveSpeed: 2,
+			enemyClass: "Wolf"
+			}));
+	
+	Enemies.push(new initEnemy({
+			X: 1500,
+			Y: 600,
+			totalHealth: 150,
+			moveSpeed: 5,
+			enemyClass: "Wolf"
+			}));
+	
+	Enemies.push(new initEnemy({
+			X: 1000,
+			Y: 450,
+			totalHealth: 250,
+			moveSpeed: 3,
+			enemyClass: "Wolf"
+			}));
+		
+}
